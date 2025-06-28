@@ -33,7 +33,7 @@ const nextConfig: NextConfig = {
         zlib: false,
       };
     }
-
+    
     // This plugin strips 'node:' prefixes from imports, allowing webpack's
     // fallbacks to handle them correctly. This is needed for libraries like
     // Genkit that use Node.js-specific modules.
