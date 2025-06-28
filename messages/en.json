@@ -39,7 +39,9 @@
     "sendButton": "Send Message",
     "sendingButton": "Sending...",
     "successTitle": "Message Sent!",
-    "successDescription": "Thank you for reaching out. I'll get back to you soon."
+    "successDescription": "Thank you for reaching out. I'll get back to you soon.",
+    "errorTitle": "Uh oh! Something went wrong.",
+    "errorDescription": "There was a problem with your request. Please try again."
   },
   "Footer": {
     "copyright": "© {year} Maximilian Lamm. All Rights Reserved.",

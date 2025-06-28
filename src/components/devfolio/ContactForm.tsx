@@ -12,6 +12,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Send } from "lucide-react";
 import { useState } from "react";
 import { useI18n } from "@/context/i18n-provider";
+import { sendContactMessage } from "@/ai/flows/contact-flow";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -35,17 +36,32 @@ export function ContactForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
-    // Simulate API call
-    console.log("Form submitted:", values);
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: t('ContactForm.successTitle'),
-      description: t('ContactForm.successDescription'),
-    });
+    try {
+      const result = await sendContactMessage(values);
 
-    form.reset();
-    setIsSubmitting(false);
+      if (result.success) {
+        toast({
+          title: t('ContactForm.successTitle'),
+          description: t('ContactForm.successDescription'),
+        });
+        form.reset();
+      } else {
+        toast({
+          variant: "destructive",
+          title: t('ContactForm.errorTitle'),
+          description: t('ContactForm.errorDescription'),
+        });
+      }
+    } catch (error) {
+       toast({
+          variant: "destructive",
+          title: t('ContactForm.errorTitle'),
+          description: t('ContactForm.errorDescription'),
+        });
+      console.error("Failed to send message:", error);
+    } finally {
+        setIsSubmitting(false);
+    }
   }
 
   return (

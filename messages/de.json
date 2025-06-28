@@ -39,7 +39,9 @@
     "sendButton": "Nachricht senden",
     "sendingButton": "Sende...",
     "successTitle": "Nachricht gesendet!",
-    "successDescription": "Vielen Dank für Ihre Kontaktaufnahme. Ich melde mich bald bei Ihnen."
+    "successDescription": "Vielen Dank für Ihre Kontaktaufnahme. Ich melde mich bald bei Ihnen.",
+    "errorTitle": "Oh oh! Etwas ist schiefgelaufen.",
+    "errorDescription": "Es gab ein Problem mit Ihrer Anfrage. Bitte versuchen Sie es erneut."
   },
   "Footer": {
     "copyright": "© {year} Maximilian Lamm. Alle Rechte vorbehalten.",
