@@ -6,9 +6,15 @@
     "contact": "Contact"
   },
   "HeroSection": {
+    "greeting": "Hello, I am",
     "name": "Maximilian Lamm",
-    "title": "Creative Full-Stack Developer",
-    "subtitle": "I build beautiful, responsive, and performant web applications. Passionate about modern web technologies and great user experiences."
+    "title": "TypeScript Expert",
+    "subtitle_start": "I develop modern web applications with ",
+    "subtitle_passion": "passion",
+    "subtitle_middle": " for clean code and ",
+    "subtitle_innovation": "innovative solutions.",
+    "projectsButton": "Discover My Projects",
+    "contactButton": "Get In Touch"
   },
   "AboutSection": {
     "title": "About Me",

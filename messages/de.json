@@ -6,9 +6,15 @@
     "contact": "Kontakt"
   },
   "HeroSection": {
+    "greeting": "Hallo, ich bin",
     "name": "Maximilian Lamm",
-    "title": "Kreativer Full-Stack Entwickler",
-    "subtitle": "Ich erstelle ansprechende, reaktionsschnelle und leistungsstarke Webanwendungen. Begeistert von modernen Web-Technologien und großartigen Benutzererfahrungen."
+    "title": "TypeScript Expert",
+    "subtitle_start": "Ich entwickle moderne Webanwendungen mit ",
+    "subtitle_passion": "Leidenschaft",
+    "subtitle_middle": " für sauberen Code und ",
+    "subtitle_innovation": "innovative Lösungen.",
+    "projectsButton": "Meine Projekte entdecken",
+    "contactButton": "Kontakt aufnehmen"
   },
   "AboutSection": {
     "title": "Über mich",
