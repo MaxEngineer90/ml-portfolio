@@ -13,7 +13,7 @@ const messages: Record<string, any> = {
 type I18nContextType = {
   locale: string;
   setLocale: (locale: string) => void;
-  t: (key: string) => string;
+  t: (key: string) => any;
 };
 
 const I18nContext = createContext<I18nContextType | undefined>(undefined);
@@ -29,7 +29,7 @@ export function I18nProvider({ children, initialLocale }: { children: ReactNode,
     window.location.reload();
   };
 
-  const t = (key: string): string => {
+  const t = (key: string): any => {
     const keys = key.split('.');
     let result = messages[locale];
     try {

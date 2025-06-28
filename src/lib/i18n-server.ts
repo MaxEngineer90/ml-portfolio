@@ -16,7 +16,7 @@ const getLocale = () => {
 export const getI18n = async () => {
   const locale = getLocale();
   
-  const t = (key: string): string => {
+  const t = (key: string): any => {
     const keys = key.split('.');
     let result = messages[locale];
     try {

@@ -8,7 +8,13 @@
   "HeroSection": {
     "greeting": "Hallo, ich bin",
     "name": "Maximilian Lamm",
-    "title": "TypeScript Expert",
+    "titles": [
+      "TypeScript Experte",
+      "Angular Spezialist",
+      "Full-Stack Entwickler",
+      "Java & Spring Profi",
+      "Verfechter von Clean Code"
+    ],
     "subtitle_start": "Ich entwickle moderne Webanwendungen mit ",
     "subtitle_passion": "Leidenschaft",
     "subtitle_middle": " für sauberen Code und ",
