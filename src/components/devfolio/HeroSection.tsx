@@ -1,6 +1,5 @@
 'use client';
 
-import { AIIntroMessage } from './AIIntroMessage';
 import { useI18n } from '@/context/i18n-provider';
 
 export function HeroSection() {
@@ -19,9 +18,6 @@ export function HeroSection() {
           <p className="mt-6 max-w-xl mx-auto text-lg text-muted-foreground">
             {t('HeroSection.subtitle')}
           </p>
-        </div>
-        <div className="mt-12">
-          <AIIntroMessage />
         </div>
       </div>
     </section>

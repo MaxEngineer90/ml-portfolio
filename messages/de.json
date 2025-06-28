@@ -9,15 +9,6 @@
     "title": "Kreativer Full-Stack Entwickler",
     "subtitle": "Ich erstelle ansprechende, reaktionsschnelle und leistungsstarke Webanwendungen. Begeistert von modernen Web-Technologien und großartigen Benutzererfahrungen."
   },
-  "AIIntroMessage": {
-    "title": "KI-gestützte Vorstellung",
-    "description": "Fügen Sie die URL Ihres LinkedIn-Profils ein, um eine personalisierte Willkommensnachricht von mir zu erhalten.",
-    "button": "Personalisieren",
-    "loadingButton": "Personalisiere...",
-    "placeholder": "https://linkedin.com/in/ihr-profil",
-    "errorTitle": "Fehler",
-    "errorMessage": "Nachricht konnte nicht personalisiert werden. Bitte überprüfen Sie die URL und versuchen Sie es erneut."
-  },
   "AboutSection": {
     "title": "Über mich",
     "bio": "Ich bin ein leidenschaftlicher Entwickler mit einem Händchen dafür, elegante Lösungen in kürzester Zeit zu schaffen. Ich habe einen starken Hintergrund in der Frontend- und Backend-Entwicklung und umfangreiche Erfahrung im Erstellen skalierbarer und wartbarer Anwendungen. Meine Reise in der Webentwicklung begann mit einer tiefen Neugierde, wie die Dinge funktionieren, und hat sich zu einer Karriere entwickelt, in der ich technische Fähigkeiten mit kreativer Problemlösung verbinden kann.",
