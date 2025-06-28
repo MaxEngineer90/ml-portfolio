@@ -1,9 +1,11 @@
-import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Github } from 'lucide-react';
 import { getI18n } from '@/lib/i18n-server';
+import { Suspense } from 'react';
+import { ProjectImage } from './ProjectImage';
+import { Skeleton } from '../ui/skeleton';
 
 interface GitHubRepo {
   id: number;
@@ -53,14 +55,9 @@ export async function ProjectShowcase() {
             {projects.map((project) => (
               <Card key={project.id} className="overflow-hidden bg-card/50 backdrop-blur-sm border-border/50 shadow-lg transition-all hover:shadow-primary/20 hover:border-primary/50 hover:-translate-y-1 flex flex-col">
                 <CardHeader className="p-0">
-                  <Image
-                    src={'https://placehold.co/600x400.png'}
-                    alt={project.name}
-                    width={600}
-                    height={400}
-                    className="w-full h-auto object-cover aspect-video"
-                    data-ai-hint={project.name.replace(/-/g, ' ').split(' ').slice(0, 2).join(' ')}
-                  />
+                  <Suspense fallback={<Skeleton className="w-full h-auto object-cover aspect-video" />}>
+                    <ProjectImage project={project} />
+                  </Suspense>
                 </CardHeader>
                 <CardContent className="p-6 flex-grow">
                   <CardTitle className="font-headline text-2xl text-primary">{project.name}</CardTitle>
@@ -77,7 +74,7 @@ export async function ProjectShowcase() {
                 <CardFooter className="p-6 pt-0 flex justify-end gap-2">
                    <Button asChild variant="outline">
                      <a href={project.html_url} target="_blank" rel="noopener noreferrer">
-                       {t('ProjectShowcase.codeButton')}
+                       {t('ProjectShowe.codeButton')}
                        <Github className="ml-2" />
                      </a>
                    </Button>
