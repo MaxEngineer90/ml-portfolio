@@ -27,6 +27,10 @@ const nextConfig: NextConfig = {
         net: false,
         tls: false,
         dns: false,
+        fs: false,
+        util: false,
+        http2: false,
+        zlib: false,
       };
     }
 
