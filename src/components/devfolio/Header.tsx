@@ -13,7 +13,6 @@ export function Header() {
         <div className="mr-4 flex flex-grow items-center">
           <a href="/" className="mr-6 flex items-center space-x-2">
             <Logo className="h-6 w-6 text-primary" />
-            <span className="font-bold font-headline">DevFolio Pro</span>
           </a>
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
             <a href="#about" className="transition-colors hover:text-primary">{t('Header.about')}</a>
