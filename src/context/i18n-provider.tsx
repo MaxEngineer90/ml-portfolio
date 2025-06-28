@@ -1,7 +1,7 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { getCookie, setCookie } from 'cookies-next';
+import React, { createContext, useContext, useState, ReactNode } from 'react';
+import { setCookie } from 'cookies-next';
 import enMessages from '../../messages/en.json';
 import deMessages from '../../messages/de.json';
 
@@ -20,10 +20,6 @@ const I18nContext = createContext<I18nContextType | undefined>(undefined);
 
 export function I18nProvider({ children, initialLocale }: { children: ReactNode, initialLocale: string }) {
   const [locale, setLocaleState] = useState(initialLocale);
-
-  useEffect(() => {
-    setLocaleState(getCookie('locale') as string || initialLocale);
-  }, [initialLocale]);
 
   const setLocale = (newLocale: string) => {
     setLocaleState(newLocale);
