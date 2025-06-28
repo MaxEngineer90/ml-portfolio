@@ -55,7 +55,7 @@ export async function ProjectShowcase() {
             {projects.map((project) => (
               <Card key={project.id} className="overflow-hidden bg-card/50 backdrop-blur-sm border-border/50 shadow-lg transition-all hover:shadow-primary/20 hover:border-primary/50 hover:-translate-y-1 flex flex-col">
                 <CardHeader className="p-0">
-                  <Suspense fallback={<Skeleton className="w-full h-auto object-cover aspect-video" />}>
+                  <Suspense fallback={<Skeleton className="w-full aspect-video" />}>
                     <ProjectImage project={project} />
                   </Suspense>
                 </CardHeader>
@@ -74,7 +74,7 @@ export async function ProjectShowcase() {
                 <CardFooter className="p-6 pt-0 flex justify-end gap-2">
                    <Button asChild variant="outline">
                      <a href={project.html_url} target="_blank" rel="noopener noreferrer">
-                       {t('ProjectShowe.codeButton')}
+                       {t('ProjectShowcase.codeButton')}
                        <Github className="ml-2" />
                      </a>
                    </Button>

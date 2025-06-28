@@ -4,6 +4,8 @@ import { generateProjectImage } from '@/ai/flows/generate-project-image';
 interface Project {
   name: string;
   description: string | null;
+  topics: string[];
+  language: string | null;
 }
 
 export async function ProjectImage({ project }: { project: Project }) {
@@ -17,6 +19,10 @@ export async function ProjectImage({ project }: { project: Project }) {
     description: description,
   });
 
+  const isPlaceholder = imageDataUri.includes('placehold.co');
+  const hintKeywords = [project.language, ...project.topics].filter(Boolean) as string[];
+  const hint = hintKeywords.slice(0, 2).join(' ').toLowerCase() || 'software code';
+
   return (
     <Image
       src={imageDataUri}
@@ -24,6 +30,7 @@ export async function ProjectImage({ project }: { project: Project }) {
       width={600}
       height={400}
       className="w-full h-auto object-cover aspect-video"
+      {...(isPlaceholder && { 'data-ai-hint': hint })}
     />
   );
 }
