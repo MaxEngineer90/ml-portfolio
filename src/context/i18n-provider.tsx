@@ -19,48 +19,46 @@ type I18nContextType = {
 const I18nContext = createContext<I18nContextType | undefined>(undefined);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState('en');
+  // We initialize the locale to 'de' to match the default content, preventing a mismatch on initial server render.
+  const [locale, setLocaleState] = useState('de');
 
+  // This effect runs only on the client, after the initial render.
   useEffect(() => {
+    // Check for a saved locale in cookies.
     const savedLocale = getCookie('locale');
-    if (savedLocale && (savedLocale === 'en' || savedLocale === 'de')) {
-      setLocaleState(savedLocale);
-      document.documentElement.lang = savedLocale;
+    
+    // Default to 'de' if cookie is not set or invalid
+    const validLocale = savedLocale === 'en' || savedLocale === 'de' ? savedLocale : 'de';
+
+    // Update the state and the HTML lang attribute with the correct locale.
+    if (validLocale !== locale) {
+      setLocaleState(validLocale);
     }
-  }, []);
+    document.documentElement.lang = validLocale;
+  }, []); // The empty dependency array ensures this runs only once on mount.
 
   const setLocale = (newLocale: string) => {
     setLocaleState(newLocale);
     setCookie('locale', newLocale, { maxAge: 60 * 60 * 24 * 365, path: '/' });
     document.documentElement.lang = newLocale;
-    // We might need a full page reload if not using next-intl router
-    // For now, let's rely on components re-rendering from context change
+    // Reloading is a simple and effective way to apply the language change across the entire application.
     window.location.reload();
   };
 
   const t = (key: string): any => {
     const keys = key.split('.');
-    let result = messages[locale];
-    try {
-      for (const k of keys) {
-        result = result[k];
-      }
-      if (result === undefined) {
-        throw new Error('not found');
-      }
-      return result;
-    } catch (e) {
-      // Fallback to English
-      let fallbackResult = messages['en'];
-      try {
-        for (const fk of keys) {
-            fallbackResult = fallbackResult?.[fk];
-        }
-        return fallbackResult || key;
-      } catch (fe) {
-        return key;
-      }
+    
+    const findValue = (obj: any, path: string[]) => path.reduce((acc, part) => acc && acc[part], obj);
+
+    let translation = findValue(messages[locale], keys);
+
+    if (translation === undefined) {
+      // Fallback to English if translation not found in current locale
+      translation = findValue(messages['en'], keys);
     }
+
+    // Return the key itself if no translation is found in either locale
+    return translation ?? key;
   };
 
   return (
