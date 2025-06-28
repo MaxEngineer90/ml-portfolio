@@ -1,19 +1,44 @@
 {
-  "name": "nextn",
-  "version": "0.1.0",
+  "name": "portfolio-website",
+  "version": "1.0.0",
   "private": true,
+  "description": "A modern portfolio website showcasing projects and skills built with Next.js, React, and modern web technologies",
+  "author": "Max Engineer",
+  "license": "MIT",
+  "keywords": [
+    "portfolio",
+    "website",
+    "nextjs",
+    "react",
+    "tailwindcss",
+    "typescript",
+    "web-development",
+    "firebase"
+  ],
+  "homepage": "https://github.com/maxengineer/portfolio-website#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxengineer/portfolio-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maxengineer/portfolio-website/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
   "scripts": {
-    "description": "A portfolio project",
-    "keywords": [
-     "portfolio", "nextjs", "react", "tailwind"
-    ],
     "dev": "next dev -p 9002",
-    "genkit:dev": "genkit start -- tsx src/ai/dev.ts",
-    "genkit:watch": "genkit start -- tsx --watch src/ai/dev.ts",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "lint:fix": "next lint --fix",
+    "typecheck": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf .next out",
+    "genkit:dev": "genkit start -- tsx src/ai/dev.ts",
+    "genkit:watch": "genkit start -- tsx --watch src/ai/dev.ts",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@genkit-ai/googleai": "^1.13.0",
@@ -59,7 +84,6 @@
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.24.2"
-
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -68,8 +92,6 @@
     "genkit-cli": "^1.13.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5",
-    "author": "Max Engineer",
-    "license": "MIT"
+    "typescript": "^5"
   }
 }

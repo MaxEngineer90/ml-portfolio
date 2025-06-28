@@ -29,20 +29,17 @@ export function HeroSection() {
 
   return (
     <section id="hero" className="relative w-full min-h-[calc(100vh-56px)] flex items-center justify-center py-20 md:py-32">
-      <div className="absolute inset-0 -z-10 h-full w-full bg-background bg-[radial-gradient(hsl(var(--border))_0.5px,transparent_0.5px)] [background-size:24px_24px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
-      
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
           <div className="flex justify-center items-center order-1 lg:order-2">
-              <div className="relative w-80 h-80 group">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-full blur opacity-75 group-hover:opacity-100 transition duration-300 group-hover:duration-200 animate-tilt"></div>
+              <div className="relative w-80 h-80">
                 <Image
-                    src="/profile.png"
+                    src="/images/profile-image.png"
                     alt="Maximilian Lamm"
                     width={320}
                     height={320}
-                    className="relative z-10 rounded-full object-cover"
+                    className="rounded-full object-cover"
                     priority
                 />
               </div>
