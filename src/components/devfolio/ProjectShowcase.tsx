@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 import { useI18n } from '@/context/i18n-provider';
 
 const projects = [
@@ -14,7 +14,7 @@ const projects = [
     image: 'https://placehold.co/600x400.png',
     tags: ['Next.js', 'Stripe', 'PostgreSQL', 'Tailwind CSS'],
     liveUrl: '#',
-    repoUrl: '#',
+    repoUrl: 'https://github.com/MaxEngineer90/e-commerce-platform',
     aiHint: 'ecommerce website',
   },
   {
@@ -23,7 +23,7 @@ const projects = [
     image: 'https://placehold.co/600x400.png',
     tags: ['React', 'Firebase', 'Zustand', 'Framer Motion'],
     liveUrl: '#',
-    repoUrl: '#',
+    repoUrl: 'https://github.com/MaxEngineer90/task-management-app',
     aiHint: 'task manager',
   },
   {
@@ -32,7 +32,7 @@ const projects = [
     image: 'https://placehold.co/600x400.png',
     tags: ['Next.js', 'GenAI', 'Shadcn/UI', 'TypeScript'],
     liveUrl: '#',
-    repoUrl: '#',
+    repoUrl: 'https://github.com/MaxEngineer90/portfolio-website',
     aiHint: 'portfolio design',
   },
   {
@@ -41,7 +41,7 @@ const projects = [
     image: 'https://placehold.co/600x400.png',
     tags: ['D3.js', 'React', 'Node.js', 'Express'],
     liveUrl: '#',
-    repoUrl: '#',
+    repoUrl: 'https://github.com/MaxEngineer90/data-visualization-dashboard',
     aiHint: 'data dashboard',
   }
 ];
@@ -84,7 +84,7 @@ export function ProjectShowcase() {
                  <Button asChild variant="outline">
                    <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">
                      {t('ProjectShowcase.codeButton')}
-                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-github ml-2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/></svg>
+                     <Github className="ml-2" />
                    </a>
                  </Button>
                  <Button asChild className="bg-primary hover:bg-primary/90">
