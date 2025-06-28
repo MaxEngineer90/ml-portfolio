@@ -1,8 +1,8 @@
 'use client';
 
-import { Code2 } from 'lucide-react';
 import { useI18n } from '@/context/i18n-provider';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { Logo } from './Logo';
 
 export function Header() {
   const { t } = useI18n();
@@ -12,7 +12,7 @@ export function Header() {
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <div className="mr-4 flex flex-grow items-center">
           <a href="/" className="mr-6 flex items-center space-x-2">
-            <Code2 className="h-6 w-6 text-primary" />
+            <Logo className="h-6 w-6 text-primary" />
             <span className="font-bold font-headline">DevFolio Pro</span>
           </a>
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
