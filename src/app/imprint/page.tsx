@@ -6,6 +6,23 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useI18n } from "@/context/i18n-provider";
 import { Separator } from "@/components/ui/separator";
 
+const PrivacyPolicyText = () => {
+  const { t } = useI18n();
+  const text = t('Imprint.PrivacyPolicy.text');
+  const parts = text.split(/<link>|<\/link>/);
+
+  return (
+    <p className="text-muted-foreground">
+      {parts[0]}
+      <a href="/privacy-policy" className="underline hover:text-primary">
+        {parts[1]}
+      </a>
+      {parts[2]}
+    </p>
+  );
+};
+
+
 export default function ImprintPage() {
     const { t } = useI18n();
   return (
@@ -30,8 +47,7 @@ export default function ImprintPage() {
                 <div className="space-y-4">
                     <h2 className="text-2xl font-headline">{t('Imprint.PrivacyPolicy.title')}</h2>
                      <div className="space-y-2">
-                        <h3 className="font-semibold">{t('Imprint.PrivacyPolicy.contactForm.title')}</h3>
-                        <p className="text-muted-foreground">{t('Imprint.PrivacyPolicy.contactForm.text')}</p>
+                        <PrivacyPolicyText />
                     </div>
                 </div>
             </CardContent>

@@ -49,17 +49,12 @@
     "messageLabel": "Message",
     "messagePlaceholder": "Tell me about your project...",
     "sendButton": "Send Message",
-    "sendingButton": "Sending...",
-    "toast": {
-      "successTitle": "Message Sent!",
-      "successDescription": "Thank you for reaching out. I will get back to you shortly.",
-      "errorTitle": "Uh oh! Something went wrong.",
-      "errorDescription": "There was a problem sending your message. Please try again."
-    }
+    "sendingButton": "Sending..."
   },
   "Footer": {
     "copyright": "© {year} Maximilian Lamm. All Rights Reserved.",
-    "imprint": "Imprint"
+    "imprint": "Imprint",
+    "privacyPolicy": "Privacy Policy"
   },
   "LanguageSwitcher": {
     "label": "Language",
@@ -79,10 +74,50 @@
     },
     "PrivacyPolicy": {
       "title": "Privacy Policy",
-      "contactForm": {
-        "title": "Contact Form",
-        "text": "If you send us inquiries via the contact form, your details from the inquiry form, including the contact details you provided there, will be stored by us for the purpose of processing the inquiry and in the event of follow-up questions. We do not pass on this data without your consent."
-      }
+      "text": "We take the protection of your personal data very seriously. For detailed information on the subject of data protection, please refer to our <link>privacy policy</link>."
+    }
+  },
+  "PrivacyPolicy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: {date}",
+    "introduction": "We take the protection of your personal data very seriously. We treat your personal data confidentially and in accordance with the statutory data protection regulations and this privacy policy.",
+    "controller": {
+      "title": "Data Controller",
+      "text": "The data controller responsible for data processing on this website is:",
+      "placeholder_name": "Maximilian Lamm",
+      "placeholder_address": "Josef-Wurzler-Str. 6e\n77855 Achern\nGermany",
+      "placeholder_email": "Email: maximilianlamm.kontakt@outlook.de"
+    },
+    "hosting": {
+      "title": "Hosting with GitHub Pages",
+      "text1": "This website is hosted by GitHub Inc. (GitHub). When you visit our website, GitHub may collect certain information, such as your IP address, browser type, operating system, and the date and time of your visit, in server log files. This data is collected by GitHub for security and operational purposes.",
+      "text2": "The use of GitHub Pages is based on our legitimate interest in a reliable and professional presentation of our online presence (Art. 6(1)(f) GDPR). We have no control over the data processing by GitHub. For more information on how GitHub handles user data, please see GitHub's Privacy Statement:",
+      "link": "https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement"
+    },
+    "cookies": {
+      "title": "Cookies",
+      "text1": "This website uses technically necessary cookies. Cookies are small text files that are stored on your device and do not cause any harm.",
+      "text2": "We use a functional cookie ('locale') to save your language preference. This serves our legitimate interest in providing a user-friendly website. This cookie is stored for one year or until you clear your browser's cookies. We do not use any cookies for tracking or advertising purposes."
+    },
+    "contactForm": {
+      "title": "Contact Form (via mailto:)",
+      "text": "If you use our contact form, clicking the 'Send Message' button will open your default email client with a pre-filled email. No data is stored or processed on our web server during this process. The processing of your data then takes place within your email program and is subject to the privacy policy of your email provider. We will process the data you send us via email to handle your inquiry."
+    },
+    "googleFonts": {
+      "title": "Google Fonts",
+      "text": "This website uses so-called web fonts provided by Google for the uniform display of fonts. When you call up a page, your browser loads the required web fonts into your browser cache to display texts and fonts correctly. For this purpose, the browser you are using must connect to Google's servers. This allows Google to know that our website has been accessed via your IP address. The use of Google Fonts is in the interest of a uniform and appealing presentation of our online services."
+    },
+    "githubApi": {
+      "title": "Fetching Projects from GitHub API",
+      "text": "To display my current projects, this website fetches data from the GitHub API directly from your browser. When this data is requested, your browser sends a request to GitHub's servers, which may include your IP address. This is technically necessary to provide the project overview. GitHub's privacy policy applies."
+    },
+    "userRights": {
+      "title": "Your Rights as a Data Subject",
+      "text": "You have the right to receive information about the origin, recipient, and purpose of your stored personal data at any time, free of charge. You also have a right to request the correction, blocking, or deletion of this data. Furthermore, you have the right to lodge a complaint with the competent supervisory authority."
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "text": "This privacy policy was created to the best of our knowledge and belief but does not constitute legal advice. For a legally compliant design, consulting a lawyer is recommended."
     }
   }
 }

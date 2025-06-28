@@ -14,6 +14,7 @@ export function Footer() {
         </p>
         <div className="flex items-center gap-4">
             <a href="/imprint" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t('Footer.imprint')}</a>
+            <a href="/privacy-policy" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t('Footer.privacyPolicy')}</a>
             <a href="https://github.com/MaxEngineer90" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground hover:text-primary transition-colors">
               <Github className="h-5 w-5" />
             </a>

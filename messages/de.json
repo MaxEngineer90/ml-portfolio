@@ -49,17 +49,12 @@
     "messageLabel": "Nachricht",
     "messagePlaceholder": "Erzählen Sie mir von Ihrem Projekt...",
     "sendButton": "Nachricht senden",
-    "sendingButton": "Wird gesendet...",
-    "toast": {
-      "successTitle": "Nachricht gesendet!",
-      "successDescription": "Vielen Dank für Ihre Kontaktaufnahme. Ich melde mich in Kürze.",
-      "errorTitle": "Hoppla! Etwas ist schiefgegangen.",
-      "errorDescription": "Beim Senden Ihrer Nachricht ist ein Problem aufgetreten. Bitte versuchen Sie es erneut."
-    }
+    "sendingButton": "Wird gesendet..."
   },
   "Footer": {
     "copyright": "© {year} Maximilian Lamm. Alle Rechte vorbehalten.",
-    "imprint": "Impressum"
+    "imprint": "Impressum",
+    "privacyPolicy": "Datenschutz"
   },
   "LanguageSwitcher": {
     "label": "Sprache",
@@ -79,10 +74,50 @@
     },
     "PrivacyPolicy": {
       "title": "Datenschutzerklärung",
-      "contactForm": {
-        "title": "Kontaktformular",
-        "text": "Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter."
-      }
+      "text": "Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie bitte unserer <link>Datenschutzerklärung</link>."
+    }
+  },
+  "PrivacyPolicy": {
+    "title": "Datenschutzerklärung",
+    "lastUpdated": "Stand: {date}",
+    "introduction": "Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.",
+    "controller": {
+      "title": "Verantwortliche Stelle",
+      "text": "Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:",
+      "placeholder_name": "Maximilian Lamm",
+      "placeholder_address": "Josef-Wurzler-Str. 6e\n77855 Achern\nDeutschland",
+      "placeholder_email": "E-Mail: maximilianlamm.kontakt@outlook.de"
+    },
+    "hosting": {
+      "title": "Hosting bei GitHub Pages",
+      "text1": "Diese Website wird bei GitHub Inc. (GitHub) gehostet. Wenn Sie unsere Website besuchen, erfasst GitHub möglicherweise bestimmte Informationen wie Ihre IP-Adresse, den Browsertyp, das Betriebssystem sowie Datum und Uhrzeit des Besuchs in Server-Log-Dateien. Diese Datenerhebung durch GitHub dient der Sicherheit und dem Betrieb der Dienste.",
+      "text2": "Die Nutzung von GitHub Pages erfolgt im Interesse einer zuverlässigen und professionellen Darstellung unseres Online-Angebots (Art. 6 Abs. 1 lit. f DSGVO). Wir haben keinen Einfluss auf die Datenverarbeitung durch GitHub. Weitere Informationen zum Umgang mit Nutzerdaten finden Sie in der Datenschutzerklärung von GitHub:",
+      "link": "https://docs.github.com/de/site-policy/privacy-policies/github-privacy-statement"
+    },
+    "cookies": {
+      "title": "Cookies",
+      "text1": "Diese Internetseite verwendet technisch notwendige Cookies. Cookies sind kleine Textdateien, die auf Ihrem Endgerät abgelegt werden und keinen Schaden anrichten.",
+      "text2": "Wir setzen einen funktionalen Cookie ('locale'), um Ihre Sprachauswahl zu speichern. Dies dient unserem berechtigten Interesse an einer nutzerfreundlichen Webseite. Dieser Cookie wird für ein Jahr gespeichert oder bis Sie die Cookies in Ihrem Browser löschen. Wir verwenden keine Cookies zu Tracking- oder Werbezwecken."
+    },
+    "contactForm": {
+      "title": "Kontaktformular (via mailto:)",
+      "text": "Wenn Sie unser Kontaktformular nutzen, wird durch Klick auf 'Nachricht senden' Ihr Standard-E-Mail-Programm mit einer voradressierten E-Mail geöffnet. Es werden dabei keine Daten auf unserem Webserver gespeichert oder verarbeitet. Die Verarbeitung Ihrer Daten findet dann in Ihrem E-Mail-Programm statt und unterliegt den Datenschutzbestimmungen Ihres E-Mail-Anbieters. Die von Ihnen per E-Mail gesendeten Daten verarbeiten wir zur Bearbeitung Ihrer Anfrage."
+    },
+    "googleFonts": {
+      "title": "Google Fonts",
+      "text": "Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten so genannte Web Fonts, die von Google bereitgestellt werden. Beim Aufruf einer Seite lädt Ihr Browser die benötigten Web Fonts in ihren Browsercache, um Texte und Schriftarten korrekt anzuzeigen. Zu diesem Zweck muss der von Ihnen verwendete Browser Verbindung zu den Servern von Google aufnehmen. Hierdurch erlangt Google Kenntnis darüber, dass über Ihre IP-Adresse unsere Website aufgerufen wurde. Die Nutzung von Google Fonts erfolgt im Interesse einer einheitlichen und ansprechenden Darstellung unserer Online-Angebote."
+    },
+    "githubApi": {
+      "title": "Abruf von Projekten von der GitHub API",
+      "text": "Zur Darstellung meiner aktuellen Projekte ruft diese Website Projektdaten von der GitHub API direkt aus Ihrem Browser ab. Bei diesem Abruf sendet Ihr Browser eine Anfrage an die Server von GitHub, was Ihre IP-Adresse beinhalten kann. Dies ist technisch notwendig, um die Projektübersicht bereitzustellen. Es gelten die Datenschutzbestimmungen von GitHub."
+    },
+    "userRights": {
+      "title": "Ihre Rechte als betroffene Person",
+      "text": "Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten. Sie haben außerdem ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Des Weiteren steht Ihnen ein Beschwerde- und Widerspruchsrecht bei der zuständigen Aufsichtsbehörde zu."
+    },
+    "disclaimer": {
+      "title": "Haftungsausschluss",
+      "text": "Diese Datenschutzerklärung wurde nach bestem Wissen und Gewissen erstellt, stellt jedoch keine Rechtsberatung dar. Für eine rechtssichere Ausgestaltung wird die Konsultation eines Anwalts empfohlen."
     }
   }
 }
