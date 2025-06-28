@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Briefcase, Code, Database, Github, KeyRound, Layers, Rocket, Server } from 'lucide-react';
+import { Briefcase, Code, Database, Github, KeyRound, Layers, Rocket, Server, TestTube2 } from 'lucide-react';
 import { useI18n } from '@/context/i18n-provider';
 
 const skills = {
@@ -11,8 +11,6 @@ const skills = {
     { name: 'CSS/SCSS', icon: <Layers className="h-5 w-5 text-accent" /> },
     { name: 'Angular', icon: <Code className="h-5 w-5 text-accent" /> },
     { name: 'TypeScript', icon: <Code className="h-5 w-5 text-accent" /> },
-    { name: 'Cypress', icon: <Rocket className="h-5 w-5 text-accent" /> },
-    { name: 'Playwright', icon: <Rocket className="h-5 w-5 text-accent" /> },
   ],
   'backend': [
     { name: 'Java', icon: <Server className="h-5 w-5 text-accent" /> },
@@ -21,8 +19,13 @@ const skills = {
     { name: 'Keycloak', icon: <KeyRound className="h-5 w-5 text-accent" /> },
     { name: 'SQL', icon: <Database className="h-5 w-5 text-accent" /> },
   ],
+  'testing': [
+    { name: 'Jest', icon: <TestTube2 className="h-5 w-5 text-accent" /> },
+    { name: 'Junit', icon: <TestTube2 className="h-5 w-5 text-accent" /> },
+    { name: 'Cypress', icon: <TestTube2 className="h-5 w-5 text-accent" /> },
+    { name: 'Playwright', icon: <TestTube2 className="h-5 w-5 text-accent" /> },
+  ],
   'tools': [
-    { name: 'Jest', icon: <Rocket className="h-5 w-5 text-accent" /> },
     { name: 'Git & GitHub', icon: <Github className="h-5 w-5 text-accent" /> },
     { name: 'Atlassian Suite', icon: <Briefcase className="h-5 w-5 text-accent" /> },
   ]
@@ -33,6 +36,7 @@ export function AboutSection() {
   const skillCategories = {
     'frontend': t('AboutSection.frontend'),
     'backend': t('AboutSection.backend'),
+    'testing': t('AboutSection.testing'),
     'tools': t('AboutSection.tools')
   }
 
