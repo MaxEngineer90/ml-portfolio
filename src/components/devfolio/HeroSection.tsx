@@ -30,34 +30,34 @@ export function HeroSection() {
   return (
     <section id="hero" className="relative w-full min-h-[calc(100vh-56px)] flex items-center justify-center py-20 md:py-32">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           
-          <div className="flex justify-center items-center order-1 lg:order-2">
-              <div className="relative w-80 h-80">
+          <div className="flex justify-center items-center order-1 lg:order-2 mb-8 lg:mb-0">
+              <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[420px] lg:h-[420px] flex-shrink-0">
                 <Image
                     src="/images/profile-image.png"
                     alt="Maximilian Lamm"
-                    width={320}
-                    height={320}
-                    className="rounded-full object-cover"
+                    width={420}
+                    height={420}
+                    className="rounded-full object-cover object-top w-full h-full"
                     priority
                 />
               </div>
           </div>
 
-          <div className="text-center lg:text-left order-2 lg:order-1">
+          <div className="text-center lg:text-left order-2 lg:order-1 min-w-0">
             <div className="w-full inline-flex items-center justify-center lg:justify-start gap-2 mb-4">
                 <span className="text-2xl" role="img" aria-label="waving hand">👋</span>
                 <span className="text-xl font-medium text-muted-foreground">{t('HeroSection.greeting')}</span>
             </div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-8xl font-headline font-bold tracking-tighter">
-              <span className="bg-gradient-to-r from-primary via-primary/80 to-accent bg-clip-text text-transparent">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-headline font-bold tracking-tighter">
+              <span className="bg-gradient-to-r from-primary via-primary/80 to-accent bg-clip-text text-transparent break-words">
                 {t('HeroSection.name')}
               </span>
             </h1>
             
-            <p className={`mt-4 text-3xl md:text-4xl font-headline text-accent transition-opacity duration-300 min-h-[40px] md:min-h-[44px] ${isFading ? 'opacity-0' : 'opacity-100'}`}>
+            <p className={`mt-4 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-headline text-accent transition-opacity duration-300 min-h-[28px] sm:min-h-[32px] md:min-h-[40px] lg:min-h-[44px] ${isFading ? 'opacity-0' : 'opacity-100'}`}>
               {titles?.[currentIndex] || ''}
             </p>
             
