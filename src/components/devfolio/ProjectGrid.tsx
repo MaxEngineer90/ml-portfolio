@@ -50,7 +50,7 @@ export function ProjectGrid({ projects }: { projects: GitHubRepo[] }) {
                             </div>
                         </CardContent>
                         <CardFooter className="p-6 pt-0 flex justify-end gap-2">
-                            <Button asChild variant="outline">
+                            <Button asChild variant="outline" className="transition-transform duration-200 hover:-translate-y-0.5">
                                 <a href={project.html_url} target="_blank" rel="noopener noreferrer">
                                     {t('ProjectShowcase.codeButton')}
                                     <Github className="ml-2" />

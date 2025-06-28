@@ -69,13 +69,13 @@ export function HeroSection() {
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20">
+                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-primary/40">
                     <a href="#projects">
                         {t('HeroSection.projectsButton')}
                         <ArrowRight className="ml-2 h-5 w-5"/>
                     </a>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-border/50 hover:bg-accent hover:text-accent-foreground hover:border-accent">
+                <Button asChild size="lg" variant="outline" className="border-border/50 hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all duration-300 hover:shadow-[0_0_15px_-3px_hsl(var(--accent))]">
                      <a href="#contact">
                         {t('HeroSection.contactButton')}
                     </a>

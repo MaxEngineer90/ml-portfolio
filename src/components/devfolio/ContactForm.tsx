@@ -115,7 +115,7 @@ export function ContactForm() {
                   )}
                 />
                 <div className="flex justify-end">
-                  <Button type="submit" disabled={isSubmitting} className="bg-primary hover:bg-primary/90">
+                  <Button type="submit" disabled={isSubmitting} className="bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-primary/40">
                     {isSubmitting ? t('ContactForm.sendingButton') : t('ContactForm.sendButton')}
                     <Send className="ml-2 h-4 w-4" />
                   </Button>
