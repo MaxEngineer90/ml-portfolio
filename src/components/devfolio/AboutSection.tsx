@@ -2,28 +2,29 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Code, Database, Rocket, Server, Smartphone, Layers } from 'lucide-react';
+import { Briefcase, Code, Database, Github, KeyRound, Layers, Rocket, Server } from 'lucide-react';
 import { useI18n } from '@/context/i18n-provider';
 
 const skills = {
   'frontend': [
-    { name: 'React', icon: <Code className="h-5 w-5 text-accent" /> },
-    { name: 'Next.js', icon: <Code className="h-5 w-5 text-accent" /> },
+    { name: 'HTML', icon: <Code className="h-5 w-5 text-accent" /> },
+    { name: 'CSS/SCSS', icon: <Layers className="h-5 w-5 text-accent" /> },
+    { name: 'Angular', icon: <Code className="h-5 w-5 text-accent" /> },
     { name: 'TypeScript', icon: <Code className="h-5 w-5 text-accent" /> },
-    { name: 'Tailwind CSS', icon: <Layers className="h-5 w-5 text-accent" /> },
-    { name: 'HTML5 & CSS3', icon: <Code className="h-5 w-5 text-accent" /> },
+    { name: 'Cypress', icon: <Rocket className="h-5 w-5 text-accent" /> },
+    { name: 'Playwright', icon: <Rocket className="h-5 w-5 text-accent" /> },
   ],
   'backend': [
-    { name: 'Node.js', icon: <Server className="h-5 w-5 text-accent" /> },
-    { name: 'Express', icon: <Server className="h-5 w-5 text-accent" /> },
-    { name: 'Firebase', icon: <Database className="h-5 w-5 text-accent" /> },
-    { name: 'PostgreSQL', icon: <Database className="h-5 w-5 text-accent" /> },
+    { name: 'Java', icon: <Server className="h-5 w-5 text-accent" /> },
+    { name: 'Spring', icon: <Server className="h-5 w-5 text-accent" /> },
+    { name: 'Docker', icon: <Rocket className="h-5 w-5 text-accent" /> },
+    { name: 'Keycloak', icon: <KeyRound className="h-5 w-5 text-accent" /> },
+    { name: 'SQL', icon: <Database className="h-5 w-5 text-accent" /> },
   ],
   'tools': [
-    { name: 'Git & GitHub', icon: <Rocket className="h-5 w-5 text-accent" /> },
-    { name: 'Docker', icon: <Rocket className="h-5 w-5 text-accent" /> },
-    { name: 'Figma', icon: <Smartphone className="h-5 w-5 text-accent" /> },
     { name: 'Jest', icon: <Rocket className="h-5 w-5 text-accent" /> },
+    { name: 'Git & GitHub', icon: <Github className="h-5 w-5 text-accent" /> },
+    { name: 'Atlassian Suite', icon: <Briefcase className="h-5 w-5 text-accent" /> },
   ]
 };
 
