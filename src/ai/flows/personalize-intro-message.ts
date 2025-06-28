@@ -1,4 +1,4 @@
-// use server'
+'use server';
 
 /**
  * @fileOverview A flow to personalize the introductory message based on the visitor's LinkedIn profile.
