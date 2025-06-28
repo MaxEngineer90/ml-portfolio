@@ -60,15 +60,11 @@
     "description": "Gesetzlich vorgeschriebene Informationen über den Website-Betreiber.",
     "nameAndAddress": {
       "title": "Angaben gemäß § 5 TMG",
-      "placeholder": "Maximilian Lamm\nJosef- Wurzler Str. 6e\n77855 Achern\nDeutschland"
+      "placeholder": "Maximilian Lamm\nJosef- Wurzler Str. 6e\n77855 Achern"
     },
     "contact": {
       "title": "Kontakt",
       "placeholder": "E-Mail: maximilianlamm.kontakt@outlook.de"
-    },
-    "disclaimer": {
-      "title": "Haftungsausschluss",
-      "placeholder": "Bitte beachten Sie: Als KI kann ich keine Rechtsberatung geben. Bitte ersetzen Sie den Platzhaltertext durch Ihre eigenen, rechtssicheren Angaben. Konsultieren Sie einen Rechtsexperten, wenn Sie unsicher bezüglich der Anforderungen sind."
     }
   }
 }

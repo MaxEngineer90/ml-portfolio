@@ -60,15 +60,11 @@
     "description": "Legally required information about the website operator.",
     "nameAndAddress": {
       "title": "Information according to § 5 TMG",
-      "placeholder": "Maximilian Lamm\nJosef- Wurzler Str. 6e\n77855 Achern\nGermany"
+      "placeholder": "Maximilian Lamm\nJosef- Wurzler Str. 6e\n77855 Achern"
     },
     "contact": {
       "title": "Contact",
       "placeholder": "Email: maximilianlamm.kontakt@outlook.de"
-    },
-    "disclaimer": {
-      "title": "Disclaimer",
-      "placeholder": "Please note: As an AI, I cannot provide legal advice. Please replace the placeholder text with your own legally compliant information. Consult a legal professional if you are unsure about the requirements."
     }
   }
 }

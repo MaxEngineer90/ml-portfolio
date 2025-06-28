@@ -4,8 +4,6 @@ import { Header } from "@/components/devfolio/Header";
 import { Footer } from "@/components/devfolio/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useI18n } from "@/context/i18n-provider";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Terminal } from "lucide-react";
 
 export default function ImprintPage() {
     const { t } = useI18n();
@@ -27,14 +25,6 @@ export default function ImprintPage() {
                     <h3 className="font-semibold">{t('Imprint.contact.title')}</h3>
                     <p className="text-muted-foreground whitespace-pre-line">{t('Imprint.contact.placeholder')}</p>
                 </div>
-
-                <Alert variant="destructive">
-                  <Terminal className="h-4 w-4" />
-                  <AlertTitle>{t('Imprint.disclaimer.title')}</AlertTitle>
-                  <AlertDescription>
-                    {t('Imprint.disclaimer.placeholder')}
-                  </AlertDescription>
-                </Alert>
             </CardContent>
         </Card>
       </main>
