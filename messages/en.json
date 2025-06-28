@@ -19,9 +19,10 @@
   },
   "ProjectShowcase": {
     "title": "My Projects",
-    "subtitle": "Here are some of the projects I've worked on. Explore them to see my skills in action.",
+    "subtitle": "Here are some of my recent projects from GitHub. Explore them to see my skills in action.",
     "codeButton": "Code",
-    "demoButton": "Live Demo"
+    "noDescription": "No description available.",
+    "noProjects": "Could not load projects or no public projects are available."
   },
   "ContactForm": {
     "title": "Get In Touch",

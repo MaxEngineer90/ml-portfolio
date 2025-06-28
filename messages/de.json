@@ -19,9 +19,10 @@
   },
   "ProjectShowcase": {
     "title": "Meine Projekte",
-    "subtitle": "Hier sind einige Projekte, an denen ich gearbeitet habe. Entdecken Sie sie, um meine Fähigkeiten in Aktion zu sehen.",
+    "subtitle": "Hier sind einige meiner letzten Projekte von GitHub. Entdecken Sie sie, um meine Fähigkeiten in Aktion zu sehen.",
     "codeButton": "Code",
-    "demoButton": "Live-Demo"
+    "noDescription": "Keine Beschreibung verfügbar.",
+    "noProjects": "Projekte konnten nicht geladen werden oder es sind keine öffentlichen Projekte vorhanden."
   },
   "ContactForm": {
     "title": "Kontakt aufnehmen",

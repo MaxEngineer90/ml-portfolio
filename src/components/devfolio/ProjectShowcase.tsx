@@ -1,53 +1,43 @@
-'use client';
-
 import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github } from 'lucide-react';
-import { useI18n } from '@/context/i18n-provider';
+import { Github } from 'lucide-react';
+import { getI18n } from '@/lib/i18n-server';
 
-const projects = [
-  {
-    title: 'E-commerce Platform',
-    description: 'A full-featured e-commerce site with product listings, a shopping cart, and a secure checkout process.',
-    image: 'https://placehold.co/600x400.png',
-    tags: ['Next.js', 'Stripe', 'PostgreSQL', 'Tailwind CSS'],
-    liveUrl: '#',
-    repoUrl: 'https://github.com/MaxEngineer90/e-commerce-platform',
-    aiHint: 'ecommerce website',
-  },
-  {
-    title: 'Task Management App',
-    description: 'A collaborative task management tool with drag-and-drop boards, real-time updates, and user authentication.',
-    image: 'https://placehold.co/600x400.png',
-    tags: ['React', 'Firebase', 'Zustand', 'Framer Motion'],
-    liveUrl: '#',
-    repoUrl: 'https://github.com/MaxEngineer90/task-management-app',
-    aiHint: 'task manager',
-  },
-  {
-    title: 'Portfolio Website',
-    description: 'A personal portfolio to showcase my work and skills, featuring a modern design and smooth animations.',
-    image: 'https://placehold.co/600x400.png',
-    tags: ['Next.js', 'GenAI', 'Shadcn/UI', 'TypeScript'],
-    liveUrl: '#',
-    repoUrl: 'https://github.com/MaxEngineer90/portfolio-website',
-    aiHint: 'portfolio design',
-  },
-  {
-    title: 'Data Visualization Dashboard',
-    description: 'An interactive dashboard for visualizing complex datasets with various chart types and filtering options.',
-    image: 'https://placehold.co/600x400.png',
-    tags: ['D3.js', 'React', 'Node.js', 'Express'],
-    liveUrl: '#',
-    repoUrl: 'https://github.com/MaxEngineer90/data-visualization-dashboard',
-    aiHint: 'data dashboard',
+interface GitHubRepo {
+  id: number;
+  name: string;
+  html_url: string;
+  description: string | null;
+  topics: string[];
+  language: string | null;
+}
+
+async function getGitHubProjects(): Promise<GitHubRepo[]> {
+  try {
+    // Fetch repositories sorted by the last update time, descending
+    const response = await fetch('https://api.github.com/users/MaxEngineer90/repos?sort=updated&direction=desc', {
+      next: { revalidate: 3600 } // Re-fetch data at most once per hour
+    });
+
+    if (!response.ok) {
+      console.error(`Failed to fetch GitHub projects: ${response.status} ${response.statusText}`);
+      return [];
+    }
+
+    const data: GitHubRepo[] = await response.json();
+    return data;
+  } catch (error) {
+    console.error('An error occurred while fetching GitHub projects:', error);
+    return [];
   }
-];
+}
 
-export function ProjectShowcase() {
-  const { t } = useI18n();
+export async function ProjectShowcase() {
+  const { t } = await getI18n();
+  const allProjects = await getGitHubProjects();
+  const projects = allProjects.slice(0, 4); // Display the 4 most recently updated projects
 
   return (
     <section id="projects" className="w-full py-12 md:py-24 lg:py-32">
@@ -58,45 +48,48 @@ export function ProjectShowcase() {
             {t('ProjectShowcase.subtitle')}
           </p>
         </div>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2 mt-12">
-          {projects.map((project) => (
-            <Card key={project.title} className="overflow-hidden bg-card/50 backdrop-blur-sm border-border/50 shadow-lg transition-all hover:shadow-primary/20 hover:border-primary/50 hover:-translate-y-1">
-              <CardHeader className="p-0">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  width={600}
-                  height={400}
-                  className="w-full h-auto object-cover aspect-video"
-                  data-ai-hint={project.aiHint}
-                />
-              </CardHeader>
-              <CardContent className="p-6">
-                <CardTitle className="font-headline text-2xl text-primary">{project.title}</CardTitle>
-                <CardDescription className="mt-2">{project.description}</CardDescription>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <Badge key={tag} variant="secondary">{tag}</Badge>
-                  ))}
-                </div>
-              </CardContent>
-              <CardFooter className="p-6 pt-0 flex justify-end gap-2">
-                 <Button asChild variant="outline">
-                   <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">
-                     {t('ProjectShowcase.codeButton')}
-                     <Github className="ml-2" />
-                   </a>
-                 </Button>
-                 <Button asChild className="bg-primary hover:bg-primary/90">
-                   <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                     {t('ProjectShowcase.demoButton')}
-                     <ExternalLink className="ml-2" />
-                   </a>
-                 </Button>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
+        {projects.length > 0 ? (
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2 mt-12">
+            {projects.map((project) => (
+              <Card key={project.id} className="overflow-hidden bg-card/50 backdrop-blur-sm border-border/50 shadow-lg transition-all hover:shadow-primary/20 hover:border-primary/50 hover:-translate-y-1 flex flex-col">
+                <CardHeader className="p-0">
+                  <Image
+                    src={'https://placehold.co/600x400.png'}
+                    alt={project.name}
+                    width={600}
+                    height={400}
+                    className="w-full h-auto object-cover aspect-video"
+                    data-ai-hint={project.name.replace(/-/g, ' ').split(' ').slice(0, 2).join(' ')}
+                  />
+                </CardHeader>
+                <CardContent className="p-6 flex-grow">
+                  <CardTitle className="font-headline text-2xl text-primary">{project.name}</CardTitle>
+                  <CardDescription className="mt-2 h-12 overflow-hidden text-ellipsis">
+                    {project.description || t('ProjectShowcase.noDescription')}
+                  </CardDescription>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {project.topics.map((tag) => (
+                      <Badge key={tag} variant="secondary">{tag}</Badge>
+                    ))}
+                    {project.language && <Badge variant="secondary">{project.language}</Badge>}
+                  </div>
+                </CardContent>
+                <CardFooter className="p-6 pt-0 flex justify-end gap-2">
+                   <Button asChild variant="outline">
+                     <a href={project.html_url} target="_blank" rel="noopener noreferrer">
+                       {t('ProjectShowcase.codeButton')}
+                       <Github className="ml-2" />
+                     </a>
+                   </Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center mt-12 text-muted-foreground">
+            <p>{t('ProjectShowcase.noProjects')}</p>
+          </div>
+        )}
       </div>
     </section>
   );
