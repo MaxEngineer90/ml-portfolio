@@ -8,6 +8,8 @@ const authorName = 'Maximilian Lamm';
 const siteTitle = `${authorName} | Full-Stack Developer Portfolio`;
 const siteDescription = `Entdecken Sie das Portfolio von ${authorName}, einem leidenschaftlichen Full-Stack-Entwickler, der auf Angular, TypeScript, Java und Spring spezialisiert ist. Sehen Sie sich Projekte an, lernen Sie meine Fähigkeiten kennen und nehmen Sie Kontakt auf.`;
 const profileImageUrl = '/images/profile-image.png';
+const faviconDataUri = "data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHN0eWxlPnBhdGggeyBzdHJva2U6ICMzYjgyZjY7IH0gQG1lZGlhIChwcmVmZXJzLWNvbG9yLXNjaGVtZTogZGFyaykgeyBwYXRoIHsgc3Ryb2tlOiAjZmQ5ODQzOyB9IH08L3N0eWxlPjxwYXRoIGQ9Ik00IDE4VjZMOTIDE0TDE0IDZWMTgiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiAvPjxwYXRoIGQ9Ik0xNiA2VjE4SDIwIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgLz48L3N2Zz4=";
+
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -20,6 +22,11 @@ export const metadata: Metadata = {
   authors: [{ name: authorName, url: siteUrl }],
   creator: authorName,
   
+  icons: {
+    icon: faviconDataUri,
+    apple: faviconDataUri,
+  },
+
   openGraph: {
     title: siteTitle,
     description: siteDescription,
