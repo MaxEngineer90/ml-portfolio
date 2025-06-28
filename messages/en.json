@@ -48,7 +48,14 @@
     "emailPlaceholder": "your.email@example.com",
     "messageLabel": "Message",
     "messagePlaceholder": "Tell me about your project...",
-    "sendButton": "Send Message"
+    "sendButton": "Send Message",
+    "sendingButton": "Sending...",
+    "toast": {
+      "successTitle": "Message Sent!",
+      "successDescription": "Thank you for reaching out. I will get back to you shortly.",
+      "errorTitle": "Uh oh! Something went wrong.",
+      "errorDescription": "There was a problem sending your message. Please try again."
+    }
   },
   "Footer": {
     "copyright": "© {year} Maximilian Lamm. All Rights Reserved.",

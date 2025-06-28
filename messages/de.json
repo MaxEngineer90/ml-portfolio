@@ -48,7 +48,14 @@
     "emailPlaceholder": "ihre.email@beispiel.com",
     "messageLabel": "Nachricht",
     "messagePlaceholder": "Erzählen Sie mir von Ihrem Projekt...",
-    "sendButton": "Nachricht senden"
+    "sendButton": "Nachricht senden",
+    "sendingButton": "Wird gesendet...",
+    "toast": {
+      "successTitle": "Nachricht gesendet!",
+      "successDescription": "Vielen Dank für Ihre Kontaktaufnahme. Ich melde mich in Kürze.",
+      "errorTitle": "Hoppla! Etwas ist schiefgegangen.",
+      "errorDescription": "Beim Senden Ihrer Nachricht ist ein Problem aufgetreten. Bitte versuchen Sie es erneut."
+    }
   },
   "Footer": {
     "copyright": "© {year} Maximilian Lamm. Alle Rechte vorbehalten.",
