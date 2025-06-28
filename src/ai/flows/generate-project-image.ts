@@ -42,6 +42,12 @@ const generateProjectImageFlow = ai.defineFlow(
     outputSchema: GenerateProjectImageOutputSchema,
   },
   async ({name, description}) => {
+    // If no API key is available, return a placeholder immediately.
+    if (!process.env.GEMINI_API_KEY && !process.env.GOOGLE_API_KEY) {
+      console.warn('GEMINI_API_KEY or GOOGLE_API_KEY not set. Skipping image generation and returning placeholder.');
+      return { imageDataUri: 'https://placehold.co/600x400.png' };
+    }
+
     try {
       const {media} = await ai.generate({
         model: 'googleai/gemini-2.0-flash-preview-image-generation',
