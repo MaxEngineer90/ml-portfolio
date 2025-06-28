@@ -59,12 +59,12 @@
     "title": "Imprint",
     "description": "Legally required information about the website operator.",
     "nameAndAddress": {
-      "title": "Name and Address",
-      "placeholder": "[Your Full Name]\n[Your Street and Number]\n[Your Postal Code and City]\n[Your Country]"
+      "title": "Information according to § 5 TMG",
+      "placeholder": "Maximilian Lamm\nJosef- Wurzler Str. 6e\n77855 Achern\nGermany"
     },
     "contact": {
       "title": "Contact",
-      "placeholder": "Phone: [Your Phone Number]\nEmail: [Your Email Address]"
+      "placeholder": "Email: maximilianlamm.kontakt@outlook.de"
     },
     "disclaimer": {
       "title": "Disclaimer",
