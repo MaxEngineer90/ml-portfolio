@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -9,10 +8,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Loader2, Send } from "lucide-react";
+import { Send } from "lucide-react";
 import { useI18n } from "@/context/i18n-provider";
-import { sendContactMessage } from "@/ai/flows/contact-flow";
-import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -22,8 +19,7 @@ const formSchema = z.object({
 
 export function ContactForm() {
   const { t } = useI18n();
-  const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const contactEmail = "maximilianlamm.kontakt@outlook.de";
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -34,28 +30,12 @@ export function ContactForm() {
     },
   });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsSubmitting(true);
-    try {
-      const result = await sendContactMessage(values);
-      if (result.success) {
-        toast({
-          title: t('ContactForm.toast.successTitle'),
-          description: t('ContactForm.toast.successDescription'),
-        });
-        form.reset();
-      } else {
-        throw new Error(result.message);
-      }
-    } catch (error) {
-      toast({
-        variant: "destructive",
-        title: t('ContactForm.toast.errorTitle'),
-        description: t('ContactForm.toast.errorDescription'),
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    const subject = encodeURIComponent(`Contact from ${values.name} (${values.email})`);
+    const body = encodeURIComponent(values.message);
+    const mailtoLink = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+    window.location.href = mailtoLink;
+    form.reset();
   }
 
   return (
@@ -110,21 +90,11 @@ export function ContactForm() {
                 />
                 <div className="flex justify-end">
                   <Button 
-                    type="submit" 
-                    disabled={isSubmitting} 
+                    type="submit"
                     className="bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-primary/40"
                   >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        {t('ContactForm.sendingButton')}
-                      </>
-                    ) : (
-                      <>
-                        {t('ContactForm.sendButton')}
-                        <Send className="ml-2 h-4 w-4" />
-                      </>
-                    )}
+                    {t('ContactForm.sendButton')}
+                    <Send className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
               </form>
