@@ -76,19 +76,22 @@ Make sure you have the following software installed:
 npm run dev          # Starts the development server on port 9002
 ```
 
-### Build and Deployment
+### Build for Production
 ```bash
-npm run build        # Creates the production build
-npm run start        # Starts the production version
-npm run lint         # Runs ESLint
-npm run typecheck    # Checks TypeScript types
+npm run build        # Creates the static production build in the `out/` folder
 ```
 
-### Additional Scripts
-```bash
-npm run lint:fix     # Automatically fixes ESLint errors
-npm run clean        # Removes build folders
-```
+## 🚀 Deployment to GitHub Pages
+
+This project is configured to automatically deploy to GitHub Pages when you push changes to the `main` branch.
+
+To enable this, you need to configure your repository settings once:
+
+1.  Navigate to your GitHub repository.
+2.  Go to **Settings** > **Pages**.
+3.  Under the **Build and deployment** section, for the **Source**, select **GitHub Actions**.
+
+Now, every time you push to `main`, the deployment workflow will run and your site will be updated automatically.
 
 ## 📁 Project Structure
 
