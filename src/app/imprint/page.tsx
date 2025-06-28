@@ -4,6 +4,7 @@ import { Header } from "@/components/devfolio/Header";
 import { Footer } from "@/components/devfolio/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useI18n } from "@/context/i18n-provider";
+import { Separator } from "@/components/ui/separator";
 
 export default function ImprintPage() {
     const { t } = useI18n();
@@ -24,6 +25,18 @@ export default function ImprintPage() {
                 <div className="space-y-2">
                     <h3 className="font-semibold">{t('Imprint.contact.title')}</h3>
                     <p className="text-muted-foreground whitespace-pre-line">{t('Imprint.contact.placeholder')}</p>
+                </div>
+                <Separator />
+                <div className="space-y-4">
+                    <h2 className="text-2xl font-headline">{t('Imprint.PrivacyPolicy.title')}</h2>
+                    <div className="space-y-2">
+                        <h3 className="font-semibold">{t('Imprint.PrivacyPolicy.cookies.title')}</h3>
+                        <p className="text-muted-foreground">{t('Imprint.PrivacyPolicy.cookies.text')}</p>
+                    </div>
+                     <div className="space-y-2">
+                        <h3 className="font-semibold">{t('Imprint.PrivacyPolicy.contactForm.title')}</h3>
+                        <p className="text-muted-foreground">{t('Imprint.PrivacyPolicy.contactForm.text')}</p>
+                    </div>
                 </div>
             </CardContent>
         </Card>

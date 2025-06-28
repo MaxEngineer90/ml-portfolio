@@ -3,6 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { I18nProvider } from '@/context/i18n-provider';
 import { cookies } from 'next/headers';
+import { CookieConsent } from '@/components/devfolio/CookieConsent';
 
 export const metadata: Metadata = {
   title: 'Maximilian Lamm | Developer Portfolio',
@@ -16,6 +17,7 @@ export default function RootLayout({
 }>) {
   const cookieStore = cookies();
   const locale = cookieStore.get('locale')?.value || 'en';
+  const hasConsent = cookieStore.get('cookie_consent')?.value === 'true';
 
   return (
     <html lang={locale} className="dark" style={{scrollBehavior:'smooth'}}>
@@ -27,6 +29,7 @@ export default function RootLayout({
       <body className="font-body antialiased">
         <I18nProvider initialLocale={locale}>
           {children}
+          <CookieConsent initiallyVisible={!hasConsent} />
         </I18nProvider>
         <Toaster />
       </body>

@@ -74,6 +74,22 @@
     "contact": {
       "title": "Kontakt",
       "placeholder": "E-Mail: maximilianlamm.kontakt@outlook.de"
+    },
+    "PrivacyPolicy": {
+      "title": "Datenschutzerklärung",
+      "cookies": {
+        "title": "Cookies",
+        "text": "Diese Webseite verwendet notwendige Cookies, um den ordnungsgemäßen Betrieb sicherzustellen. Ein Cookie wird gesetzt, um Ihre Zustimmung zu speichern. Wir verwenden keine Tracking- oder Analyse-Cookies."
+      },
+      "contactForm": {
+        "title": "Kontaktformular",
+        "text": "Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter."
+      }
     }
+  },
+  "CookieConsent": {
+    "message": "Diese Webseite verwendet Cookies, um Ihre Erfahrung zu verbessern. Durch die weitere Nutzung der Seite stimmen Sie der Verwendung von Cookies zu. Weitere Details finden Sie im",
+    "imprintLink": "Impressum",
+    "acceptButton": "Akzeptieren"
   }
 }
