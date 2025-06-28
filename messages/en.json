@@ -47,11 +47,28 @@
     "successDescription": "Thank you for reaching out. I'll get back to you soon."
   },
   "Footer": {
-    "copyright": "© {year} Maximilian Lamm. All Rights Reserved."
+    "copyright": "© {year} Maximilian Lamm. All Rights Reserved.",
+    "imprint": "Imprint"
   },
   "LanguageSwitcher": {
     "label": "Language",
     "en": "English",
     "de": "German"
+  },
+  "Imprint": {
+    "title": "Imprint",
+    "description": "Legally required information about the website operator.",
+    "nameAndAddress": {
+      "title": "Name and Address",
+      "placeholder": "[Your Full Name]\n[Your Street and Number]\n[Your Postal Code and City]\n[Your Country]"
+    },
+    "contact": {
+      "title": "Contact",
+      "placeholder": "Phone: [Your Phone Number]\nEmail: [Your Email Address]"
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "placeholder": "Please note: As an AI, I cannot provide legal advice. Please replace the placeholder text with your own legally compliant information. Consult a legal professional if you are unsure about the requirements."
+    }
   }
 }

@@ -47,11 +47,28 @@
     "successDescription": "Vielen Dank für Ihre Kontaktaufnahme. Ich melde mich bald bei Ihnen."
   },
   "Footer": {
-    "copyright": "© {year} Maximilian Lamm. Alle Rechte vorbehalten."
+    "copyright": "© {year} Maximilian Lamm. Alle Rechte vorbehalten.",
+    "imprint": "Impressum"
   },
   "LanguageSwitcher": {
     "label": "Sprache",
     "en": "Englisch",
     "de": "Deutsch"
+  },
+  "Imprint": {
+    "title": "Impressum",
+    "description": "Gesetzlich vorgeschriebene Informationen über den Website-Betreiber.",
+    "nameAndAddress": {
+      "title": "Name und Anschrift",
+      "placeholder": "[Ihr vollständiger Name]\n[Ihre Straße und Hausnummer]\n[Ihre PLZ und Stadt]\n[Ihr Land]"
+    },
+    "contact": {
+      "title": "Kontakt",
+      "placeholder": "Telefon: [Ihre Telefonnummer]\nE-Mail: [Ihre E-Mail-Adresse]"
+    },
+    "disclaimer": {
+      "title": "Haftungsausschluss",
+      "placeholder": "Bitte beachten Sie: Als KI kann ich keine Rechtsberatung geben. Bitte ersetzen Sie den Platzhaltertext durch Ihre eigenen, rechtssicheren Angaben. Konsultieren Sie einen Rechtsexperten, wenn Sie unsicher bezüglich der Anforderungen sind."
+    }
   }
 }
