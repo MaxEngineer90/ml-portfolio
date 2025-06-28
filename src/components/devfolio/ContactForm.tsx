@@ -3,16 +3,13 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Send } from "lucide-react";
-import { useState } from "react";
 import { useI18n } from "@/context/i18n-provider";
-import { sendContactMessage } from "@/ai/flows/contact-flow";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -22,8 +19,6 @@ const formSchema = z.object({
 
 export function ContactForm() {
   const { t } = useI18n();
-  const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -34,34 +29,14 @@ export function ContactForm() {
     },
   });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsSubmitting(true);
-    try {
-      const result = await sendContactMessage(values);
-
-      if (result.success) {
-        toast({
-          title: t('ContactForm.successTitle'),
-          description: t('ContactForm.successDescription'),
-        });
-        form.reset();
-      } else {
-        toast({
-          variant: "destructive",
-          title: t('ContactForm.errorTitle'),
-          description: t('ContactForm.errorDescription'),
-        });
-      }
-    } catch (error) {
-       toast({
-          variant: "destructive",
-          title: t('ContactForm.errorTitle'),
-          description: t('ContactForm.errorDescription'),
-        });
-      console.error("Failed to send message:", error);
-    } finally {
-        setIsSubmitting(false);
-    }
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    const recipientEmail = "maximilianlamm.kontakt@outlook.de";
+    const subject = `Contact via Portfolio: ${values.name}`;
+    const body = `Name: ${values.name}\nEmail: ${values.email}\n\nMessage:\n${values.message}`;
+    
+    const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    window.location.href = mailtoLink;
   }
 
   return (
@@ -115,8 +90,8 @@ export function ContactForm() {
                   )}
                 />
                 <div className="flex justify-end">
-                  <Button type="submit" disabled={isSubmitting} className="bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-primary/40">
-                    {isSubmitting ? t('ContactForm.sendingButton') : t('ContactForm.sendButton')}
+                  <Button type="submit" className="bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-primary/40">
+                    {t('ContactForm.sendButton')}
                     <Send className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
