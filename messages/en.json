@@ -1,0 +1,56 @@
+{
+  "Header": {
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "HeroSection": {
+    "name": "Maximilian Lamm",
+    "title": "Creative Full-Stack Developer",
+    "subtitle": "I build beautiful, responsive, and performant web applications. Passionate about modern web technologies and great user experiences."
+  },
+  "AIIntroMessage": {
+    "title": "AI-Powered Introduction",
+    "description": "Paste your LinkedIn profile URL to get a personalized welcome message from me.",
+    "button": "Personalize",
+    "loadingButton": "Personalizing...",
+    "placeholder": "https://linkedin.com/in/your-profile",
+    "errorTitle": "Error",
+    "errorMessage": "Could not personalize message. Please check the URL and try again."
+  },
+  "AboutSection": {
+    "title": "About Me",
+    "bio": "I'm a passionate developer with a knack for creating elegant solutions in the least amount of time. I have a strong background in both front-end and back-end development, with extensive experience in building scalable and maintainable applications. My journey in web development started with a deep curiosity for how things work, and it has evolved into a career where I can blend technical skills with creative problem-solving.",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "tools": "Tools & Others"
+  },
+  "ProjectShowcase": {
+    "title": "My Projects",
+    "subtitle": "Here are some of the projects I've worked on. Explore them to see my skills in action.",
+    "codeButton": "Code",
+    "demoButton": "Live Demo"
+  },
+  "ContactForm": {
+    "title": "Get In Touch",
+    "description": "Have a project in mind or just want to say hi? Fill out the form below.",
+    "nameLabel": "Name",
+    "namePlaceholder": "Your Name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "your.email@example.com",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Tell me about your project...",
+    "sendButton": "Send Message",
+    "sendingButton": "Sending...",
+    "successTitle": "Message Sent!",
+    "successDescription": "Thank you for reaching out. I'll get back to you soon."
+  },
+  "Footer": {
+    "copyright": "© {year} Maximilian Lamm. All Rights Reserved."
+  },
+  "LanguageSwitcher": {
+    "label": "Language",
+    "en": "English",
+    "de": "German"
+  }
+}

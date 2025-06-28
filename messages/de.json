@@ -1,0 +1,56 @@
+{
+  "Header": {
+    "about": "Über mich",
+    "projects": "Projekte",
+    "contact": "Kontakt"
+  },
+  "HeroSection": {
+    "name": "Maximilian Lamm",
+    "title": "Kreativer Full-Stack Entwickler",
+    "subtitle": "Ich erstelle ansprechende, reaktionsschnelle und leistungsstarke Webanwendungen. Begeistert von modernen Web-Technologien und großartigen Benutzererfahrungen."
+  },
+  "AIIntroMessage": {
+    "title": "KI-gestützte Vorstellung",
+    "description": "Fügen Sie die URL Ihres LinkedIn-Profils ein, um eine personalisierte Willkommensnachricht von mir zu erhalten.",
+    "button": "Personalisieren",
+    "loadingButton": "Personalisiere...",
+    "placeholder": "https://linkedin.com/in/ihr-profil",
+    "errorTitle": "Fehler",
+    "errorMessage": "Nachricht konnte nicht personalisiert werden. Bitte überprüfen Sie die URL und versuchen Sie es erneut."
+  },
+  "AboutSection": {
+    "title": "Über mich",
+    "bio": "Ich bin ein leidenschaftlicher Entwickler mit einem Händchen dafür, elegante Lösungen in kürzester Zeit zu schaffen. Ich habe einen starken Hintergrund in der Frontend- und Backend-Entwicklung und umfangreiche Erfahrung im Erstellen skalierbarer und wartbarer Anwendungen. Meine Reise in der Webentwicklung begann mit einer tiefen Neugierde, wie die Dinge funktionieren, und hat sich zu einer Karriere entwickelt, in der ich technische Fähigkeiten mit kreativer Problemlösung verbinden kann.",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "tools": "Tools & Sonstiges"
+  },
+  "ProjectShowcase": {
+    "title": "Meine Projekte",
+    "subtitle": "Hier sind einige Projekte, an denen ich gearbeitet habe. Entdecken Sie sie, um meine Fähigkeiten in Aktion zu sehen.",
+    "codeButton": "Code",
+    "demoButton": "Live-Demo"
+  },
+  "ContactForm": {
+    "title": "Kontakt aufnehmen",
+    "description": "Haben Sie ein Projekt im Sinn oder möchten Sie einfach nur Hallo sagen? Füllen Sie das Formular unten aus.",
+    "nameLabel": "Name",
+    "namePlaceholder": "Ihr Name",
+    "emailLabel": "E-Mail",
+    "emailPlaceholder": "ihre.email@beispiel.com",
+    "messageLabel": "Nachricht",
+    "messagePlaceholder": "Erzählen Sie mir von Ihrem Projekt...",
+    "sendButton": "Nachricht senden",
+    "sendingButton": "Sende...",
+    "successTitle": "Nachricht gesendet!",
+    "successDescription": "Vielen Dank für Ihre Kontaktaufnahme. Ich melde mich bald bei Ihnen."
+  },
+  "Footer": {
+    "copyright": "© {year} Maximilian Lamm. Alle Rechte vorbehalten."
+  },
+  "LanguageSwitcher": {
+    "label": "Sprache",
+    "en": "Englisch",
+    "de": "Deutsch"
+  }
+}

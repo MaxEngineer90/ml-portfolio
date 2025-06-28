@@ -11,12 +11,14 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { Loader2, Wand2 } from "lucide-react";
+import { useI18n } from "@/context/i18n-provider";
 
 const formSchema = z.object({
   linkedInProfile: z.string().url({ message: "Please enter a valid LinkedIn profile URL." }),
 });
 
 export function AIIntroMessage() {
+  const { t } = useI18n();
   const [personalizedMessage, setPersonalizedMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
@@ -38,8 +40,8 @@ export function AIIntroMessage() {
       console.error(e);
       toast({
         variant: "destructive",
-        title: "Error",
-        description: "Could not personalize message. Please check the URL and try again.",
+        title: t('AIIntroMessage.errorTitle'),
+        description: t('AIIntroMessage.errorMessage'),
       });
     } finally {
       setIsLoading(false);
@@ -51,10 +53,10 @@ export function AIIntroMessage() {
       <CardHeader>
         <CardTitle className="flex items-center gap-2 font-headline">
           <Wand2 className="text-accent" />
-          AI-Powered Introduction
+          {t('AIIntroMessage.title')}
         </CardTitle>
         <CardDescription>
-          Paste your LinkedIn profile URL to get a personalized welcome message from me.
+          {t('AIIntroMessage.description')}
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -66,20 +68,20 @@ export function AIIntroMessage() {
               render={({ field }) => (
                 <FormItem className="flex-grow">
                   <FormControl>
-                    <Input placeholder="https://linkedin.com/in/your-profile" {...field} />
+                    <Input placeholder={t('AIIntroMessage.placeholder')} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button type="submit" disabled={isLoading} className="bg-accent hover:bg-accent/90 text-accent-foreground">
+            <Button type="submit" disabled={isLoading} className="bg-primary hover:bg-primary/90">
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Personalizing...
+                  {t('AIIntroMessage.loadingButton')}
                 </>
               ) : (
-                "Personalize"
+                t('AIIntroMessage.button')
               )}
             </Button>
           </form>

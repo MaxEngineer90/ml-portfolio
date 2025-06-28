@@ -11,6 +11,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Send } from "lucide-react";
 import { useState } from "react";
+import { useI18n } from "@/context/i18n-provider";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -19,6 +20,7 @@ const formSchema = z.object({
 });
 
 export function ContactForm() {
+  const { t } = useI18n();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -38,8 +40,8 @@ export function ContactForm() {
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
+      title: t('ContactForm.successTitle'),
+      description: t('ContactForm.successDescription'),
     });
 
     form.reset();
@@ -47,12 +49,12 @@ export function ContactForm() {
   }
 
   return (
-    <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-secondary/30">
+    <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-background/80">
       <div className="container mx-auto px-4 md:px-6">
         <Card className="max-w-xl mx-auto bg-card/50 backdrop-blur-sm border-border/50 shadow-lg">
           <CardHeader className="text-center">
-            <CardTitle className="text-3xl font-headline tracking-tighter sm:text-4xl">Get In Touch</CardTitle>
-            <CardDescription>Have a project in mind or just want to say hi? Fill out the form below.</CardDescription>
+            <CardTitle className="text-3xl font-headline tracking-tighter sm:text-4xl">{t('ContactForm.title')}</CardTitle>
+            <CardDescription>{t('ContactForm.description')}</CardDescription>
           </CardHeader>
           <CardContent>
             <Form {...form}>
@@ -62,9 +64,9 @@ export function ContactForm() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Name</FormLabel>
+                      <FormLabel>{t('ContactForm.nameLabel')}</FormLabel>
                       <FormControl>
-                        <Input placeholder="Your Name" {...field} />
+                        <Input placeholder={t('ContactForm.namePlaceholder')} {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -75,9 +77,9 @@ export function ContactForm() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email</FormLabel>
+                      <FormLabel>{t('ContactForm.emailLabel')}</FormLabel>
                       <FormControl>
-                        <Input type="email" placeholder="your.email@example.com" {...field} />
+                        <Input type="email" placeholder={t('ContactForm.emailPlaceholder')} {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -88,9 +90,9 @@ export function ContactForm() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Message</FormLabel>
+                      <FormLabel>{t('ContactForm.messageLabel')}</FormLabel>
                       <FormControl>
-                        <Textarea placeholder="Tell me about your project..." {...field} rows={5} />
+                        <Textarea placeholder={t('ContactForm.messagePlaceholder')} {...field} rows={5} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -98,7 +100,7 @@ export function ContactForm() {
                 />
                 <div className="flex justify-end">
                   <Button type="submit" disabled={isSubmitting} className="bg-primary hover:bg-primary/90">
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    {isSubmitting ? t('ContactForm.sendingButton') : t('ContactForm.sendButton')}
                     <Send className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
