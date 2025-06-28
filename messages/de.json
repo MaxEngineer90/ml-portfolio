@@ -23,7 +23,9 @@
     "subtitle": "Hier sind einige meiner letzten Projekte von GitHub. Entdecken Sie sie, um meine Fähigkeiten in Aktion zu sehen.",
     "codeButton": "Code",
     "noDescription": "Keine Beschreibung verfügbar.",
-    "noProjects": "Projekte konnten nicht geladen werden oder es sind keine öffentlichen Projekte vorhanden."
+    "noProjects": "Projekte konnten nicht geladen werden oder es sind keine öffentlichen Projekte vorhanden.",
+    "showMore": "Mehr anzeigen",
+    "showLess": "Weniger anzeigen"
   },
   "ContactForm": {
     "title": "Kontakt aufnehmen",

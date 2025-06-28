@@ -23,7 +23,9 @@
     "subtitle": "Here are some of my recent projects from GitHub. Explore them to see my skills in action.",
     "codeButton": "Code",
     "noDescription": "No description available.",
-    "noProjects": "Could not load projects or no public projects are available."
+    "noProjects": "Could not load projects or no public projects are available.",
+    "showMore": "Show More",
+    "showLess": "Show Less"
   },
   "ContactForm": {
     "title": "Get In Touch",

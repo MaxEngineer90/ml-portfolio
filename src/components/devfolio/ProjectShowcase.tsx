@@ -1,11 +1,5 @@
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Github } from 'lucide-react';
 import { getI18n } from '@/lib/i18n-server';
-import { Suspense } from 'react';
-import { ProjectImage } from './ProjectImage';
-import { Skeleton } from '../ui/skeleton';
+import { ProjectGrid } from './ProjectGrid';
 
 interface GitHubRepo {
   id: number;
@@ -39,7 +33,6 @@ async function getGitHubProjects(): Promise<GitHubRepo[]> {
 export async function ProjectShowcase() {
   const { t } = await getI18n();
   const allProjects = await getGitHubProjects();
-  const projects = allProjects.slice(0, 4); // Display the 4 most recently updated projects
 
   return (
     <section id="projects" className="w-full py-12 md:py-24 lg:py-32">
@@ -50,43 +43,7 @@ export async function ProjectShowcase() {
             {t('ProjectShowcase.subtitle')}
           </p>
         </div>
-        {projects.length > 0 ? (
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2 mt-12">
-            {projects.map((project) => (
-              <Card key={project.id} className="overflow-hidden bg-card/50 backdrop-blur-sm border-border/50 shadow-lg transition-all hover:shadow-primary/20 hover:border-primary/50 hover:-translate-y-1 flex flex-col">
-                <CardHeader className="p-0">
-                  <Suspense fallback={<Skeleton className="w-full aspect-video" />}>
-                    <ProjectImage project={project} />
-                  </Suspense>
-                </CardHeader>
-                <CardContent className="p-6 flex-grow">
-                  <CardTitle className="font-headline text-2xl text-primary">{project.name}</CardTitle>
-                  <CardDescription className="mt-2 h-12 overflow-hidden text-ellipsis">
-                    {project.description || t('ProjectShowcase.noDescription')}
-                  </CardDescription>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {project.topics.map((tag) => (
-                      <Badge key={tag} variant="secondary">{tag}</Badge>
-                    ))}
-                    {project.language && <Badge variant="secondary">{project.language}</Badge>}
-                  </div>
-                </CardContent>
-                <CardFooter className="p-6 pt-0 flex justify-end gap-2">
-                   <Button asChild variant="outline">
-                     <a href={project.html_url} target="_blank" rel="noopener noreferrer">
-                       {t('ProjectShowcase.codeButton')}
-                       <Github className="ml-2" />
-                     </a>
-                   </Button>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center mt-12 text-muted-foreground">
-            <p>{t('ProjectShowcase.noProjects')}</p>
-          </div>
-        )}
+        <ProjectGrid projects={allProjects} />
       </div>
     </section>
   );
