@@ -31,6 +31,7 @@ const nextConfig: NextConfig = {
         util: false,
         http2: false,
         zlib: false,
+        perf_hooks: false,
       };
     }
     
