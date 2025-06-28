@@ -2,7 +2,6 @@ import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { I18nProvider } from '@/context/i18n-provider';
-import { CookieConsent } from '@/components/devfolio/CookieConsent';
 
 export const metadata: Metadata = {
   title: 'Maximilian Lamm | Developer Portfolio',
@@ -24,7 +23,6 @@ export default function RootLayout({
       <body className="font-body antialiased">
         <I18nProvider>
           {children}
-          <CookieConsent />
         </I18nProvider>
         <Toaster />
       </body>

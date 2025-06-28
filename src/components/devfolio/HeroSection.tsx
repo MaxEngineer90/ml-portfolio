@@ -2,8 +2,9 @@
 
 import { useI18n } from '@/context/i18n-provider';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Moon } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export function HeroSection() {
   const { t } = useI18n();
@@ -34,14 +35,16 @@ export function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
           <div className="hidden lg:flex justify-center items-center">
-              <div className="relative w-full max-w-sm h-72 rounded-2xl bg-slate-900/40 backdrop-blur-lg border border-border/20 shadow-2xl shadow-black/20 p-4">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 rounded-2xl"></div>
-                  <div className="relative z-10 flex items-center gap-3">
-                      <div className="flex h-7 w-7 items-center justify-center rounded-full bg-border/20">
-                          <Moon className="h-4 w-4 text-primary-foreground/80"/>
-                      </div>
-                      <span className="font-semibold text-primary-foreground/80">{t('HeroSection.name')}</span>
-                  </div>
+              <div className="relative w-80 h-80 group">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-full blur opacity-75 group-hover:opacity-100 transition duration-300 group-hover:duration-200 animate-tilt"></div>
+                <Image
+                    src="/profile.png"
+                    alt="Maximilian Lamm"
+                    width={320}
+                    height={320}
+                    className="relative rounded-full object-cover"
+                    priority
+                />
               </div>
           </div>
           

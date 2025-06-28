@@ -29,10 +29,6 @@ export default function ImprintPage() {
                 <Separator />
                 <div className="space-y-4">
                     <h2 className="text-2xl font-headline">{t('Imprint.PrivacyPolicy.title')}</h2>
-                    <div className="space-y-2">
-                        <h3 className="font-semibold">{t('Imprint.PrivacyPolicy.cookies.title')}</h3>
-                        <p className="text-muted-foreground">{t('Imprint.PrivacyPolicy.cookies.text')}</p>
-                    </div>
                      <div className="space-y-2">
                         <h3 className="font-semibold">{t('Imprint.PrivacyPolicy.contactForm.title')}</h3>
                         <p className="text-muted-foreground">{t('Imprint.PrivacyPolicy.contactForm.text')}</p>

@@ -79,19 +79,10 @@
     },
     "PrivacyPolicy": {
       "title": "Privacy Policy",
-      "cookies": {
-        "title": "Cookies",
-        "text": "This website uses essential cookies to ensure its proper operation. A cookie is set to remember your consent choice. We do not use tracking or analytics cookies."
-      },
       "contactForm": {
         "title": "Contact Form",
         "text": "If you send us inquiries via the contact form, your details from the inquiry form, including the contact details you provided there, will be stored by us for the purpose of processing the inquiry and in the event of follow-up questions. We do not pass on this data without your consent."
       }
     }
-  },
-  "CookieConsent": {
-    "message": "This website uses cookies to enhance your experience. By continuing, you agree to our use of cookies. For more details, see our",
-    "imprintLink": "Imprint",
-    "acceptButton": "Accept"
   }
 }
