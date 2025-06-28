@@ -1,5 +1,13 @@
-# Firebase Studio
+# ML Portfolio
+
+A portfolio project showcasing machine learning skills.
 
 This is a NextJS starter in Firebase Studio.
 
-To get started, take a look at src/app/page.tsx.
+## Installation
+
+_[Add installation instructions here]_
+
+## Usage
+
+_[Add usage instructions here]_
