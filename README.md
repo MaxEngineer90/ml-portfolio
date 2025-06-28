@@ -6,145 +6,127 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.1-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
 [![Firebase](https://img.shields.io/badge/Firebase-11.9.1-FFCA28?style=flat-square&logo=firebase)](https://firebase.google.com/)
 
-A modern portfolio website showcasing projects and skills, built with Next.js, React, and modern web technologies.
+Ein modernes Portfolio zur Präsentation von Projekten und Fähigkeiten, erstellt mit Next.js, React und modernen Webtechnologien.
 
 ## ✨ Features
 
-- **🎨 Modern Design**: Responsive UI with Tailwind CSS and Radix UI components
-- **📊 Data Visualization**: Interactive charts and diagrams with Recharts
-- **🔥 Firebase Integration**: Backend services and hosting
-- **📱 Responsive**: Optimized for all devices and screen sizes
-- **⚡ Performance**: Server-Side Rendering with Next.js for optimal loading times
-- **🎯 TypeScript**: Full typing for better developer experience
-- **🎪 Interactive Elements**: Animations and transitions for better UX
-- **📋 Contact Forms**: Integrated forms with validation
+- **🎨 Modernes Design**: Responsives UI mit Tailwind CSS und Radix UI Komponenten
+- **📊 Datenvisualisierung**: Interaktive Diagramme mit Recharts
+- **🔥 Firebase Integration**: Backend-Dienste und Hosting
+- **📱 Responsive**: Optimiert für alle Geräte und Bildschirmgrößen
+- **⚡ Performance**: Static Site Generation mit Next.js für optimale Ladezeiten
+- **🎯 TypeScript**: Starke Typisierung für eine bessere Entwicklererfahrung
+- **🎪 Interaktive Elemente**: Animationen und Übergänge für eine bessere UX
+- **📋 Kontaktformulare**: Integrierte Formulare mit `mailto:`-Funktion
 
 ## 🛠️ Tech Stack
 
 - **Frontend**: Next.js 15, React 18, TypeScript
 - **Styling**: Tailwind CSS, Radix UI, Lucide Icons
-- **Backend**: Firebase
-- **Forms**: React Hook Form, Zod Validation
+- **Formulare**: React Hook Form, Zod Validation
 - **Charts**: Recharts
-- **Development**: ESLint, TypeScript, Patch Package
+- **Entwicklung**: ESLint, TypeScript
 
-## 📋 Prerequisites
+## 📋 Voraussetzungen
 
-Make sure you have the following software installed:
+Stellen Sie sicher, dass Sie die folgende Software installiert haben:
 
 - Node.js (>= 18.0.0)
-- npm (>= 9.0.0) or yarn
+- npm (>= 9.0.0) oder yarn
 - Git
 
 ## 🚀 Installation
 
-1. **Clone the repository**
+1. **Repository klonen**
    ```bash
-   git clone https://github.com/maxengineer/portfolio-website.git
-   cd portfolio-website
+   git clone https://github.com/MaxEngineer90/ml-portfolio.git
+   cd ml-portfolio
    ```
 
-2. **Install dependencies**
+2. **Abhängigkeiten installieren**
    ```bash
    npm install
-   # or
+   # oder
    yarn install
    ```
 
-3. **Configure environment variables**
-   ```bash
-   cp .env.example .env.local
-   ```
-   Edit `.env.local` and add your configuration:
-   ```env
-   FIREBASE_API_KEY=your_firebase_api_key
-   FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-   FIREBASE_PROJECT_ID=your_project_id
-   # Additional configurations...
-   ```
-
-4. **Start the development server**
+3. **Entwicklungsserver starten**
    ```bash
    npm run dev
    ```
-   The application will be available at [http://localhost:9002](http://localhost:9002).
+   Die Anwendung wird unter [http://localhost:9002](http://localhost:9002) verfügbar sein.
 
-## 🎯 Usage
+## 🎯 Verwendung
 
-### Development Mode
+### Entwicklungsmodus
 ```bash
-npm run dev          # Starts the development server on port 9002
+npm run dev          # Startet den Entwicklungsserver auf Port 9002
 ```
 
-### Build for Production
+### Build für die Produktion
 ```bash
-npm run build        # Creates the static production build in the `out/` folder
+npm run build        # Erstellt den statischen Produktions-Build im `out/` Ordner
 ```
 
-## 🚀 Deployment to GitHub Pages
+## 🚀 Deployment auf GitHub Pages
 
-This project is configured to automatically deploy to GitHub Pages when you push changes to the `main` branch.
+Dieses Projekt ist so konfiguriert, dass es automatisch auf GitHub Pages bereitgestellt wird, wenn Sie Änderungen in den `main`-Branch pushen.
 
-To enable this, you need to configure your repository settings once:
+Um dies zu aktivieren, müssen Sie Ihre Repository-Einstellungen einmalig konfigurieren:
 
-1.  Navigate to your GitHub repository.
-2.  Go to **Settings** > **Pages**.
-3.  Under the **Build and deployment** section, for the **Source**, select **GitHub Actions**.
+1.  Navigieren Sie zu Ihrem GitHub-Repository.
+2.  Gehen Sie zu **Settings** > **Pages**.
+3.  Wählen Sie unter **Build and deployment** als **Source** die Option **GitHub Actions**.
 
-Now, every time you push to `main`, the deployment workflow will run and your site will be updated automatically.
+Jedes Mal, wenn Sie nun auf `main` pushen, wird der Deployment-Workflow ausgeführt und Ihre Seite wird automatisch aktualisiert.
 
-## 📁 Project Structure
+## 📈 SEO (Search Engine Optimization)
+
+Um die Sichtbarkeit in Suchmaschinen wie Google zu verbessern, wurden mehrere technische SEO-Best Practices implementiert:
+
+-   **Erweiterte Metadaten**: Detaillierte `meta`-Tags, einschließlich Open Graph (für das Teilen in sozialen Medien) und Twitter Cards.
+-   **`robots.txt`**: Eine `robots.txt`-Datei ist enthalten, um Suchmaschinen-Crawler zu leiten.
+-   **`sitemap.xml`**: Eine `sitemap.xml` wird bereitgestellt, um Suchmaschinen zu helfen, alle Seiten der Website effizient zu entdecken.
+
+## 📁 Projektstruktur
 
 ```
-portfolio-website/
+ml-portfolio/
 ├── src/
-│   ├── components/      # React components
-│   ├── pages/          # Next.js pages
-│   ├── styles/         # Styling files
-│   ├── data/           # Static data (projects, skills)
-│   └── utils/          # Utility functions
-├── public/             # Static files (images, icons)
-├── .env.example        # Environment variables template
-├── next.config.js      # Next.js configuration
-├── tailwind.config.js  # Tailwind configuration
-└── tsconfig.json       # TypeScript configuration
+│   ├── app/            # Next.js App Router (Seiten & Layouts)
+│   ├── components/     # React-Komponenten
+│   ├── context/        # React Context Provider
+│   ├── hooks/          # React Hooks
+│   ├── lib/            # Hilfsfunktionen
+│   └── messages/       # i18n Sprachdateien
+├── public/             # Statische Dateien (Bilder, Icons)
+├── .github/            # GitHub Actions Workflows
+├── next.config.js      # Next.js Konfiguration
+├── tailwind.config.js  # Tailwind Konfiguration
+└── tsconfig.json       # TypeScript Konfiguration
 ```
 
-## 🔧 Configuration
+## 🤝 Mitwirken
 
-### Firebase Setup
-1. Create a Firebase project in the [Firebase Console](https://console.firebase.google.com/)
-2. Enable the required services (Hosting, Firestore, Authentication, etc.)
-3. Add your Firebase configuration to `.env.local`
+Beiträge sind willkommen! Bitte folgen Sie diesen Schritten:
 
-## 🤝 Contributing
+1. Forken Sie das Repository
+2. Erstellen Sie einen Feature-Branch (`git checkout -b feature/AmazingFeature`)
+3. Committen Sie Ihre Änderungen (`git commit -m 'Add some AmazingFeature'`)
+4. Pushen Sie zum Branch (`git push origin feature/AmazingFeature`)
+5. Öffnen Sie einen Pull Request
 
-Contributions are welcome! Please follow these steps:
+## 📝 Lizenz
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+Dieses Projekt ist unter der MIT-Lizenz lizenziert.
 
-## 📝 License
+## 👨‍💻 Autor
 
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for more information.
+**Maximilian Lamm**
 
-## 👨‍💻 Author
-
-**Max Engineer**
-
-- GitHub: [@maxengineer](https://github.com/maxengineer)
-- LinkedIn: [Max Engineer](https://linkedin.com/in/maxengineer)
-
-## 🙏 Acknowledgments
-
-- [Next.js](https://nextjs.org/) for the fantastic React framework
-- [Tailwind CSS](https://tailwindcss.com/) for the utility-first CSS library
-- [Radix UI](https://www.radix-ui.com/) for accessible UI components
-- [Firebase](https://firebase.google.com/) for backend services
+- GitHub: [@MaxEngineer90](https://github.com/MaxEngineer90)
+- LinkedIn: [Maximilian Lamm](https://www.linkedin.com/in/maximilian-lamm-941b49281/)
 
 ---
 
-⭐ Don't forget to give this project a star if you like it!
+⭐ Vergessen Sie nicht, diesem Projekt einen Stern zu geben, wenn es Ihnen gefällt!

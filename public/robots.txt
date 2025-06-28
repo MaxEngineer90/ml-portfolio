@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maxengineer90.github.io/ml-portfolio/sitemap.xml

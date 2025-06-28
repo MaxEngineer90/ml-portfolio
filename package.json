@@ -1,9 +1,9 @@
 {
-  "name": "portfolio-website",
+  "name": "ml-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "A modern portfolio website showcasing projects and skills built with Next.js, React, and modern web technologies",
-  "author": "Max Engineer",
+  "description": "Ein modernes Portfolio zur Präsentation von Projekten und Fähigkeiten, erstellt mit Next.js, React und modernen Webtechnologien.",
+  "author": "Maximilian Lamm",
   "license": "MIT",
   "keywords": [
     "portfolio",
@@ -13,15 +13,17 @@
     "tailwindcss",
     "typescript",
     "web-development",
-    "firebase"
+    "maximilian lamm",
+    "angular",
+    "java"
   ],
-  "homepage": "https://github.com/maxengineer/portfolio-website#readme",
+  "homepage": "https://maxengineer90.github.io/ml-portfolio",
   "repository": {
     "type": "git",
-    "url": "https://github.com/maxengineer/portfolio-website.git"
+    "url": "https://github.com/MaxEngineer90/ml-portfolio.git"
   },
   "bugs": {
-    "url": "https://github.com/maxengineer/portfolio-website/issues"
+    "url": "https://github.com/MaxEngineer90/ml-portfolio/issues"
   },
   "engines": {
     "node": ">=18.0.0",
