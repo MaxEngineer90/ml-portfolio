@@ -1,7 +1,7 @@
 'use client';
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { setCookie } from 'cookies-next';
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+import { getCookie, setCookie } from 'cookies-next';
 import enMessages from '../../messages/en.json';
 import deMessages from '../../messages/de.json';
 
@@ -18,12 +18,21 @@ type I18nContextType = {
 
 const I18nContext = createContext<I18nContextType | undefined>(undefined);
 
-export function I18nProvider({ children, initialLocale }: { children: ReactNode, initialLocale: string }) {
-  const [locale, setLocaleState] = useState(initialLocale);
+export function I18nProvider({ children }: { children: ReactNode }) {
+  const [locale, setLocaleState] = useState('en');
+
+  useEffect(() => {
+    const savedLocale = getCookie('locale');
+    if (savedLocale && (savedLocale === 'en' || savedLocale === 'de')) {
+      setLocaleState(savedLocale);
+      document.documentElement.lang = savedLocale;
+    }
+  }, []);
 
   const setLocale = (newLocale: string) => {
     setLocaleState(newLocale);
     setCookie('locale', newLocale, { maxAge: 60 * 60 * 24 * 365, path: '/' });
+    document.documentElement.lang = newLocale;
     // We might need a full page reload if not using next-intl router
     // For now, let's rely on components re-rendering from context change
     window.location.reload();

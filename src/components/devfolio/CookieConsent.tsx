@@ -9,14 +9,14 @@ import Link from 'next/link';
 
 const COOKIE_NAME = 'cookie_consent';
 
-export function CookieConsent({ initiallyVisible = false }) {
-  const [visible, setVisible] = useState(initiallyVisible);
+export function CookieConsent() {
+  const [visible, setVisible] = useState(false);
   const { t } = useI18n();
 
   useEffect(() => {
     const consent = getCookie(COOKIE_NAME);
-    if (consent) {
-      setVisible(false);
+    if (!consent) {
+      setVisible(true);
     }
   }, []);
 
