@@ -1,1 +1,142 @@
 @import "tailwindcss";
+
+/* Font Families */
+@theme {
+  --font-family-body: "Inter", sans-serif;
+  --font-family-headline: "Space Grotesk", sans-serif;
+  --font-family-code:
+    ui-monospace, "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas,
+    "Courier New", monospace;
+}
+
+/* Portfolio Theme Colors */
+@theme {
+  /* Main Background - Your requested color */
+  --color-background: #131921;
+  --color-foreground: #ffffff;
+
+  /* Card/Section backgrounds */
+  --color-card: #2a3647;
+  --color-card-foreground: #ffffff;
+
+  /* Primary colors - Orange accent from your design */
+  --color-primary: #ff6b35;
+  --color-primary-foreground: #ffffff;
+
+  /* Secondary colors - Blue accent */
+  --color-secondary: #4f46e5;
+  --color-secondary-foreground: #ffffff;
+
+  /* Muted colors for subtle text */
+  --color-muted: #374151;
+  --color-muted-foreground: #9ca3af;
+
+  /* Accent colors */
+  --color-accent: #ff6b35;
+  --color-accent-foreground: #ffffff;
+
+  /* Destructive colors */
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+
+  /* Border and form colors */
+  --color-border: #374151;
+  --color-input: #1f2937;
+  --color-ring: #ff6b35;
+
+  /* Tech stack badge colors */
+  --color-tech-frontend: #3b82f6;
+  --color-tech-backend: #8b5cf6;
+  --color-tech-testing: #10b981;
+  --color-tech-tools: #f59e0b;
+
+  /* Project card colors */
+  --color-project-card: #1f2937;
+  --color-project-border: #374151;
+
+  /* Form colors */
+  --color-form-bg: #1f2937;
+  --color-form-border: #374151;
+
+  /* Original shadcn/ui colors (HSL based) */
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+
+  --color-sidebar: hsl(var(--sidebar-background));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+}
+
+/* Border Radius */
+@theme {
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+/* Animations */
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@keyframes tilt {
+  0%,
+  50%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(0.5deg);
+  }
+  75% {
+    transform: rotate(-0.5deg);
+  }
+}
+
+@theme {
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-tilt: tilt 10s infinite linear;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Add your dark mode CSS variables here if needed */
+  }
+}
+
+/* Manual dark mode class support */
+.dark {
+  /* Add your dark mode CSS variables here if needed */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
