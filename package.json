@@ -2,6 +2,7 @@
   "name": "ml-portfolio",
   "version": "0.0.0",
   "author": "Maximilian Lamm",
+  "license":"MIT"
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
