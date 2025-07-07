@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "flowbite/src/themes/default";
-
 @plugin "flowbite/plugin";
 /* Font Families */
 @theme {
