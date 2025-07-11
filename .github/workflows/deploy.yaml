@@ -1,9 +1,9 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Runs on pushes targeting the default branch and feature branch
+  # Runs on pushes targeting the default branch
   push:
-    branches: ["main", "feature/github-pages-setup"]
+    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -37,15 +37,19 @@ jobs:
         run: npm ci
 
       - name: Build Angular app for GitHub Pages
-        run: npx ng build --configuration production --base-href /ml-portfolio/
+        run: npx ng build --configuration production
 
-      - name: Fix Angular routing for GitHub Pages
+      - name: Fix Angular routing and font paths for GitHub Pages
         run: |
           # Create .github/workflows directory if it doesn't exist
           mkdir -p .github/workflows
           # Copy index.html to 404.html to handle Angular routing
           cp dist/ml-portfolio/browser/index.html dist/ml-portfolio/browser/404.html
           echo "404.html created for Angular routing support"
+
+          # Fix font paths in CSS for GitHub Pages
+          find dist/ml-portfolio/browser -name "*.css" -exec sed -i 's|url("/fonts/|url("/ml-portfolio/fonts/|g' {} \;
+          echo "Font paths updated for GitHub Pages"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
