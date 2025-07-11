@@ -19,12 +19,6 @@
     "typescript": "html",
     "html": "html"
   },
-  "tailwindCSS.classAttributes": [
-    "class",
-    "className",
-    "ngClass"
-  ],
-  "tailwindCSS.experimental.classRegex": [
-    "class:\\s*['\"`]([^'\"`]*)['\"`]"
-  ]
+  "tailwindCSS.classAttributes": ["class", "className", "ngClass"],
+  "tailwindCSS.experimental.classRegex": ["class:\\s*['\"`]([^'\"`]*)['\"`]"]
 }
