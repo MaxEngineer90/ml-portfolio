@@ -11,7 +11,6 @@
     "test": "ng test",
     "e2e": "ng e2e",
     "build:prod": "ng build --configuration production",
-    "build:gh-pages": "ng build --configuration production --base-href /ml-portfolio/",
     "serve:prod": "ng serve --configuration production",
     "format": "prettier --write \"src/**/*.{ts,html,scss,css,json}\"",
     "format:check": "prettier --check \"src/**/*.{ts,html,scss,css,json}\"",
