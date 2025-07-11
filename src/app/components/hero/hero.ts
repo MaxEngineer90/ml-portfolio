@@ -1,27 +1,12 @@
-import { NgOptimizedImage } from '@angular/common';
-import { Component, OnInit, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { HeroButtonSection } from './hero-button-section/hero-button-section';
+import { HeroGreetSection } from './hero-greet-section/hero-greet-section';
+import { HeroImageSection } from './hero-image-section/hero-image-section';
 
 @Component({
   selector: 'app-hero',
-  imports: [NgOptimizedImage],
+  imports: [HeroImageSection, HeroGreetSection, HeroButtonSection],
   templateUrl: './hero.html',
   styleUrl: './hero.css',
 })
-export class Hero implements OnInit {
-  titles = [
-    'Verfechter von Clean Code',
-    'Fullstack Developer aus Leidenschaft',
-    'Java Spring Angular Profi',
-    'Innovativer Problemlöser',
-  ];
-
-  currentTitle = signal(this.titles[0]);
-  private currentIndex = 0;
-
-  ngOnInit() {
-    setInterval(() => {
-      this.currentIndex = (this.currentIndex + 1) % this.titles.length;
-      this.currentTitle.set(this.titles[this.currentIndex]);
-    }, 3000);
-  }
-}
+export class Hero {}
