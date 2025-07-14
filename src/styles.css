@@ -2,21 +2,20 @@
 @import "flowbite/src/themes/default";
 @plugin "flowbite/plugin";
 
-/* Inter Font-Face Definitionen */
+/* Local Font Definitions - Outside @layer for Tailwind 4 */
 @font-face {
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("/fonts/Inter-Regular.woff2") format("woff2");
-}
+  src: url("assets/fonts/Inter-Regular.woff2") format("woff2"); }
 
 @font-face {
   font-family: "Inter";
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url("/fonts/Inter-Medium.woff2") format("woff2");
+  src: url("assets/fonts/Inter-Medium.woff2") format("woff2");
 }
 
 @font-face {
@@ -24,7 +23,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url("/fonts/Inter-SemiBold.woff2") format("woff2");
+  src: url("assets/fonts/Inter-SemiBold.woff2") format("woff2");
 }
 
 @font-face {
@@ -32,7 +31,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("/fonts/Inter-Bold.woff2") format("woff2");
+  src: url("assets/fonts/Inter-Bold.woff2") format("woff2");
 }
 
 @font-face {
@@ -40,16 +39,15 @@
   font-style: normal;
   font-weight: 800;
   font-display: swap;
-  src: url("/fonts/Inter-ExtraBold.woff2") format("woff2");
+  src: url("assets/fonts/Inter-ExtraBold.woff2") format("woff2");
 }
 
-/* JetBrains Mono Font-Face Definitionen */
 @font-face {
   font-family: "JetBrains Mono";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+  src: url("assets/fonts/JetBrainsMono-Regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -57,108 +55,108 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("/fonts/JetBrainsMono-Bold.woff2") format("woff2");
+  src: url("assets/fonts/JetBrainsMono-Bold.woff2") format("woff2");
 }
 
-/* Font Families */
+/* Tailwind 4 Theme Configuration */
 @theme {
-  --font-family-body:
-    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-family-headline:
-    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-family-tech: "JetBrains Mono", "Consolas", "Monaco", monospace;
-}
+  /* Font Families - New Tailwind 4 Syntax */
+  --font-sans:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-body:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-headline:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-tech:
+    "JetBrains Mono", "SF Mono", "Monaco", "Inconsolata", "Roboto Mono",
+    "Consolas", "Courier New", monospace;
+  --font-mono:
+    "JetBrains Mono", "SF Mono", "Monaco", "Inconsolata", "Roboto Mono",
+    "Consolas", "Courier New", monospace;
 
-/* Utility classes for fonts */
-@utility font-body {
-  font-family: var(--font-family-body);
-}
-
-@utility font-headline {
-  font-family: var(--font-family-headline);
-}
-
-@utility font-tech {
-  font-family: var(--font-family-tech);
-}
-
-/* Portfolio Theme Colors */
-@theme {
-  /* Main Background - Your requested color */
+  /* Color System */
   --color-background: #131921;
   --color-foreground: #ffffff;
 
-  /* Card/Section backgrounds */
   --color-card: #2a3647;
   --color-card-foreground: #ffffff;
 
-  /* Primary colors - Orange accent from your design */
   --color-primary: #ff6b35;
   --color-primary-foreground: #ffffff;
 
-  /* Secondary colors - Blue accent */
   --color-secondary: #4f46e5;
   --color-secondary-foreground: #ffffff;
 
-  /* Muted colors for subtle text */
   --color-muted: #374151;
   --color-muted-foreground: #9ca3af;
 
-  /* Accent colors */
   --color-accent: #ff6b35;
   --color-accent-foreground: #ffffff;
 
-  /* Destructive colors */
   --color-destructive: #ef4444;
   --color-destructive-foreground: #ffffff;
 
-  /* Border and form colors */
   --color-border: #374151;
   --color-input: #1f2937;
   --color-ring: #ff6b35;
 
-  /* Tech stack badge colors */
+  /* Tech Stack Colors */
   --color-tech-frontend: #3b82f6;
   --color-tech-backend: #8b5cf6;
   --color-tech-testing: #10b981;
   --color-tech-tools: #f59e0b;
 
-  /* Project card colors */
+  /* Component Colors */
   --color-project-card: #1f2937;
   --color-project-border: #374151;
-
-  /* Form colors */
   --color-form-bg: #1f2937;
   --color-form-border: #374151;
 
-  /* Original shadcn/ui colors (HSL based) */
-  --color-popover: hsl(var(--popover));
-  --color-popover-foreground: hsl(var(--popover-foreground));
+  /* Border Radius */
+  --radius: 0.5rem;
+  --radius-sm: calc(0.5rem - 4px);
+  --radius-md: calc(0.5rem - 2px);
+  --radius-lg: 0.5rem;
+  --radius-xl: calc(0.5rem + 4px);
 
-  --color-chart-1: hsl(var(--chart-1));
-  --color-chart-2: hsl(var(--chart-2));
-  --color-chart-3: hsl(var(--chart-3));
-  --color-chart-4: hsl(var(--chart-4));
-  --color-chart-5: hsl(var(--chart-5));
+  /* Spacing Scale */
+  --spacing-0: 0px;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+  --spacing-32: 8rem;
 
-  --color-sidebar: hsl(var(--sidebar-background));
-  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
-  --color-sidebar-primary: hsl(var(--sidebar-primary));
-  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
-  --color-sidebar-accent: hsl(var(--sidebar-accent));
-  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
-  --color-sidebar-border: hsl(var(--sidebar-border));
-  --color-sidebar-ring: hsl(var(--sidebar-ring));
+  /* Breakpoints */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg:
+    0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl:
+    0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 }
 
-/* Border Radius */
-@theme {
-  --radius-lg: var(--radius);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-sm: calc(var(--radius) - 4px);
-}
-
-/* Animations */
+/* Keyframe Animations */
 @keyframes accordion-down {
   from {
     height: 0;
@@ -191,25 +189,102 @@
   }
 }
 
-@theme {
-  --animate-accordion-down: accordion-down 0.2s ease-out;
-  --animate-accordion-up: accordion-up 0.2s ease-out;
-  --animate-tilt: tilt 10s infinite linear;
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Add your dark mode CSS variables here if needed */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
-/* Manual dark mode class support */
-.dark {
-  /* Add your dark mode CSS variables here if needed */
+@keyframes slide-in-from-bottom {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Global Styles */
+* {
+  border-color: var(--color-border);
 }
 
 body {
   margin: 0;
   padding: 0;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Utilities */
+.animate-accordion-down {
+  animation: accordion-down 0.2s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.2s ease-out;
+}
+
+.animate-tilt {
+  animation: tilt 10s infinite linear;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+.animate-slide-in-from-bottom {
+  animation: slide-in-from-bottom 0.3s ease-out;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+}
+
+/* Selection styles */
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
 }

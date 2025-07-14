@@ -1,61 +1,20 @@
-<section class="min-h-screen flex items-center">
+<img
+  ngSrc="assets/images/logo.svg"
+  alt="Maximilian Lamm - Fullstack Developer"
+  fill
+  priority
+  class="object-contain shadow-2xl shadow-primary/20 rounded-lg"
+/>
+
+<section class="min-h-screen flex items-center animate-fade-in">
   <div class="container mx-auto px-6">
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 sm:gap-12 items-center">
       <div class="lg:col-span-3 order-2 lg:order-1 text-center lg:text-left">
-        <div
-          class="flex items-center gap-2 mb-2 justify-center lg:justify-start"
-        >
-          <span class="text-xl sm:text-2xl">👋</span>
-          <span class="text-muted-foreground text-xl sm:text-2xl font-normal"
-            >Hallo, ich bin</span
-          >
-        </div>
-        <h1 class="text-5xl sm:text-6xl font-bold mb-4 font-headline">
-          <span class="text-primary">M</span
-          ><span
-            class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
-            >a</span
-          ><span class="text-secondary">x</span>
-        </h1>
-        <h2
-          class="text-2xl sm:text-3xl lg:text-4xl text-secondary font-semibold mb-6 font-tech"
-        >
-          {{ currentTitle() }}
-        </h2>
-        <p
-          class="text-muted-foreground text-base sm:text-lg leading-relaxed font-normal px-4 sm:px-0 max-w-2xl mx-auto lg:mx-0"
-        >
-          Von der Idee bis zur Implementierung - ich entwickle Websites und
-          Webanwendungen mit modernsten Technologien.
-        </p>
-        <div
-          class="flex flex-col sm:flex-row gap-4 mt-8 items-center sm:justify-center lg:justify-start"
-        >
-          <button
-            class="bg-primary hover:bg-primary/90 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition-colors w-full sm:w-auto max-w-xs text-sm sm:text-base"
-          >
-            Meine Projekte entdecken →
-          </button>
-          <button
-            class="border border-border hover:bg-card text-foreground px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition-colors w-full sm:w-auto max-w-xs text-sm sm:text-base"
-          >
-            Lass uns sprechen
-          </button>
-        </div>
+        <app-hero-greet-section />
+        <app-hero-button-section />
       </div>
       <div class="lg:col-span-2 order-1 lg:order-2 flex justify-center">
-        <div
-          class="relative mt-4 sm:mt-8"
-          style="width: 384px; height: 516px; position: relative"
-        >
-          <img
-            ngSrc="/images/profile-image.png"
-            alt="Max image"
-            fill
-            priority
-            class="object-contain shadow-2xl shadow-primary/20"
-          />
-        </div>
+        <app-hero-image-section />
       </div>
     </div>
   </div>
