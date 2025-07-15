@@ -1,0 +1,98 @@
+<button
+  (click)="toggleMenu()"
+  class="p-2 rounded-lg bg-card hover:bg-muted border border-border transition-all duration-200"
+  aria-label="Menu schließen"
+>
+  @if (isMenuOpen()) {
+    <img
+      ngSrc="assets/images/icons/x-mark.svg"
+      alt="Menu schließen"
+      width="20"
+      height="20"
+      class="text-white transition-transform duration-200"
+    />
+  } @else {
+    <img
+      ngSrc="assets/images/icons/hamburger.svg"
+      alt="Menu öffnen"
+      width="20"
+      height="20"
+      class="text-white transition-transform duration-200"
+    />
+  }
+</button>
+
+@if (isMenuOpen()) {
+  <div
+    class="fixed top-16 left-0 right-0 bg-background border-b border-border z-50 md:hidden animate-slide-in-from-bottom"
+  >
+    <div class="container mx-auto px-4 py-6">
+      <nav class="space-y-4 mb-6">
+        <a
+          href="#about"
+          (click)="closeMenu()"
+          class="block text-muted-foreground hover:text-primary transition-colors duration-200 py-2 text-base font-medium"
+        >
+          Über mich
+        </a>
+        <a
+          href="#projects"
+          (click)="closeMenu()"
+          class="block text-muted-foreground hover:text-primary transition-colors duration-200 py-2 text-base font-medium"
+        >
+          Projekte
+        </a>
+        <a
+          href="#skills"
+          (click)="closeMenu()"
+          class="block text-muted-foreground hover:text-primary transition-colors duration-200 py-2 text-base font-medium"
+        >
+          Skills
+        </a>
+        <a
+          href="#contact"
+          (click)="closeMenu()"
+          class="block text-muted-foreground hover:text-primary transition-colors duration-200 py-2 text-base font-medium"
+        >
+          Kontakt
+        </a>
+      </nav>
+
+      <div class="flex flex-col space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="text-muted-foreground text-sm">Social Links</span>
+          <div class="flex space-x-3">
+            <a
+              href="https://github.com/maxengineer90"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="p-2 rounded-lg bg-card hover:bg-muted border border-border transition-all duration-200"
+            >
+              <img
+                ngSrc="assets/images/icons/github.svg"
+                alt="GitHub"
+                width="16"
+                height="16"
+                class="text-muted-foreground"
+              />
+            </a>
+            <a
+              href="https://linkedin.com/in/maximilian-lamm"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="p-2 rounded-lg bg-card hover:bg-muted border border-border transition-all duration-200"
+            >
+              <img
+                ngSrc="assets/images/icons/linkedin.svg"
+                alt="LinkedIn"
+                width="16"
+                height="16"
+                class="text-muted-foreground"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+}

@@ -20,5 +20,18 @@
     "html": "html"
   },
   "tailwindCSS.classAttributes": ["class", "className", "ngClass"],
-  "tailwindCSS.experimental.classRegex": ["class:\\s*['\"`]([^'\"`]*)['\"`]"]
+  "tailwindCSS.experimental.classRegex": ["class:\\s*['\"`]([^'\"`]*)['\"`]"],
+
+  // Tab-Completion Einstellungen
+  "editor.tabCompletion": "on",
+  "editor.acceptSuggestionOnEnter": "on",
+  "editor.inlineSuggest.enabled": true,
+  "editor.inlineSuggest.showToolbar": "always",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": false
+  },
+  "editor.suggestOnTriggerCharacters": true,
+  "editor.parameterHints.enabled": true
 }

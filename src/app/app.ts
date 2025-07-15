@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Hero } from './components/hero/hero';
-import { Toolbar } from "./components/toolbar/toolbar";
+import { Toolbar } from './components/toolbar/toolbar';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Hero, Toolbar],
+  imports: [Hero, Toolbar],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
