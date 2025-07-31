@@ -1,80 +1,97 @@
-import { computed, effect, Injectable, signal } from '@angular/core';
-import { Language, TranslationKey, Translations } from '../types/translation';
 import { HttpClient } from '@angular/common/http';
+import { computed, effect, inject, Injectable, signal } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
+import { Language, TranslationKey, Translations } from '../types/translation';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TranslationService {
-  private readonly currentLanguage = signal<Language>('de');
+  private static readonly STORAGE_KEY = 'portfolio-lang';
+  private static readonly DEFAULT_LANGUAGE: Language = 'de';
+  private static readonly AVAILABLE_LANGUAGES: readonly Language[] = [
+    'de',
+    'en',
+  ];
+
+  private readonly currentLanguage = signal<Language>(
+    TranslationService.DEFAULT_LANGUAGE,
+  );
   private readonly translationsCache = new Map<Language, Translations>();
   private readonly isLoading = signal(false);
   private readonly currentTranslations = signal<Translations | null>(null);
-
-  constructor(private readonly httpClient: HttpClient) {
-    this.initializeLanguage();
-
-    effect(() => {
-      document.documentElement.lang = this.currentLanguage();
-    });
-
-    effect(async () => {
-      const selectedLanguage = this.currentLanguage();
-      await this.loadTranslations(selectedLanguage);
-    });
-  }
+  private readonly httpClient = inject(HttpClient);
 
   readonly language = computed(() => this.currentLanguage());
   readonly loading = computed(() => this.isLoading());
+  readonly translate = computed(() => this.buildTranslateFunction());
 
-  readonly translate = computed(() => {
+  constructor() {
+    this.initializeLanguage();
+    this.watchLanguageChanges();
+  }
+
+  setLanguage(language: Language): void {
+    if (this.currentLanguage() === language) return;
+
+    this.currentLanguage.set(language);
+    this.persistLanguage(language);
+  }
+
+  toggleLanguage(): void {
+    const newLanguage = this.currentLanguage() === 'de' ? 'en' : 'de';
+    this.setLanguage(newLanguage);
+  }
+
+  getAvailableLanguages(): readonly Language[] {
+    return TranslationService.AVAILABLE_LANGUAGES;
+  }
+
+  private watchLanguageChanges(): void {
+    effect(() => {
+      const language = this.currentLanguage();
+
+      if (this.translationsCache.has(language)) {
+        this.setTranslationsFromCache(language);
+      } else {
+        this.loadTranslations(language);
+      }
+    });
+  }
+
+  private buildTranslateFunction() {
     const translations = this.currentTranslations();
 
-    return (translationKey: TranslationKey): string => {
-      if (!translations) return translationKey;
-
-      const keyParts = translationKey.split('.');
-      let translationValue: any = translations;
-
-      for (const keyPart of keyParts) {
-        translationValue = translationValue?.[keyPart];
-        if (translationValue === undefined) {
-          console.warn(`Translation key "${translationKey}" not found`);
-          return translationKey;
-        }
-      }
-
-      return typeof translationValue === 'string'
-        ? translationValue
-        : translationKey;
+    return (key: TranslationKey): string => {
+      if (!translations) return key;
+      return this.resolveTranslation(translations, key);
     };
-  });
-
-  // Für Kompatibilität mit bestehenden Templates
-  readonly t = this.translate;
-
-  async setLanguage(language: Language): Promise<void> {
-    if (language === this.currentLanguage()) return;
-    this.currentLanguage.set(language);
-    this.saveLanguageToStorage(language);
   }
 
-  async toggleLanguage(): Promise<void> {
-    const newLanguage = this.currentLanguage() === 'de' ? 'en' : 'de';
-    await this.setLanguage(newLanguage);
-  }
+  private resolveTranslation(
+    translations: Translations,
+    key: TranslationKey,
+  ): string {
+    const keys = key.split('.');
+    let current: unknown = translations;
 
-  getAvailableLanguages(): Language[] {
-    return ['de', 'en'];
+    for (const keyPart of keys) {
+      if (
+        typeof current === 'object' &&
+        current !== null &&
+        keyPart in current
+      ) {
+        current = (current as Record<string, unknown>)[keyPart];
+      } else {
+        console.warn(`Translation key "${key}" not found`);
+        return key;
+      }
+    }
+
+    return typeof current === 'string' ? current : key;
   }
 
   private async loadTranslations(language: Language): Promise<void> {
-    if (this.translationsCache.has(language)) {
-      this.currentTranslations.set(this.translationsCache.get(language)!);
-      return;
-    }
-
     this.isLoading.set(true);
 
     try {
@@ -85,43 +102,62 @@ export class TranslationService {
       this.translationsCache.set(language, translations);
       this.currentTranslations.set(translations);
     } catch (error) {
-      console.error(
-        `Failed to load translations for language: ${language}`,
-        error,
-      );
-
-      if (language !== 'de' && this.translationsCache.has('de')) {
-        this.currentTranslations.set(this.translationsCache.get('de')!);
-      }
+      this.handleLoadError(language, error);
     } finally {
       this.isLoading.set(false);
     }
   }
 
-  private initializeLanguage(): void {
-    const storedLanguage = this.getLanguageFromStorage();
-    const browserLanguage = navigator.language.startsWith('de') ? 'de' : 'en';
-    const initialLanguage = storedLanguage || browserLanguage;
-
-    this.currentLanguage.set(initialLanguage);
+  private setTranslationsFromCache(language: Language): void {
+    const translations = this.translationsCache.get(language)!;
+    this.currentTranslations.set(translations);
   }
 
-  private getLanguageFromStorage(): Language | null {
+  private handleLoadError(language: Language, error: unknown): void {
+    console.error(`Failed to load translations for ${language}:`, error);
+
+    if (
+      language !== TranslationService.DEFAULT_LANGUAGE &&
+      this.translationsCache.has(TranslationService.DEFAULT_LANGUAGE)
+    ) {
+      this.setTranslationsFromCache(TranslationService.DEFAULT_LANGUAGE);
+    }
+  }
+
+  private initializeLanguage(): void {
+    const storedLanguage = this.getStoredLanguage();
+    const browserLanguage = this.getBrowserLanguage();
+    const language = storedLanguage ?? browserLanguage;
+
+    this.currentLanguage.set(language);
+  }
+
+  private getBrowserLanguage(): Language {
+    return navigator.language.startsWith('de') ? 'de' : 'en';
+  }
+
+  private getStoredLanguage(): Language | null {
     try {
-      const storedLanguage = localStorage.getItem('portfolio-lang') as Language;
-      return this.getAvailableLanguages().includes(storedLanguage)
-        ? storedLanguage
-        : null;
+      const stored = localStorage.getItem(
+        TranslationService.STORAGE_KEY,
+      ) as Language;
+      return this.isValidLanguage(stored) ? stored : null;
     } catch {
       return null;
     }
   }
 
-  private saveLanguageToStorage(language: Language): void {
+  private isValidLanguage(language: string): language is Language {
+    return TranslationService.AVAILABLE_LANGUAGES.includes(
+      language as Language,
+    );
+  }
+
+  private persistLanguage(language: Language): void {
     try {
-      localStorage.setItem('portfolio-lang', language);
+      localStorage.setItem(TranslationService.STORAGE_KEY, language);
     } catch {
-      // Silent fail für SSR/Tests
+      // Silent fail for SSR/incognito
     }
   }
 }

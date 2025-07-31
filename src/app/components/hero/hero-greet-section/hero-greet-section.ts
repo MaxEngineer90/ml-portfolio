@@ -9,6 +9,7 @@ import {
 import { TranslateDirective } from '../../../directives/translation';
 import { TranslationService } from '../../../services/translation';
 import { TranslationKey } from '../../../types/translation';
+import { ChangeDetectionStrategy } from '@angular/core';
 
 
 @Component({
@@ -16,6 +17,7 @@ import { TranslationKey } from '../../../types/translation';
   imports: [TranslateDirective],
   templateUrl: './hero-greet-section.html',
   styleUrl: './hero-greet-section.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroGreetSection implements OnInit, OnDestroy {
   private readonly translationService = inject(TranslationService);
