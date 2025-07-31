@@ -1,0 +1,12 @@
+<button
+  (click)="toggleLanguage()"
+  [disabled]="isLoading"
+  class="p-2 rounded-lg bg-card hover:bg-muted border border-border transition-all duration-200 text-sm font-medium disabled:opacity-50"
+  [title]="translateFunction('language.switch')"
+>
+  @if (isLoading) {
+    <span class="animate-pulse">⏳</span>
+  } @else {
+    {{ currentLanguage === "de" ? "🇺🇸 EN" : "🇩🇪 DE" }}
+  }
+</button>

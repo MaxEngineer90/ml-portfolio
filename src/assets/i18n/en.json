@@ -1,0 +1,37 @@
+{
+  "nav": {
+    "about": "About me",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "menu": {
+    "close": "Close menu",
+    "open": "Open menu",
+    "social": "Social Links"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "Max",
+    "titles": {
+      "cleanCode": "Clean Code Advocate",
+      "fullstack": "Passionate Fullstack Developer",
+      "expert": "Java Spring Angular Expert",
+      "problemSolver": "Innovative Problem Solver"
+    },
+    "description": "From idea to implementation - I develop websites and web applications with cutting-edge technologies.",
+    "buttons": {
+      "projects": "Discover my projects →",
+      "contact": "Let's talk",
+      "projectsAria": "Discover my projects",
+      "contactAria": "Get in touch"
+    }
+  },
+  "buttons": {
+    "projects": "View projects",
+    "contact": "Get in touch"
+  },
+  "language": {
+    "switch": "Auf Deutsch wechseln"
+  }
+}

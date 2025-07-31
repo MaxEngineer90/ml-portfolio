@@ -1,12 +1,12 @@
 <button
   (click)="toggleMenu()"
   class="p-2 rounded-lg bg-card hover:bg-muted border border-border transition-all duration-200"
-  aria-label="Menu schließen"
+  [attr.aria-label]="isMenuOpen() ? (translateFunction('menu.close')) : (translateFunction('menu.open'))"
 >
   @if (isMenuOpen()) {
     <img
       ngSrc="assets/images/icons/x-mark.svg"
-      alt="Menu schließen"
+      [alt]="translateFunction('menu.close')"
       width="20"
       height="20"
       class="text-white transition-transform duration-200"
@@ -14,7 +14,7 @@
   } @else {
     <img
       ngSrc="assets/images/icons/hamburger.svg"
-      alt="Menu öffnen"
+      [alt]="translateFunction('menu.open')"
       width="20"
       height="20"
       class="text-white transition-transform duration-200"
@@ -32,35 +32,34 @@
           href="#about"
           (click)="closeMenu()"
           class="block text-muted-foreground hover:text-primary transition-colors duration-200 py-2 text-base font-medium"
-        >
-          Über mich
-        </a>
+          appTranslate="nav.about"
+        ></a>
         <a
           href="#projects"
           (click)="closeMenu()"
           class="block text-muted-foreground hover:text-primary transition-colors duration-200 py-2 text-base font-medium"
-        >
-          Projekte
-        </a>
+          appTranslate="nav.projects"
+        ></a>
         <a
           href="#skills"
           (click)="closeMenu()"
           class="block text-muted-foreground hover:text-primary transition-colors duration-200 py-2 text-base font-medium"
-        >
-          Skills
-        </a>
+          appTranslate="nav.skills"
+        ></a>
         <a
           href="#contact"
           (click)="closeMenu()"
           class="block text-muted-foreground hover:text-primary transition-colors duration-200 py-2 text-base font-medium"
-        >
-          Kontakt
-        </a>
+          appTranslate="nav.contact"
+        ></a>
       </nav>
 
       <div class="flex flex-col space-y-3">
         <div class="flex items-center justify-between">
-          <span class="text-muted-foreground text-sm">Social Links</span>
+          <span
+            class="text-muted-foreground text-sm"
+            appTranslate="menu.social"
+          ></span>
           <div class="flex space-x-3">
             <a
               href="https://github.com/maxengineer90"

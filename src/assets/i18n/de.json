@@ -1,0 +1,37 @@
+{
+  "nav": {
+    "about": "Über mich",
+    "projects": "Projekte",
+    "skills": "Skills",
+    "contact": "Kontakt"
+  },
+  "menu": {
+    "close": "Menu schließen",
+    "open": "Menu öffnen",
+    "social": "Social Links"
+  },
+  "hero": {
+    "greeting": "Hallo, ich bin",
+    "name": "Max",
+    "titles": {
+      "cleanCode": "Verfechter von Clean Code",
+      "fullstack": "Fullstack Developer aus Leidenschaft",
+      "expert": "Java Spring Angular Profi",
+      "problemSolver": "Innovativer Problemlöser"
+    },
+    "description": "Von der Idee bis zur Implementierung - ich entwickle Websites und Webanwendungen mit modernsten Technologien.",
+    "buttons": {
+      "projects": "Meine Projekte entdecken →",
+      "contact": "Lass uns sprechen",
+      "projectsAria": "Meine Projekte entdecken",
+      "contactAria": "Kontakt aufnehmen"
+    }
+  },
+  "buttons": {
+    "projects": "Projekte ansehen",
+    "contact": "Kontakt aufnehmen"
+  },
+  "language": {
+    "switch": "Switch to English"
+  }
+}
