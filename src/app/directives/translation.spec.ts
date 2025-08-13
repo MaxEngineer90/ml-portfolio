@@ -1,8 +1,8 @@
-import { Translation } from './translation';
+import { TranslateDirective } from './translation';
 
 describe('Translation', () => {
   it('should create an instance', () => {
-    const directive = new Translation();
+    const directive = new TranslateDirective();
     expect(directive).toBeTruthy();
   });
 });
