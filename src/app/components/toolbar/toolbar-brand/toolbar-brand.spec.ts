@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { describe, it, expect, beforeEach } from 'vitest';
 import { ToolbarBrand } from './toolbar-brand';
 
 describe('ToolbarBrand', () => {
@@ -9,8 +9,7 @@ describe('ToolbarBrand', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ToolbarBrand]
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ToolbarBrand);
     component = fixture.componentInstance;

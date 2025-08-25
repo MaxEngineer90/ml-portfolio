@@ -1,16 +1,19 @@
+import { describe, it, expect, beforeEach } from 'vitest';
 import { TestBed } from '@angular/core/testing';
+import { TranslationService } from './translation';
 
-import { Translation } from './translation';
-
-describe('Translation', () => {
-  let service: Translation;
+describe('TranslationService', () => {
+  let service: TranslationService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(Translation);
+    TestBed.configureTestingModule({
+      providers: [TranslationService]
+    });
+
+    service = TestBed.inject(TranslationService);
   });
 
-  it('should be created', () => {
+  it('should create', () => {
     expect(service).toBeTruthy();
   });
 });

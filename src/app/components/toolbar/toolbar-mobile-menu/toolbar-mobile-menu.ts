@@ -1,5 +1,10 @@
 import { NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  signal,
+} from '@angular/core';
 import { TranslationService } from '../../../services/translation';
 
 @Component({
@@ -7,7 +12,7 @@ import { TranslationService } from '../../../services/translation';
   imports: [NgOptimizedImage],
   templateUrl: './toolbar-mobile-menu.html',
   styleUrl: './toolbar-mobile-menu.css',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToolbarMobileMenu {
   private readonly translationService = inject(TranslationService);

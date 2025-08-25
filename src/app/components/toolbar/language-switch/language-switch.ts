@@ -6,7 +6,7 @@ import { TranslationService } from '../../../services/translation';
   imports: [],
   templateUrl: './language-switch.html',
   styleUrl: './language-switch.css',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LanguageSwitch {
   private readonly translationService = inject(TranslationService);

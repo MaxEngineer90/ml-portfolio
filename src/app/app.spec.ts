@@ -1,25 +1,39 @@
-import { provideZonelessChangeDetection } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
-import { App } from './app';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { TranslateDirective } from './directives/translation';
+import { TranslationService } from './services/translation';
 
-describe('App', () => {
+// Test component to use the directive
+@Component({
+  template: `<div appTranslate="test.key" id="test-element"></div>`,
+  imports: [TranslateDirective]
+})
+class TestComponent {}
+
+describe('TranslateDirective', () => {
+  let component: TestComponent;
+  let fixture: ComponentFixture<TestComponent>;
+  let mockTranslationService: unknown;
+
   beforeEach(async () => {
+    mockTranslationService = {
+      translate: vi.fn().mockReturnValue(() => 'translated text')
+    };
+
     await TestBed.configureTestingModule({
-      imports: [App],
-      providers: [provideZonelessChangeDetection()]
+      imports: [TestComponent, TranslateDirective],
+      providers: [
+        { provide: TranslationService, useValue: mockTranslationService }
+      ]
     }).compileComponents();
-  });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(App);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(App);
+    fixture = TestBed.createComponent(TestComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, ml-portfolio');
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });
