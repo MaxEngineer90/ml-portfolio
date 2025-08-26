@@ -1,37 +1,8 @@
 {
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit"
-  },
-  "typescript.preferences.organizeImportsType": "relative",
-  "typescript.preferences.includePackageJsonAutoImports": "on",
-  "emmet.includeLanguages": {
-    "typescript": "html"
-  },
-  "files.associations": {
-    "*.html": "html"
-  },
-  "css.validate": false,
-  "scss.validate": false,
-  "less.validate": false,
-  "tailwindCSS.includeLanguages": {
-    "typescript": "html",
-    "html": "html"
-  },
-  "tailwindCSS.classAttributes": ["class", "className", "ngClass"],
-  "tailwindCSS.experimental.classRegex": ["class:\\s*['\"`]([^'\"`]*)['\"`]"],
-
-  // Tab-Completion Einstellungen
-  "editor.tabCompletion": "on",
-  "editor.acceptSuggestionOnEnter": "on",
-  "editor.inlineSuggest.enabled": true,
-  "editor.inlineSuggest.showToolbar": "always",
-  "editor.quickSuggestions": {
-    "other": true,
-    "comments": false,
-    "strings": false
-  },
-  "editor.suggestOnTriggerCharacters": true,
-  "editor.parameterHints.enabled": true
+  "vitest.enable": true,
+  "vitest.commandLine": "npm test",
+  "vitest.include": ["**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
+  "vitest.exclude": ["**/node_modules/**", "**/dist/**"],
+  "testing.openTesting": "neverOpen",
+  "testing.automaticallyOpenTestResults": "neverOpen"
 }

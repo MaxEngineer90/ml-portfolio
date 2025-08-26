@@ -1,20 +1,33 @@
 import { NgOptimizedImage } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  signal,
+} from '@angular/core';
+import { TranslationService } from '../../../services/translation';
 
 @Component({
   selector: 'app-toolbar-mobile-menu',
   imports: [NgOptimizedImage],
   templateUrl: './toolbar-mobile-menu.html',
   styleUrl: './toolbar-mobile-menu.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToolbarMobileMenu {
-  isMenuOpen = signal(false);
+  private readonly translationService = inject(TranslationService);
 
-  toggleMenu() {
+  readonly isMenuOpen = signal(false);
+
+  get translateFunction() {
+    return this.translationService.translate();
+  }
+
+  toggleMenu(): void {
     this.isMenuOpen.set(!this.isMenuOpen());
   }
 
-  closeMenu() {
+  closeMenu(): void {
     this.isMenuOpen.set(false);
   }
 }
