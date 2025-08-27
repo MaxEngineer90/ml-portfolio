@@ -33,5 +33,15 @@
   },
   "language": {
     "switch": "Switch to English"
+  },
+  "about": {
+    "description1": "Hi! Ich bin Max und liebe es, komplexe Probleme in elegante digitale Lösungen zu verwandeln. ",
+    "description2": "In meiner täglichen Arbeit als Fullstack Developer bringe ich Frontend und Backend zusammen – von Angular-Interfaces bis zu robusten Java Spring Anwendungen. ",
+    "description3": "Was mich antreibt? Die Begeisterung für sauberen, wartbaren Code und die Freude daran, Ideen zum Leben zu erwecken. ",
+    "description4": "Wenn ich nicht gerade code, experimentiere ich mit neuen Technologien oder teile mein Wissen mit der Developer-Community."
+  },
+  "skills": {
+    "testing": "Testen",
+    "tools": "Sonstiges"
   }
 }
