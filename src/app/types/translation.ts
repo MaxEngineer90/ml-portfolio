@@ -36,6 +36,20 @@ export interface Translations {
   language: {
     switch: string;
   };
+  about: {
+    description1: string;
+    description2: string;
+    description3: string;
+    description4: string;
+    stats: {
+      experience: string;
+      projects: string;
+    };
+  };
+  skills: {
+    testing: string;
+    tools: string;
+  };
 }
 
 export type TranslationKey =
@@ -59,4 +73,12 @@ export type TranslationKey =
   | 'hero.buttons.contactAria'
   | 'buttons.projects'
   | 'buttons.contact'
-  | 'language.switch';
+  | 'language.switch'
+  | 'about.description1'
+  | 'about.description2'
+  | 'about.description3'
+  | 'about.description4'
+  | 'about.stats.experience'
+  | 'about.stats.projects'
+  | 'skills.testing'
+  | 'skills.tools';

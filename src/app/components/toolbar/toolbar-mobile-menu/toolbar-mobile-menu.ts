@@ -6,10 +6,12 @@ import {
   signal,
 } from '@angular/core';
 import { TranslationService } from '../../../services/translation';
+import { LanguageSwitch } from "../language-switch/language-switch";
+import { TranslateDirective } from '../../../directives/translation';
 
 @Component({
   selector: 'app-toolbar-mobile-menu',
-  imports: [NgOptimizedImage],
+    imports: [NgOptimizedImage, LanguageSwitch, TranslateDirective],
   templateUrl: './toolbar-mobile-menu.html',
   styleUrl: './toolbar-mobile-menu.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
