@@ -1,15 +1,11 @@
-import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
-import { TranslationService } from "../../services/translation";
-import { TranslateDirective } from "../../directives/translation";
-import { Skills } from "./skills/skills";
-
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TranslateDirective } from '../../directives/translation';
 
 @Component({
   selector: 'app-about-me',
-  imports: [TranslateDirective, Skills],
+  imports: [TranslateDirective],
   templateUrl: './about-me.html',
   styleUrl: './about-me.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AboutMe {
-}
+export class AboutMe {}

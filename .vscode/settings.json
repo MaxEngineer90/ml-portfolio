@@ -1,8 +1,26 @@
 {
-  "vitest.enable": true,
-  "vitest.commandLine": "npm test",
-  "vitest.include": ["**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
-  "vitest.exclude": ["**/node_modules/**", "**/dist/**"],
-  "testing.openTesting": "neverOpen",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+
+  // organize imports + fixAll (nur beim Speichern im Workspace)
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.fixAll": "explicit",
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.codeActionsOnSaveMode": "explicit",
+
+  // Prettier explizit verwenden
+  "prettier.configPath": ".prettierrc",
+
+  // ESLint im TS & HTML (Angular-Templates) aktivieren, falls vorhanden
+  "eslint.validate": ["typescript", "html"],
+  "eslint.alwaysShowStatus": true,
+
+  // TS/JS-Import-Style & Quotes
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.preferences.importModuleSpecifier": "shortest",
+  "javascript.preferences.quoteStyle": "single",
+
   "testing.automaticallyOpenTestResults": "neverOpen"
 }

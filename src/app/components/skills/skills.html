@@ -1,0 +1,77 @@
+<section id="skills" class="py-30">
+  <div class="container mx-auto px-6">
+    <h2 class="text-right text-4xl font-bold md:text-5xl">Skills</h2>
+    <div class="bg-primary mt-3 mb-8 ml-auto h-1 w-24 rounded-full"></div>
+
+    <div class="flex flex-col items-stretch gap-6 md:items-end">
+      <!-- FRONTEND -->
+      <section
+        class="group border-border/60 bg-card w-full max-w-none overflow-hidden rounded-2xl border p-6 shadow-sm transition-[width] duration-350 ease-[cubic-bezier(0.22,1,0.36,1)] hover:shadow-lg md:w-[24rem] md:self-end md:hover:w-[clamp(30rem,65vw,38rem)] lg:hover:w-[clamp(35rem,56vw,42.5rem)]"
+      >
+        <h3 class="text-primary mb-3 text-left text-xl font-bold md:text-right">
+          Frontend
+        </h3>
+        <ul class="flex flex-wrap gap-3 md:flex-nowrap md:justify-end">
+          @for (skill of frontend; track skill.icon) {
+            <app-skill-badge
+              [icon]="skill.icon"
+              [label]="skill.label"
+            ></app-skill-badge>
+          }
+        </ul>
+      </section>
+
+      <!-- BACKEND -->
+      <section
+        class="group border-border/60 bg-card w-full max-w-none overflow-hidden rounded-2xl border p-6 shadow-sm transition-[width] duration-350 ease-[cubic-bezier(0.22,1,0.36,1)] hover:shadow-lg md:w-[24rem] md:self-end md:hover:w-[clamp(30rem,65vw,38rem)] lg:hover:w-[clamp(34rem,55vw,40rem)]"
+      >
+        <h3 class="text-primary mb-3 text-left text-xl font-bold md:text-right">
+          Backend
+        </h3>
+        <ul class="flex flex-wrap gap-3 md:flex-nowrap md:justify-end">
+          @for (skill of backend; track skill.icon) {
+            <app-skill-badge
+              [icon]="skill.icon"
+              [label]="skill.label"
+            ></app-skill-badge>
+          }
+        </ul>
+      </section>
+
+      <!-- TESTING -->
+      <section
+        class="group border-border/60 bg-card w-full max-w-none overflow-hidden rounded-2xl border p-6 shadow-sm transition-[width] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:shadow-lg md:w-[24rem] md:self-end md:hover:w-[clamp(28rem,50vw,30rem)]"
+      >
+        <h3 class="text-primary mb-3 text-left text-xl font-bold md:text-right">
+          Testen
+        </h3>
+        <ul class="flex flex-wrap gap-3 md:flex-nowrap md:justify-end">
+          @for (skill of testing; track skill.icon) {
+            <app-skill-badge
+              [icon]="skill.icon"
+              [label]="skill.label"
+            ></app-skill-badge>
+          }
+        </ul>
+      </section>
+
+      <!-- TOOLS -->
+      <section
+        class="group border-border/60 bg-card w-full max-w-none overflow-hidden rounded-2xl border p-6 shadow-sm transition-[width] duration-350 ease-[cubic-bezier(0.22,1,0.36,1)] hover:shadow-lg md:w-[24rem] md:self-end md:hover:w-[clamp(30rem,65vw,38rem)] lg:hover:w-[clamp(34rem,55vw,40.5rem)]"
+      >
+        <h3
+          class="text-primary mb-3 text-left text-xl font-bold md:text-right"
+          appTranslate="skills.tools"
+        ></h3>
+        <ul class="flex flex-wrap gap-3 md:flex-nowrap md:justify-end">
+          @for (skill of tools; track skill.icon) {
+            <app-skill-badge
+              [icon]="skill.icon"
+              [label]="skill.label"
+            ></app-skill-badge>
+          }
+        </ul>
+      </section>
+    </div>
+  </div>
+</section>
