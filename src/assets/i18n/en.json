@@ -43,5 +43,18 @@
   "skills": {
     "testing": "Testing",
     "tools": "Something"
+  },
+  "repo": {
+    "updated": "Last updated ",
+    "view": "View on GitHub",
+    "viewAria": "Open “{{name}}” on GitHub (new tab)",
+    "demo": "Live Demo",
+    "demoAria": "Open live demo of “{{name}}” (external)",
+    "showMore": "Show more",
+    "showLess": "Show less"
+
+  },
+  "errors": {
+    "githubLoadFailed": "Failed to load GitHub repositories."
   }
 }

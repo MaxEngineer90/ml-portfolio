@@ -1,26 +1,70 @@
 {
+  // ==== Formatting (Prettier) ====
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
+  "prettier.requireConfig": true,
+  "prettier.printWidth": 100,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "es5",
+  "prettier.semi": true,
 
-  // organize imports + fixAll (nur beim Speichern im Workspace)
+  // ==== Auto-fixes & Imports on Save ====
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit",
     "source.fixAll": "explicit",
     "source.fixAll.eslint": "explicit"
   },
-  "editor.codeActionsOnSaveMode": "explicit",
-
-  // Prettier explizit verwenden
-  "prettier.configPath": ".prettierrc",
-
-  // ESLint im TS & HTML (Angular-Templates) aktivieren, falls vorhanden
-  "eslint.validate": ["typescript", "html"],
-  "eslint.alwaysShowStatus": true,
-
-  // TS/JS-Import-Style & Quotes
-  "typescript.preferences.quoteStyle": "single",
+  "editor.codeActionsOnSaveMode": "all",
+  "typescript.suggest.autoImports": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.preferences.importModuleSpecifier": "shortest",
-  "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "single",
 
-  "testing.automaticallyOpenTestResults": "neverOpen"
+  // ==== Use workspace TypeScript ====
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  // ==== ESLint ====
+  "eslint.enable": true,
+  "eslint.format.enable": true,
+  "eslint.useFlatConfig": true,
+  "eslint.validate": ["typescript", "typescriptreact", "html", "json"],
+
+  // ==== Tailwind / CSS ====
+  "tailwindCSS.emmetCompletions": true,
+  "css.lint.unknownAtRules": "ignore",
+
+  // ==== Angular templates ====
+  "html.format.wrapLineLength": 100,
+  "html.format.endWithNewline": false,
+
+  // ==== Editor UX ====
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.renderWhitespace": "selection",
+  "editor.minimap.enabled": false,
+  "editor.smoothScrolling": true,
+  "editor.stickyScroll.enabled": true,
+  "editor.rulers": [100],
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "explorer.compactFolders": false,
+
+  // ==== Terminal ====
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.defaultProfile.osx": "bash",
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+
+  // ==== Git ====
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "git.autofetch": true,
+
+  // ==== Extensions behaviour (optional but handy) ====
+  "cSpell.enabled": false,
+  "editor.inlineSuggest.enabled": true,
+  "workbench.startupEditor": "none",
+  "[snippets]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
 }

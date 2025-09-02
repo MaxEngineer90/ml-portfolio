@@ -43,5 +43,18 @@
   "skills": {
     "testing": "Testen",
     "tools": "Sonstiges"
+  },
+  "repo": {
+    "updated": "Zuletzt geupdatet ",
+    "view": "Auf GitHub ansehen",
+    "viewAria": "„{{name}}“ auf GitHub öffnen (neuer Tab)",
+    "demo": "Live-Demo",
+    "demoAria": "Live-Demo von „{{name}}“ öffnen (extern)",
+    "showMore": "Mehr anzeigen",
+    "showLess": "Weniger anzeigen"
+  },
+
+  "errors": {
+    "githubLoadFailed": "Die GitHub-Repositories konnten nicht geladen werden."
   }
 }

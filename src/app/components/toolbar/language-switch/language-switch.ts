@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { TranslationService } from '../../../services/translation';
+import { TranslationService } from '../../../services/translation/translation';
 
 @Component({
   selector: 'app-language-switch',

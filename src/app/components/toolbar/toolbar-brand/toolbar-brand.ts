@@ -6,13 +6,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   imports: [NgOptimizedImage],
   templateUrl: './toolbar-brand.html',
   styleUrl: './toolbar-brand.css',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToolbarBrand {
- scrollToTop(): void {
+  scrollToTop(): void {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   }
 }

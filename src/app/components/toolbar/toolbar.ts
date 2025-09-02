@@ -9,6 +9,6 @@ import { ToolbarNavigation } from './toolbar-navigation/toolbar-navigation';
   imports: [ToolbarBrand, ToolbarNavigation, ToolbarMobileMenu, LanguageSwitch],
   templateUrl: './toolbar.html',
   styleUrl: './toolbar.css',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Toolbar {}

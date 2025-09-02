@@ -1,0 +1,69 @@
+@let repository = repo();
+
+<article
+  class="w-full mx-auto max-w-[640px] md:max-w-[720px] border border-border/60 bg-card rounded-2xl shadow-sm hover:shadow-lg transition-shadow p-6"
+>
+  <!-- Header -->
+  <header class="flex items-center gap-3">
+    <div class="min-w-0">
+      <p class="block truncate text-2xl font-semibold text-foreground">
+        {{ repository.name }}
+      </p>
+      <span class="text-sm text-muted-foreground truncate font-semibold">
+        <span appTranslate="repo.updated"> </span>
+        <span>{{ formatDate(repository.pushed_at) }}</span>
+      </span>
+    </div>
+  </header>
+
+  <!-- Description -->
+  @if (repository.description) {
+    <p class="mt-4 text-muted-foreground leading-relaxed">
+      {{ repository.description }}
+    </p>
+  }
+
+  <!-- Actions -->
+  @if (showActions()) {
+    <footer class="mt-5 flex flex-wrap gap-3">
+      <a
+        class="inline-flex items-center gap-2 rounded-xl bg-card px-4 py-2 text-sm font-semibold text-white shadow hover:shadow-md hover:translate-y-[1px] transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#24292e]/50"
+        [href]="repository.html_url"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span appTranslate="repo.view"></span>
+        <img
+          ngSrc="assets/images/external-link.svg"
+          alt=""
+          width="14"
+          height="14"
+          loading="lazy"
+          decoding="async"
+          class="inline-block opacity-80"
+        />
+      </a>
+
+      @let repositoryNameLower = repository.name.toLowerCase();
+      @if (repository.homepage && repositoryNameLower !== "ml-portfolio") {
+        <a
+          class="inline-flex items-center gap-2 rounded-xl border border-border/60 bg-card px-4 py-2 text-sm font-medium hover:bg-accent transition focus:outline-none focus:ring-2focus:ring-[#24292e]/50 focus:ring-offset-2 focus:ring-offset-[color:var(--color-background)]"
+          [href]="repository.homepage"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span appTranslate="repo.demo"></span>
+        </a>
+        <img
+          ngSrc="assets/images/external-link.svg"
+          alt=""
+          width="14"
+          height="14"
+          loading="lazy"
+          decoding="async"
+          class="inline-block"
+        />
+      }
+    </footer>
+  }
+</article>

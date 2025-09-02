@@ -9,9 +9,8 @@ describe('ToolbarNavigation', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ToolbarNavigation]
-    })
-    .compileComponents();
+      imports: [ToolbarNavigation],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ToolbarNavigation);
     component = fixture.componentInstance;

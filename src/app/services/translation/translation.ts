@@ -1,7 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { computed, effect, inject, Injectable, signal } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
-import { Language, TranslationKey, Translations } from '../types/translation';
+import {
+  Language,
+  TranslationKey,
+  Translations,
+} from '../../types/translation';
 
 @Injectable({
   providedIn: 'root',

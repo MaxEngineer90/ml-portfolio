@@ -6,12 +6,12 @@ describe('TranslateDirective', () => {
     // Mock der Dependencies
     const mockElementRef = {
       nativeElement: {
-        textContent: ''
-      }
+        textContent: '',
+      },
     };
 
     const mockTranslationService = {
-      translate: vi.fn().mockReturnValue(() => 'translated text')
+      translate: vi.fn().mockReturnValue(() => 'translated text'),
     };
 
     expect(TranslateDirective).toBeDefined();

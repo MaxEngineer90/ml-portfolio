@@ -50,6 +50,18 @@ export interface Translations {
     testing: string;
     tools: string;
   };
+  repo: {
+    updated: string;
+    view: string;
+    viewAria: string;
+    demo: string;
+    demoAria: string;
+    showMore:string;
+    showLess:string;
+  };
+  errors: {
+    githubLoadFailed: string;
+  };
 }
 
 export type TranslationKey =
@@ -81,4 +93,12 @@ export type TranslationKey =
   | 'about.stats.experience'
   | 'about.stats.projects'
   | 'skills.testing'
-  | 'skills.tools';
+  | 'skills.tools'
+  | 'repo.updated'
+  | 'repo.view'
+  | 'repo.viewAria'
+  | 'repo.demo'
+  | 'repo.demoAria'
+  | 'repo.showMore'
+  | 'repo.showLess'
+  | 'errors.githubLoadFailed';
