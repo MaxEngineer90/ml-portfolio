@@ -8,7 +8,7 @@ describe('ToolbarBrand', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ToolbarBrand]
+      imports: [ToolbarBrand],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ToolbarBrand);

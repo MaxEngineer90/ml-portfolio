@@ -9,9 +9,8 @@ describe('ToolbarMobileMenu', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ToolbarMobileMenu]
-    })
-    .compileComponents();
+      imports: [ToolbarMobileMenu],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ToolbarMobileMenu);
     component = fixture.componentInstance;

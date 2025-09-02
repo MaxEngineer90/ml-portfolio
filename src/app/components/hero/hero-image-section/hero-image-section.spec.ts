@@ -9,9 +9,8 @@ describe('HeroImageSection', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeroImageSection]
-    })
-    .compileComponents();
+      imports: [HeroImageSection],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HeroImageSection);
     component = fixture.componentInstance;

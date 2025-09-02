@@ -1,0 +1,20 @@
+<li class="list-none">
+  <button
+    type="button"
+    class="group/item border-border bg-background text-foreground inline-flex items-center justify-center rounded-lg border px-3 py-2 text-sm font-medium transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] md:px-3.5 md:py-2"
+    [attr.aria-label]="label()"
+  >
+    <img
+      [ngSrc]="iconPath()"
+      [alt]="label()"
+      width="12"
+      height="12"
+      class="h-5 w-5 shrink-0 object-contain md:h-4 md:w-4"
+    />
+    <span
+      class="ml-2 max-w-none whitespace-nowrap opacity-100 transition-[opacity,max-width,margin] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] md:max-w-0 md:opacity-0 md:group-hover:ml-2 md:group-hover:max-w-none md:group-hover:opacity-100"
+    >
+      {{ label() }}
+    </span>
+  </button>
+</li>

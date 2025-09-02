@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   effect,
   inject,
@@ -7,10 +8,8 @@ import {
   signal,
 } from '@angular/core';
 import { TranslateDirective } from '../../../directives/translation';
-import { TranslationService } from '../../../services/translation';
+import { TranslationService } from '../../../services/translation/translation';
 import { TranslationKey } from '../../../types/translation';
-import { ChangeDetectionStrategy } from '@angular/core';
-
 
 @Component({
   selector: 'app-hero-greet-section',

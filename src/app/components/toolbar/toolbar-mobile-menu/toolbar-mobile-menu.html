@@ -1,7 +1,11 @@
 <button
   (click)="toggleMenu()"
   class="p-2 rounded-lg bg-card hover:bg-muted border border-border transition-all duration-200"
-  [attr.aria-label]="isMenuOpen() ? (translateFunction('menu.close')) : (translateFunction('menu.open'))"
+  [attr.aria-label]="
+    isMenuOpen()
+      ? translateFunction('menu.close')
+      : translateFunction('menu.open')
+  "
 >
   @if (isMenuOpen()) {
     <img
@@ -27,7 +31,6 @@
     class="fixed top-16 left-0 right-0 bg-background border-b border-border z-50 md:hidden animate-slide-in-from-bottom"
   >
     <div class="container mx-auto px-4 py-6">
-
       <!-- Navigation Links -->
       <nav class="space-y-4 mb-6">
         <a
@@ -37,16 +40,16 @@
           appTranslate="nav.about"
         ></a>
         <a
-          href="#projects"
-          (click)="closeMenu()"
-          class="block text-muted-foreground hover:text-primary transition-colors duration-200 py-2 text-base font-medium"
-          appTranslate="nav.projects"
-        ></a>
-        <a
           href="#skills"
           (click)="closeMenu()"
           class="block text-muted-foreground hover:text-primary transition-colors duration-200 py-2 text-base font-medium"
           appTranslate="nav.skills"
+        ></a>
+        <a
+          href="#projects"
+          (click)="closeMenu()"
+          class="block text-muted-foreground hover:text-primary transition-colors duration-200 py-2 text-base font-medium"
+          appTranslate="nav.projects"
         ></a>
         <a
           href="#contact"
@@ -99,7 +102,6 @@
           </a>
         </div>
       </div>
-
     </div>
   </div>
 }

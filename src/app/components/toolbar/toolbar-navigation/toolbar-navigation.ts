@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TranslateDirective } from '../../../directives/translation';
-import { TranslationService } from '../../../services/translation';
+import { TranslationService } from '../../../services/translation/translation';
 
 @Component({
   selector: 'app-toolbar-navigation',

@@ -9,12 +9,15 @@ import { provideZonelessChangeDetection } from '@angular/core';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
 
-
 getTestBed().initTestEnvironment(
   BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting()
+  platformBrowserDynamicTesting(),
 );
 
 getTestBed().configureTestingModule({
-  providers: [provideZonelessChangeDetection(),provideHttpClient(),provideHttpClientTesting]
+  providers: [
+    provideZonelessChangeDetection(),
+    provideHttpClient(),
+    provideHttpClientTesting,
+  ],
 });

@@ -5,13 +5,13 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { TranslationService } from '../../../services/translation';
-import { LanguageSwitch } from "../language-switch/language-switch";
 import { TranslateDirective } from '../../../directives/translation';
+import { TranslationService } from '../../../services/translation/translation';
+import { LanguageSwitch } from '../language-switch/language-switch';
 
 @Component({
   selector: 'app-toolbar-mobile-menu',
-    imports: [NgOptimizedImage, LanguageSwitch, TranslateDirective],
+  imports: [NgOptimizedImage, LanguageSwitch, TranslateDirective],
   templateUrl: './toolbar-mobile-menu.html',
   styleUrl: './toolbar-mobile-menu.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
