@@ -1,10 +1,10 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SkillBadge } from './skill-badge';
 
 describe('SkillBadge', () => {
-  let component: SkillBadge;
   let fixture: ComponentFixture<SkillBadge>;
+  let component: SkillBadge;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -12,6 +12,10 @@ describe('SkillBadge', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(SkillBadge);
+
+    fixture.componentRef.setInput('icon', 'angular');
+    fixture.componentRef.setInput('label', 'Angular');
+
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
