@@ -1,7 +1,8 @@
-import { HttpClient, httpResource } from '@angular/common/http';
+import { httpResource } from '@angular/common/http';
 import { computed, inject, Injectable } from '@angular/core';
 import { GITHUB_BASE_URL } from '../../tokens/github/github-base-url';
 import { GITHUB_USERNAME } from '../../tokens/github/github-username';
+import { Repo } from '../../types/repo';
 
 @Injectable({
   providedIn: 'root',
