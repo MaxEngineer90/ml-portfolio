@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { TranslateDirective } from '../../../../directives/translation';
 import { TranslationService } from '../../../../services/translation/translation';
+import { Repo } from '../../../../types/repo';
 
 @Component({
   selector: 'app-repository-card',
