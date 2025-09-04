@@ -1,5 +1,11 @@
 import { NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  inject,
+  input,
+} from '@angular/core';
 import { TranslateDirective } from '../../../../directives/translation';
 import { TranslationService } from '../../../../services/translation/translation';
 

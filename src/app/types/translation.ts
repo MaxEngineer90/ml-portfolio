@@ -56,8 +56,8 @@ export interface Translations {
     viewAria: string;
     demo: string;
     demoAria: string;
-    showMore:string;
-    showLess:string;
+    showMore: string;
+    showLess: string;
   };
   errors: {
     githubLoadFailed: string;

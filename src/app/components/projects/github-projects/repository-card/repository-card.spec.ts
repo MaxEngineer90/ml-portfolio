@@ -4,6 +4,7 @@ import { signal } from '@angular/core';
 import { TranslationService } from '../../../../services/translation/translation';
 import { GithubClient } from '../../../../services/github-client/github-client';
 import { GithubProjects } from '../github-projects';
+import { Repo } from '../../../../types/repo';
 
 class TranslationServiceStub {
   language() {
@@ -22,7 +23,7 @@ describe('GithubProjects', () => {
     const githubClientStub = {
       isLoading: signal(false),
       error: signal<string | null>(null),
-      repositories: signal<any[]>([]),
+      repositories: signal<Array<Repo>>([]),
     };
 
     await TestBed.configureTestingModule({

@@ -4,6 +4,7 @@ import { Projects } from './projects';
 
 import { signal } from '@angular/core';
 import { GithubClient } from '../../services/github-client/github-client';
+import { Repo } from '../../types/repo';
 
 describe('Projects', () => {
   let component: Projects;
@@ -13,7 +14,7 @@ describe('Projects', () => {
     const githubClientStub = {
       isLoading: signal(false),
       error: signal<string | null>(null),
-      repositories: signal<any[]>([]),
+      repositories: signal<Array<Repo>>([]),
     };
 
     await TestBed.configureTestingModule({

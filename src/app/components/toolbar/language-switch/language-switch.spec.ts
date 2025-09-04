@@ -6,7 +6,7 @@ import { LanguageSwitch } from './language-switch';
 describe('LanguageSwitch', () => {
   let component: LanguageSwitch;
   let fixture: ComponentFixture<LanguageSwitch>;
-  //TODO: RICHTIG IMPLEMENTIERUNG
+  // TODO: RICHTIG IMPLEMENTIERUNG
   let mockTranslationService: unknown;
 
   beforeEach(async () => {

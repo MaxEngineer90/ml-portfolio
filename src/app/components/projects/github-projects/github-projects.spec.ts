@@ -3,10 +3,15 @@ import { signal } from '@angular/core';
 import { GithubProjects } from './github-projects';
 import { GithubClient } from '../../../services/github-client/github-client';
 import { TranslationService } from '../../../services/translation/translation';
+import { Repo } from '../../../types/repo';
 
 class TranslationServiceStub {
-  language() { return 'en'; }
-  translate() { return (key: string) => key; }
+  language() {
+    return 'en';
+  }
+  translate() {
+    return (key: string) => key;
+  }
 }
 
 describe('GithubProjects', () => {
@@ -17,7 +22,7 @@ describe('GithubProjects', () => {
     const githubClientStub = {
       isLoading: signal(false),
       error: signal<string | null>(null),
-      repositories: signal<any[]>([]),
+      repositories: signal<Array<Repo>>([]),
     };
 
     await TestBed.configureTestingModule({

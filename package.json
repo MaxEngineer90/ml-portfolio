@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "author": "Maximilian Lamm",
   "license": "MIT",
+  "engines": {
+    "node": ">=22.17.1"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -17,7 +20,12 @@
     "format:staged": "prettier --write",
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+     "lint": "eslint . --ext .ts,.html --cache",
+    "lint:fix": "eslint . --ext .ts,.html --fix"
+  },
+  "overrides": {
+    "vite": "6.2.5"
   },
   "prettier": {
     "overrides": [
@@ -43,15 +51,25 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@analogjs/vite-plugin-angular": "^1.19.4",
-    "@analogjs/vitest-angular": "^1.19.4",
+    "@analogjs/vite-plugin-angular": "^1.20.2",
+    "@analogjs/vitest-angular": "^1.20.2",
+    "@angular-eslint/eslint-plugin": "^20.2.0",
+    "@angular-eslint/eslint-plugin-template": "^20.2.0",
+    "@angular-eslint/template-parser": "^20.2.0",
     "@angular/build": "^20.1.6",
     "@angular/cli": "^20.1.6",
     "@angular/compiler": "^20.1.6",
     "@angular/compiler-cli": "^20.1.6",
     "@angular/platform-browser": "^20.1.6",
     "@angular/platform-browser-dynamic": "^20.1.6",
+    "@typescript-eslint/eslint-plugin": "^8.42.0",
+    "@typescript-eslint/parser": "^8.42.0",
     "@vitest/ui": "^3.2.4",
+    "eslint": "^8.57.1",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-vitest": "^0.5.4",
     "jsdom": "^26.1.0",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.13",

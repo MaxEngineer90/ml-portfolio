@@ -5,12 +5,12 @@
   [title]="translateFunction('language.switch')"
 >
   <div class="flex items-center space-x-2">
-    <!-- Language indicator dot -->
+    <! -- Language indicator dot -->
     <div
       class="w-2 h-2 rounded-full transition-all duration-500 ease-out bg-orange-400"
     ></div>
 
-    <!-- Language text with smooth transition -->
+    <! -- Language text with smooth transition -->
     @if (!isLoading) {
       <div class="relative overflow-hidden w-16">
         <span
@@ -48,7 +48,7 @@
       </div>
     }
 
-    <!-- Subtle arrow -->
+    <! -- Subtle arrow -->
     <svg
       class="w-3 h-3 text-white/40 group-hover:text-white/60 transition-all duration-300 group-hover:rotate-180"
       fill="none"
