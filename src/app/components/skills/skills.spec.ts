@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Skills } from './skills';
+import { provideZonelessChangeDetection } from '@angular/core';
+import { MockComponent } from 'ng-mocks';
+import { SkillBadge } from './skill-badge/skill-badge';
 
 describe('Skills', () => {
   let component: Skills;
@@ -8,7 +11,10 @@ describe('Skills', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Skills],
+      imports: [Skills,
+        MockComponent(SkillBadge)
+      ],
+      providers: [ provideZonelessChangeDetection()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(Skills);

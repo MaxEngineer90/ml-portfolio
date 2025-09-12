@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { signal } from '@angular/core';
+import { provideZonelessChangeDetection, signal } from '@angular/core';
 import { GithubProjects } from './github-projects';
 import { GithubClient } from '../../../services/github-client/github-client';
 import { TranslationService } from '../../../services/translation/translation';
@@ -28,6 +28,7 @@ describe('GithubProjects', () => {
     await TestBed.configureTestingModule({
       imports: [GithubProjects],
       providers: [
+         provideZonelessChangeDetection(),
         { provide: GithubClient, useValue: githubClientStub },
         { provide: TranslationService, useClass: TranslationServiceStub },
       ],

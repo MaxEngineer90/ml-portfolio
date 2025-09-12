@@ -41,7 +41,7 @@ export class HeroGreetSection implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.updateCurrentTitle();
-    this.startTitleRotation();
+    this.startTitleRotator();
   }
 
   ngOnDestroy(): void {
@@ -58,8 +58,8 @@ export class HeroGreetSection implements OnInit, OnDestroy {
     this.currentTitle.set(translatedTitle);
   }
 
-  private startTitleRotation(): void {
-    this.intervalId = setInterval(() => {
+  private startTitleRotator(): void {
+    this.intervalId = window.setInterval(() => {
       this.currentIndex = (this.currentIndex + 1) % this.titleKeys.length;
       this.updateCurrentTitle();
     }, 3000);
