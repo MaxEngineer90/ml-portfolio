@@ -1,11 +1,9 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "ml-portfolio": {
       "projectType": "application",
-      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,40 +11,26 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": "dist/ml-portfolio",
+            "index": "src/index.html",
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": ["src/assets"],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.css"]
           },
           "configurations": {
             "production": {
-              "baseHref": "/ml-portfolio/",
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2MB",
-                  "maximumError": "3MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
-                }
-              ],
               "outputHashing": "all",
-              "optimization": {
-                "scripts": true,
-                "styles": true,
-                "fonts": false
-              }
+              "optimization": true,
+              "sourceMap": false,
+              "baseHref": "/ml-portfolio/"
             },
             "development": {
               "optimization": false,
-              "extractLicenses": false,
               "sourceMap": true
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "development"
         },
         "serve": {
           "builder": "@angular/build:dev-server",
@@ -60,18 +44,18 @@
           },
           "defaultConfiguration": "development"
         },
-        "extract-i18n": {
-          "builder": "@angular/build:extract-i18n"
-        },
         "test": {
-          "builder": "@angular/build:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
             "tsConfig": "tsconfig.spec.json",
-            "assets": ["src/assets"],
-            "styles": ["src/styles.css"]
+            "runner": "vitest",
+            "buildTarget": "ml-portfolio:build:development"
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
