@@ -11,7 +11,7 @@ describe('HeroImageSection', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HeroImageSection],
-      providers: [ provideZonelessChangeDetection()],
+      providers: [provideZonelessChangeDetection()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeroImageSection);

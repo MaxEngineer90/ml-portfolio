@@ -21,7 +21,7 @@ describe('LanguageSwitch', () => {
     TestBed.configureTestingModule({
       imports: [LanguageSwitch],
       providers: [
-         provideZonelessChangeDetection(),
+        provideZonelessChangeDetection(),
         { provide: TranslationService, useValue: mockTranslationService },
       ],
     });

@@ -10,7 +10,7 @@ describe('ToolbarBrand', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ToolbarBrand],
-      providers: [ provideZonelessChangeDetection()],
+      providers: [provideZonelessChangeDetection()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ToolbarBrand);

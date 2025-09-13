@@ -10,7 +10,12 @@ describe('TranslationService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [TranslationService, provideHttpClient(), provideHttpClientTesting() ,provideZonelessChangeDetection()],
+      providers: [
+        TranslationService,
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        provideZonelessChangeDetection(),
+      ],
     });
 
     service = TestBed.inject(TranslationService);

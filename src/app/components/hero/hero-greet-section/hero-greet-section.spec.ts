@@ -5,7 +5,6 @@ import { provideZonelessChangeDetection } from '@angular/core';
 import { TranslationService } from '../../../services/translation/translation';
 import { HeroGreetSection } from './hero-greet-section';
 
-
 describe('HeroGreetSection', () => {
   let fixture: ComponentFixture<HeroGreetSection>;
 
@@ -14,7 +13,10 @@ describe('HeroGreetSection', () => {
       imports: [HeroGreetSection],
       providers: [
         provideZonelessChangeDetection(),
-        { provide: TranslationService, useValue: { translate: () => () => '' } },
+        {
+          provide: TranslationService,
+          useValue: { translate: () => () => '' },
+        },
       ],
     })
       .overrideComponent(HeroGreetSection, { set: { template: '' } })
