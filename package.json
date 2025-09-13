@@ -4,14 +4,14 @@
   "author": "Maximilian Lamm",
   "license": "MIT",
   "engines": {
-    "node": ">=22.17.1"
+    "node": ">=22.19.0"
   },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "vitest",
+    "test": "ng test",
     "e2e": "ng e2e",
     "build:prod": "ng build --configuration production",
     "serve:prod": "ng serve --configuration production",
@@ -21,28 +21,15 @@
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
-     "lint": "eslint . --ext .ts,.html --cache",
+    "lint": "eslint . --ext .ts,.html --cache",
     "lint:fix": "eslint . --ext .ts,.html --fix"
-  },
-  "overrides": {
-    "vite": "6.2.5"
-  },
-  "prettier": {
-    "overrides": [
-      {
-        "files": "*.html",
-        "options": {
-          "parser": "angular"
-        }
-      }
-    ]
   },
   "private": true,
   "dependencies": {
-    "@angular/common": "^20.1.6",
-    "@angular/core": "^20.1.6",
-    "@angular/forms": "^20.1.6",
-    "@angular/router": "^20.1.6",
+    "@angular/common": "^20.3.0",
+    "@angular/core": "^20.3.0",
+    "@angular/forms": "^20.3.0",
+    "@angular/router": "^20.3.0",
     "@tailwindcss/postcss": "^4.1.11",
     "flowbite": "^3.1.2",
     "postcss": "^8.5.6",
@@ -51,17 +38,14 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@analogjs/vite-plugin-angular": "^1.20.2",
-    "@analogjs/vitest-angular": "^1.20.2",
     "@angular-eslint/eslint-plugin": "^20.2.0",
     "@angular-eslint/eslint-plugin-template": "^20.2.0",
     "@angular-eslint/template-parser": "^20.2.0",
-    "@angular/build": "^20.1.6",
-    "@angular/cli": "^20.1.6",
-    "@angular/compiler": "^20.1.6",
-    "@angular/compiler-cli": "^20.1.6",
-    "@angular/platform-browser": "^20.1.6",
-    "@angular/platform-browser-dynamic": "^20.1.6",
+    "@angular/build": "^20.3.1",
+    "@angular/cli": "^20.3.1",
+    "@angular/compiler": "^20.3.0",
+    "@angular/compiler-cli": "^20.3.0",
+    "@types/node": "^22.18.2",
     "@typescript-eslint/eslint-plugin": "^8.42.0",
     "@typescript-eslint/parser": "^8.42.0",
     "@vitest/ui": "^3.2.4",
@@ -71,9 +55,26 @@
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-vitest": "^0.5.4",
     "jsdom": "^26.1.0",
+    "ng-mocks": "^14.13.5",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.13",
     "typescript": "~5.8.2",
     "vitest": "^3.2.4"
+  },
+  "prettier": {
+    "overrides": [
+      {
+        "files": "**/*.html",
+        "options": {
+          "parser": "angular"
+        }
+      },
+      {
+        "files": "src/index.html",
+        "options": {
+          "parser": "html"
+        }
+      }
+    ]
   }
 }

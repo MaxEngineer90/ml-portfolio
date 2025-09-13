@@ -2,7 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Projects } from './projects';
 
-import { signal } from '@angular/core';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideZonelessChangeDetection, signal } from '@angular/core';
 import { GithubClient } from '../../services/github-client/github-client';
 import { Repo } from '../../types/repo';
 
@@ -19,7 +21,12 @@ describe('Projects', () => {
 
     await TestBed.configureTestingModule({
       imports: [Projects],
-      providers: [{ provide: GithubClient, useValue: githubClientStub }],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        provideZonelessChangeDetection(),
+        { provide: GithubClient, useValue: githubClientStub },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(Projects);

@@ -1,23 +1,23 @@
-// src/test-setup.ts
-import '@analogjs/vitest-angular/setup-snapshots';
 import {
-  BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting,
-} from '@angular/platform-browser-dynamic/testing';
-import { getTestBed } from '@angular/core/testing';
-import { provideZonelessChangeDetection } from '@angular/core';
-import { provideHttpClientTesting } from '@angular/common/http/testing';
-import { provideHttpClient } from '@angular/common/http';
+  ɵgetCleanupHook as getCleanupHook,
+  getTestBed,
+} from '@angular/core/testing';
+import {
+  BrowserTestingModule,
+  platformBrowserTesting,
+} from '@angular/platform-browser/testing';
+import { afterEach, beforeEach } from 'vitest';
 
+// Einmalige Angular-Testumgebung initialisieren
 getTestBed().initTestEnvironment(
-  BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting(),
+  [BrowserTestingModule],
+  platformBrowserTesting(),
+  {
+    errorOnUnknownElements: true,
+    errorOnUnknownProperties: true,
+  },
 );
 
-getTestBed().configureTestingModule({
-  providers: [
-    provideZonelessChangeDetection(),
-    provideHttpClient(),
-    provideHttpClientTesting,
-  ],
-});
+// Sauber auf-/aufräumen je Testlauf
+beforeEach(getCleanupHook(false));
+afterEach(getCleanupHook(true));

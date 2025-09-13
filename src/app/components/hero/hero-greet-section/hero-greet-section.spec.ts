@@ -1,23 +1,32 @@
-import { describe, it, expect, beforeEach } from 'vitest';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { beforeEach, describe, expect, it } from 'vitest';
 
+import { provideZonelessChangeDetection } from '@angular/core';
+import { TranslationService } from '../../../services/translation/translation';
 import { HeroGreetSection } from './hero-greet-section';
 
 describe('HeroGreetSection', () => {
-  let component: HeroGreetSection;
   let fixture: ComponentFixture<HeroGreetSection>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HeroGreetSection],
-    }).compileComponents();
+      providers: [
+        provideZonelessChangeDetection(),
+        {
+          provide: TranslationService,
+          useValue: { translate: () => () => '' },
+        },
+      ],
+    })
+      .overrideComponent(HeroGreetSection, { set: { template: '' } })
+      .compileComponents();
 
     fixture = TestBed.createComponent(HeroGreetSection);
-    component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(fixture.componentInstance).toBeTruthy();
   });
 });

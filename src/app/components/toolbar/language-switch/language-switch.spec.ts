@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { TranslationService } from '../../../services/translation/translation';
 import { LanguageSwitch } from './language-switch';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('LanguageSwitch', () => {
   let component: LanguageSwitch;
@@ -20,6 +21,7 @@ describe('LanguageSwitch', () => {
     TestBed.configureTestingModule({
       imports: [LanguageSwitch],
       providers: [
+        provideZonelessChangeDetection(),
         { provide: TranslationService, useValue: mockTranslationService },
       ],
     });

@@ -1,7 +1,10 @@
-import { describe, it, expect, beforeEach } from 'vitest';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { beforeEach, describe, expect, it } from 'vitest';
 
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ToolbarNavigation } from './toolbar-navigation';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 describe('ToolbarNavigation', () => {
   let component: ToolbarNavigation;
@@ -10,6 +13,11 @@ describe('ToolbarNavigation', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ToolbarNavigation],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        provideZonelessChangeDetection(),
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ToolbarNavigation);
@@ -21,5 +29,3 @@ describe('ToolbarNavigation', () => {
     expect(component).toBeTruthy();
   });
 });
-
-// TODO: VITEST CONFIGURATION ZONELESS

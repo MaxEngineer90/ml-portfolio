@@ -1,39 +1,40 @@
-import { Component } from '@angular/core';
+import {
+  ApplicationConfig,
+  provideZonelessChangeDetection,
+} from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { TranslateDirective } from './directives/translation';
-import { TranslationService } from './services/translation/translation';
-
-// Test component to use the directive
-@Component({
-  template: `<div appTranslate="test.key" id="test-element"></div>`,
-  imports: [TranslateDirective],
-})
-class TestComponent {}
-
-describe('TranslateDirective', () => {
-  let component: TestComponent;
-  let fixture: ComponentFixture<TestComponent>;
-  let mockTranslationService: unknown;
+import { MockComponent } from 'ng-mocks';
+import { App } from './app';
+import { appConfig } from './app.config';
+import { AboutMe } from './components/about-me/about-me';
+import { Hero } from './components/hero/hero';
+import { Projects } from './components/projects/projects';
+import { Skills } from './components/skills/skills';
+import { Toolbar } from './components/toolbar/toolbar';
+describe('App', () => {
+  let fixture: ComponentFixture<App>;
 
   beforeEach(async () => {
-    mockTranslationService = {
-      translate: vi.fn().mockReturnValue(() => 'translated text'),
-    };
-
     await TestBed.configureTestingModule({
-      imports: [TestComponent, TranslateDirective],
+      imports: [
+        App,
+        MockComponent(Projects),
+        MockComponent(Toolbar),
+        MockComponent(AboutMe),
+        MockComponent(Skills),
+        MockComponent(Hero),
+      ],
       providers: [
-        { provide: TranslationService, useValue: mockTranslationService },
+        provideZonelessChangeDetection(),
+        ...(appConfig.providers as ApplicationConfig['providers']),
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(TestComponent);
-    component = fixture.componentInstance;
+    fixture = TestBed.createComponent(App);
     fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(fixture.componentInstance).toBeTruthy();
   });
 });
