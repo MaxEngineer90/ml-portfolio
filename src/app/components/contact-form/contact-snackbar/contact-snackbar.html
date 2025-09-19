@@ -1,0 +1,38 @@
+<div class="fixed inset-0 z-[1000] pointer-events-none">
+  <div
+    class="absolute bottom-4 left-1/2 -translate-x-1/2 md:left-auto md:right-4 md:translate-x-0 flex w-96 max-w-[95vw] flex-col gap-3 pb-[env(safe-area-inset-bottom)]"
+  >
+    @for (item of items(); track item.id) {
+      <div
+        class="pointer-events-auto flex items-start gap-3 rounded-lg border p-3 shadow-lg bg-white text-gray-900 dark:bg-gray-800 dark:text-gray-100"
+        [class.border-green-500]="item.variant === 'success'"
+        [class.border-red-500]="item.variant === 'error'"
+        [attr.role]="item.variant === 'success' ? 'status' : 'alert'"
+        [attr.aria-live]="item.variant === 'success' ? 'polite' : 'assertive'"
+      >
+        <div
+          class="mt-1 h-2 w-2 rounded-full"
+          [class.bg-green-500]="item.variant === 'success'"
+          [class.bg-red-500]="item.variant === 'error'"
+        ></div>
+
+        <div class="flex-1">
+          <div class="font-semibold" [appTranslate]="item.titleKey"></div>
+          @if (item.bodyKey) {
+            <p class="mt-1 text-sm" [appTranslate]="item.bodyKey"></p>
+          }
+        </div>
+
+        @if (item.variant === "error") {
+          <button
+            type="button"
+            class="ml-2 inline-flex items-center rounded-md border px-2 py-1 text-sm hover:bg-gray-50 dark:hover:bg-gray-700"
+            (click)="dismiss(item.id)"
+          >
+            OK
+          </button>
+        }
+      </div>
+    }
+  </div>
+</div>

@@ -52,9 +52,46 @@
     "demoAria": "Open live demo of “{{name}}” (external)",
     "showMore": "Show more",
     "showLess": "Show less"
-
   },
   "errors": {
     "githubLoadFailed": "Failed to load GitHub repositories."
+  },
+  "contact": {
+    "heading": "Contact",
+    "subheading": "Send me a message — I’d love to hear from you.",
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "phone": "Phone (optional)",
+      "subject": "Subject"
+    },
+    "placeholders": {
+      "name": "Your name",
+      "email": "name@example.com",
+      "message": "What’s it about?",
+      "phone": "+49 …",
+      "subject": "Short subject"
+    },
+    "errors": {
+      "nameRequired": "Please enter your name.",
+      "emailRequired": "Please enter your email address.",
+      "emailInvalid": "That doesn’t look like a valid email.",
+      "subjectRequired": "Please enter a subject.",
+      "messageRequired": "Please enter a message.",
+      "tooShort": "The text is too short.",
+      "tooLong": "The text is too long."
+    },
+    "actions": {
+      "send": "Send",
+      "sending": "Sending…",
+      "retry": "Try again"
+    },
+    "status": {
+      "successTitle": "Thanks for your message!",
+      "successBody": "I’ll get back to you as soon as possible.",
+      "errorTitle": "Sending failed",
+      "errorBody": "Please try again."
+    }
   }
 }

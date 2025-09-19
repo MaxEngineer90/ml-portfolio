@@ -62,6 +62,48 @@ export interface Translations {
   errors: {
     githubLoadFailed: string;
   };
+  contact: {
+    heading: string;
+    subheading: string;
+    fields: {
+      name: string;
+      email: string;
+      message: string;
+      phone: string;
+      subject: string;
+      files: string;
+    };
+    placeholders: {
+      name: string;
+      email: string;
+      message: string;
+      phone: string;
+      subject: string;
+    };
+    errors: {
+      nameRequired: string;
+      emailRequired: string;
+      subjectRequired: string;
+      emailInvalid: string;
+      messageRequired: string;
+      tooShort: string;
+      tooLong: string;
+    };
+    actions: {
+      send: string;
+      sending: string;
+      retry: string;
+    };
+    status: {
+      successTitle: string;
+      successBody: string;
+      errorTitle: string;
+      errorBody: string;
+    };
+    mail: {
+      subject: string;
+    };
+  };
 }
 
 export type TranslationKey =
@@ -101,4 +143,32 @@ export type TranslationKey =
   | 'repo.demoAria'
   | 'repo.showMore'
   | 'repo.showLess'
-  | 'errors.githubLoadFailed';
+  | 'errors.githubLoadFailed'
+  | 'contact.heading'
+  | 'contact.subheading'
+  | 'contact.fields.name'
+  | 'contact.fields.email'
+  | 'contact.fields.message'
+  | 'contact.fields.phone'
+  | 'contact.fields.subject'
+  | 'contact.fields.files'
+  | 'contact.placeholders.name'
+  | 'contact.placeholders.email'
+  | 'contact.placeholders.message'
+  | 'contact.placeholders.phone'
+  | 'contact.placeholders.subject'
+  | 'contact.errors.nameRequired'
+  | 'contact.errors.emailRequired'
+  | 'contact.errors.subjectRequired'
+  | 'contact.errors.emailInvalid'
+  | 'contact.errors.messageRequired'
+  | 'contact.errors.tooShort'
+  | 'contact.errors.tooLong'
+  | 'contact.actions.send'
+  | 'contact.actions.sending'
+  | 'contact.actions.retry'
+  | 'contact.status.successTitle'
+  | 'contact.status.successBody'
+  | 'contact.status.errorTitle'
+  | 'contact.status.errorBody'
+  | 'contact.mail.subject';

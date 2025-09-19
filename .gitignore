@@ -31,6 +31,7 @@ yarn-error.log
 # Miscellaneous
 /.angular/cache
 .sass-cache/
+/.eslintcache
 /connect.lock
 /coverage
 /libpeerconnection.log
@@ -40,3 +41,4 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
