@@ -1,12 +1,13 @@
 import { TestBed } from '@angular/core/testing';
-
 import { Snackbar } from './snackbar';
 
 describe('Snackbar', () => {
   let service: Snackbar;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [Snackbar],
+    });
     service = TestBed.inject(Snackbar);
   });
 

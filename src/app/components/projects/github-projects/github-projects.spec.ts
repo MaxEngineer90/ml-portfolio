@@ -28,7 +28,6 @@ describe('GithubProjects', () => {
     await TestBed.configureTestingModule({
       imports: [GithubProjects],
       providers: [
-        provideZonelessChangeDetection(),
         { provide: GithubClient, useValue: githubClientStub },
         { provide: TranslationService, useClass: TranslationServiceStub },
       ],

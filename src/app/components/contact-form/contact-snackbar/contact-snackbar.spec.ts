@@ -1,10 +1,10 @@
+import { describe, it, beforeEach, expect } from 'vitest';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ContactSnackbar } from './contact-snackbar';
 
 describe('ContactSnackbar', () => {
-  let component: ContactSnackbar;
   let fixture: ComponentFixture<ContactSnackbar>;
+  let component: ContactSnackbar;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

@@ -12,7 +12,6 @@ describe('HeroButtonSection', () => {
     await TestBed.configureTestingModule({
       imports: [HeroButtonSection],
       providers: [
-        provideZonelessChangeDetection(),
         {
           provide: TranslationService,
           useValue: { translate: () => () => '' },

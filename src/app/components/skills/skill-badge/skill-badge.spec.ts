@@ -9,7 +9,6 @@ describe('SkillBadge', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [SkillBadge],
-      providers: [provideZonelessChangeDetection()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SkillBadge);

@@ -21,12 +21,7 @@ describe('Projects', () => {
 
     await TestBed.configureTestingModule({
       imports: [Projects],
-      providers: [
-        provideHttpClient(),
-        provideHttpClientTesting(),
-        provideZonelessChangeDetection(),
-        { provide: GithubClient, useValue: githubClientStub },
-      ],
+      providers: [{ provide: GithubClient, useValue: githubClientStub }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(Projects);

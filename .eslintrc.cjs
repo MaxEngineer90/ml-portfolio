@@ -1,4 +1,3 @@
-/** Google + Angular + TS + Prettier + Vitest (saubere Parser-Trennung) */
 module.exports = {
   root: true,
 
@@ -10,10 +9,6 @@ module.exports = {
     ".angular/",
     "*.min.js",
   ],
-
-  // Basis (nur Core + Google + Prettier global)
-  extends: ["eslint:recommended", "google", "plugin:prettier/recommended"],
-
   rules: {
     "prettier/prettier": "error",
     "require-jsdoc": "off",
@@ -22,7 +17,7 @@ module.exports = {
   },
 
   overrides: [
-    // --- TypeScript-Dateien ---
+    // TypeScript
     {
       files: ["**/*.ts"],
       parser: "@typescript-eslint/parser",
@@ -30,8 +25,12 @@ module.exports = {
       env: { browser: true, node: true, es2023: true },
       plugins: ["@typescript-eslint", "@angular-eslint"],
       extends: [
+        "eslint:recommended",
+        "google",
         "plugin:@typescript-eslint/recommended",
         "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:prettier/recommended",
       ],
       rules: {
         "max-len": [
@@ -51,20 +50,20 @@ module.exports = {
       },
     },
 
-    // --- Angular-Templates (HTML) ---
+    // Angular-Templates (HTML)
     {
       files: ["**/*.html"],
       parser: "@angular-eslint/template-parser",
-      extends: ["plugin:@angular-eslint/template/recommended"],
-      rules: {
-        // hier ggf. Template-spezifische Regeln feintunen
-      },
+      extends: [
+        "plugin:@angular-eslint/template/recommended",
+        "plugin:@angular-eslint/template/accessibility",
+      ],
+      rules: {},
     },
 
-    // --- Vitest-Specs ---
+    // Vitest-Specs
     {
       files: ["**/*.spec.ts", "**/*.test.ts"],
-      // kein env 'vitest-globals' (ESLint 8.57.1 kennt das nicht)
       plugins: ["vitest"],
       globals: {
         describe: "readonly",
