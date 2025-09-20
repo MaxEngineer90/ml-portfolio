@@ -1,43 +1,21 @@
-name: CI & Deploy Pages
+name: Deploy Pages
 
 on:
-  push:
-    branches: [main, "feature/**"]
-  pull_request:
-    branches: [main, "feature/**"]
+  workflow_run:
+    workflows: ["Lint & Test"]
+    types: [completed]
 
 permissions:
   contents: write
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-          cache: "npm"
-      - run: npm ci
-      - run: npm run lint
-
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-          cache: "npm"
-      - run: npm ci
-      - run: npm run test
-
   build:
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' }}
     runs-on: ubuntu-latest
-    needs: [lint, test]
-    if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
@@ -47,6 +25,12 @@ jobs:
       - run: |
           cp dist/ml-portfolio/browser/index.html dist/ml-portfolio/browser/404.html
           echo 'maximilian-lamm.de' > dist/ml-portfolio/browser/CNAME
+          mkdir -p dist/ml-portfolio/browser/ml-portfolio
+          cat > dist/ml-portfolio/browser/ml-portfolio/index.html <<'EOF'
+          <!doctype html><meta charset="utf-8">
+          <meta http-equiv="refresh" content="0; url=/" />
+          <script>location.replace('/');</script>
+          EOF
       - uses: actions/upload-artifact@v4
         with:
           name: site
@@ -56,7 +40,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/download-artifact@v4
         with:
@@ -65,4 +48,6 @@ jobs:
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/ml-portfolio/browser
+          publish_dir: ./site
+          keep_files: false
+          force_orphan: true
