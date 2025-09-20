@@ -1,40 +1,33 @@
 name: Deploy Pages
-
 on:
-  workflow_run:
-    workflows: ["Lint & Test"]
-    types: [completed]
+  push:
+    branches: [main]
 
 permissions:
   contents: write
 
 jobs:
   build:
-    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.workflow_run.head_sha }}
       - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-          cache: "npm"
+        with: { node-version: "22", cache: "npm" }
       - run: npm ci
       - run: npm run build:prod
-      - run: |
-          cp dist/ml-portfolio/browser/index.html dist/ml-portfolio/browser/404.html
-          echo 'maximilian-lamm.de' > dist/ml-portfolio/browser/CNAME
-          mkdir -p dist/ml-portfolio/browser/ml-portfolio
-          cat > dist/ml-portfolio/browser/ml-portfolio/index.html <<'EOF'
-          <!doctype html><meta charset="utf-8">
-          <meta http-equiv="refresh" content="0; url=/" />
-          <script>location.replace('/');</script>
-          EOF
+      - name: Prepare site
+        run: |
+          rm -rf site && mkdir -p site
+          cp -r dist/ml-portfolio/browser/* site/
+          cp site/index.html site/404.html
+          echo 'maximilian-lamm.de' > site/CNAME
+          touch site/.nojekyll
+          echo "----- LISTING site/ -----"
+          ls -lahR site
       - uses: actions/upload-artifact@v4
         with:
           name: site
-          path: dist/ml-portfolio/browser
+          path: site
           if-no-files-found: error
 
   deploy:
@@ -42,9 +35,9 @@ jobs:
     needs: build
     steps:
       - uses: actions/download-artifact@v4
-        with:
-          name: site
-          path: site
+        with: { name: site, path: site }
+      - name: Verify files before publish
+        run: ls -lahR site
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
