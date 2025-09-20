@@ -56,5 +56,43 @@
 
   "errors": {
     "githubLoadFailed": "Die GitHub-Repositories konnten nicht geladen werden."
+  },
+  "contact": {
+    "heading": "Kontakt",
+    "subheading": "Schreib mir eine Nachricht – ich freue mich darauf.",
+    "fields": {
+      "name": "Name",
+      "email": "E-Mail",
+      "message": "Nachricht",
+      "phone": "Telefon (optional)",
+      "subject": "Betreff"
+    },
+    "placeholders": {
+      "name": "Dein Name",
+      "email": "name@example.com",
+      "message": "Worum geht es?",
+      "phone": "+49 …",
+      "subject": "Kurzer Betreff"
+    },
+    "errors": {
+      "nameRequired": "Bitte gib deinen Namen ein.",
+      "emailRequired": "Bitte gib deine E-Mail-Adresse ein.",
+      "emailInvalid": "Das sieht nicht wie eine gültige E-Mail aus.",
+      "subjectRequired": "Bitte gib einen Betreff ein.",
+      "messageRequired": "Bitte gib eine Nachricht ein.",
+      "tooShort": "Der Text ist zu kurz.",
+      "tooLong": "Der Text ist zu lang."
+    },
+    "actions": {
+      "send": "Senden",
+      "sending": "Senden …",
+      "retry": "Erneut versuchen"
+    },
+    "status": {
+      "successTitle": "Danke für deine Nachricht!",
+      "successBody": "Ich melde mich so schnell wie möglich zurück.",
+      "errorTitle": "Senden fehlgeschlagen",
+      "errorBody": "Bitte versuche es erneut."
+    }
   }
 }

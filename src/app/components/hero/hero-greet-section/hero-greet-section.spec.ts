@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { beforeEach, describe, expect, it } from 'vitest';
 
-import { provideZonelessChangeDetection } from '@angular/core';
 import { TranslationService } from '../../../services/translation/translation';
 import { HeroGreetSection } from './hero-greet-section';
 
@@ -12,7 +11,6 @@ describe('HeroGreetSection', () => {
     await TestBed.configureTestingModule({
       imports: [HeroGreetSection],
       providers: [
-        provideZonelessChangeDetection(),
         {
           provide: TranslationService,
           useValue: { translate: () => () => '' },

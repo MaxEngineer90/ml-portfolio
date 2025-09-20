@@ -11,7 +11,7 @@
   // ==== ESLint ====
   "eslint.enable": true,
   "eslint.format.enable": true,
-  "eslint.useFlatConfig": false, 
+  "eslint.useFlatConfig": false,
   "eslint.validate": ["typescript", "html"],
 
   // ==== Auto-Fixes on Save ====
@@ -42,5 +42,10 @@
   "editor.rulers": [100],
   "files.eol": "\n",
   "files.trimTrailingWhitespace": true,
-  "files.insertFinalNewline": true
+  "files.insertFinalNewline": true,
+
+  // ==== Vitest ====
+  "vitest.commandLine": "npm run test:ui",
+  "vitest.workspaceConfig": "vitest.config.ts",
+  "vitest.include": ["src/**/*.spec.ts"]
 }

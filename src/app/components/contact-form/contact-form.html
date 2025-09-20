@@ -1,0 +1,208 @@
+<section id="contact" class="mx-auto max-w-3xl px-4 py-16">
+  <header class="mb-8">
+    <h2 class="text-3xl font-bold">
+      <span appTranslate="contact.heading"></span>
+    </h2>
+    <p
+      class="mt-2 text-sm text-muted-foreground"
+      appTranslate="contact.subheading"
+    ></p>
+  </header>
+
+  @if (submitSucceeded()) {
+    <div
+      class="mb-6 rounded-lg border p-4 text-sm"
+      role="status"
+      aria-live="polite"
+    >
+      <div
+        class="font-semibold"
+        appTranslate="contact.status.successTitle"
+      ></div>
+      <p class="mt-1" appTranslate="contact.status.successBody"></p>
+    </div>
+  }
+
+  @if (submitErrorMessage()) {
+    <div
+      class="mb-6 rounded-lg border border-destructive p-4 text-sm"
+      role="alert"
+      aria-live="polite"
+    >
+      <div class="font-semibold" appTranslate="contact.status.errorTitle"></div>
+      <p class="mt-1" appTranslate="contact.status.errorBody"></p>
+    </div>
+  }
+
+  <form [formGroup]="contactForm" (ngSubmit)="submitContactForm()" novalidate>
+    <! -- Name -->
+    <div class="mb-4">
+      <label
+        for="name"
+        class="mb-1 block text-sm font-medium"
+        appTranslate="contact.fields.name"
+      ></label>
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        appTranslateAttr="contact.placeholders.name"
+        appTranslateAttrName="placeholder"
+        autocomplete="name"
+        class="w-full rounded-md border bg-transparent p-2 outline-none focus:ring"
+        [attr.aria-invalid]="
+          formControls.name.invalid &&
+          (formControls.name.touched || formControls.name.dirty)
+        "
+      />
+      @if (
+        formControls.name.invalid &&
+        (formControls.name.touched || formControls.name.dirty)
+      ) {
+        <p
+          class="mt-1 text-xs text-destructive"
+          aria-live="polite"
+          appTranslate="contact.errors.nameRequired"
+        ></p>
+      }
+    </div>
+
+    <! -- Email -->
+    <div class="mb-4">
+      <label
+        for="email"
+        class="mb-1 block text-sm font-medium"
+        appTranslate="contact.fields.email"
+      ></label>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        appTranslateAttr="contact.placeholders.email"
+        appTranslateAttrName="placeholder"
+        autocomplete="email"
+        class="w-full rounded-md border bg-transparent p-2 outline-none focus:ring"
+        [attr.aria-invalid]="
+          formControls.email.invalid &&
+          (formControls.email.touched || formControls.email.dirty)
+        "
+      />
+      @if (
+        formControls.email.errors?.["required"] &&
+        (formControls.email.touched || formControls.email.dirty)
+      ) {
+        <p
+          class="mt-1 text-xs text-destructive"
+          appTranslate="contact.errors.emailRequired"
+        ></p>
+      }
+      @if (
+        formControls.email.errors?.["email"] &&
+        (formControls.email.touched || formControls.email.dirty)
+      ) {
+        <p
+          class="mt-1 text-xs text-destructive"
+          appTranslate="contact.errors.emailInvalid"
+        ></p>
+      }
+    </div>
+
+    <! -- Phone (optional) -->
+    <div class="mb-4">
+      <label
+        for="phone"
+        class="mb-1 block text-sm font-medium"
+        appTranslate="contact.fields.phone"
+      ></label>
+      <input
+        id="phone"
+        type="tel"
+        formControlName="phone"
+        appTranslateAttr="contact.placeholders.phone"
+        appTranslateAttrName="placeholder"
+        autocomplete="tel"
+        class="w-full rounded-md border bg-transparent p-2 outline-none focus:ring"
+      />
+    </div>
+
+    <! -- Subject -->
+    <div class="mb-4">
+      <label
+        for="subject"
+        class="mb-1 block text-sm font-medium"
+        appTranslate="contact.fields.subject"
+      ></label>
+
+      <input
+        id="subject"
+        type="text"
+        formControlName="subject"
+        appTranslateAttr="contact.placeholders.subject"
+        appTranslateAttrName="placeholder"
+        autocomplete="off"
+        class="w-full rounded-md border bg-transparent p-2 outline-none focus:ring"
+        [attr.aria-invalid]="
+          formControls.subject.invalid &&
+          (formControls.subject.touched || formControls.subject.dirty)
+        "
+      />
+
+      @if (
+        formControls.subject.invalid &&
+        (formControls.subject.touched || formControls.subject.dirty)
+      ) {
+        <p
+          class="mt-1 text-xs text-destructive"
+          aria-live="polite"
+          appTranslate="contact.errors.subjectRequired"
+        ></p>
+      }
+    </div>
+
+    <! -- Message -->
+    <div class="mb-6">
+      <label
+        for="message"
+        class="mb-1 block text-sm font-medium"
+        appTranslate="contact.fields.message"
+      ></label>
+      <textarea
+        id="message"
+        formControlName="message"
+        rows="6"
+        appTranslateAttr="contact.placeholders.message"
+        appTranslateAttrName="placeholder"
+        class="w-full rounded-md border bg-transparent p-2 outline-none focus:ring"
+        [attr.aria-invalid]="
+          formControls.message.invalid &&
+          (formControls.message.touched || formControls.message.dirty)
+        "
+      ></textarea>
+      @if (
+        formControls.message.invalid &&
+        (formControls.message.touched || formControls.message.dirty)
+      ) {
+        <p
+          class="mt-1 text-xs text-destructive"
+          aria-live="polite"
+          appTranslate="contact.errors.messageRequired"
+        ></p>
+      }
+    </div>
+
+    <! -- Submit -->
+    <button
+      type="submit"
+      class="inline-flex items-center rounded-md bg-primary px-4 py-2 text-primary-foreground transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+      [disabled]="isSubmitDisabled()"
+    >
+      @if (!isSubmitting()) {
+        <span appTranslate="contact.actions.send"></span>
+      } @else {
+        <span appTranslate="contact.actions.sending"></span>
+      }
+    </button>
+  </form>
+</section>
+
+<app-contact-snackbar />

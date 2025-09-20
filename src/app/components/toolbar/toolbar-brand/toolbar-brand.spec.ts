@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { describe, it, expect, beforeEach } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { ToolbarBrand } from './toolbar-brand';
-import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('ToolbarBrand', () => {
   let component: ToolbarBrand;
@@ -10,7 +9,6 @@ describe('ToolbarBrand', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ToolbarBrand],
-      providers: [provideZonelessChangeDetection()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ToolbarBrand);

@@ -1,12 +1,9 @@
-import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { beforeEach, describe, expect, it } from 'vitest';
 
 import { GITHUB_BASE_URL } from '../../tokens/github/github-base-url';
 import { GITHUB_USERNAME } from '../../tokens/github/github-username';
 import { GithubClient } from './github-client';
-import { provideHttpClient } from '@angular/common/http';
-import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('GithubClient', () => {
   let service: GithubClient;
@@ -15,9 +12,6 @@ describe('GithubClient', () => {
     TestBed.configureTestingModule({
       providers: [
         GithubClient,
-        provideHttpClient(),
-        provideHttpClientTesting(),
-        provideZonelessChangeDetection(),
         { provide: GITHUB_BASE_URL, useValue: 'https://mock.com' },
         { provide: GITHUB_USERNAME, useValue: 'test-user' },
       ],
