@@ -1,0 +1,97 @@
+{
+  "nav": {
+    "about": "About me",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "menu": {
+    "close": "Close menu",
+    "open": "Open menu",
+    "social": "Social Links"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "Max",
+    "titles": {
+      "cleanCode": "Clean Code Advocate",
+      "fullstack": "Passionate Fullstack Developer",
+      "expert": "Java Spring Angular Expert",
+      "problemSolver": "Innovative Problem Solver"
+    },
+    "description": "From idea to implementation - I develop websites and web applications with cutting-edge technologies.",
+    "buttons": {
+      "projects": "Discover my projects →",
+      "contact": "Let's talk",
+      "projectsAria": "Discover my projects",
+      "contactAria": "Get in touch"
+    }
+  },
+  "buttons": {
+    "projects": "View projects",
+    "contact": "Get in touch"
+  },
+  "language": {
+    "switch": "Auf Deutsch wechseln"
+  },
+  "about": {
+    "description1": "Hi! I'm Max and I love transforming complex problems into elegant digital solutions. ",
+    "description2": "In my daily work as a fullstack developer, I bring frontend and backend together – from Angular interfaces to robust Java Spring applications. ",
+    "description3": "What drives me? The passion for clean, maintainable code and the joy of bringing ideas to life. ",
+    "description4": "When I'm not coding, I experiment with new technologies or share my knowledge with the developer community."
+  },
+  "skills": {
+    "testing": "Testing",
+    "tools": "Something"
+  },
+  "repo": {
+    "updated": "Last updated ",
+    "view": "View on GitHub",
+    "viewAria": "Open “{{name}}” on GitHub (new tab)",
+    "demo": "Live Demo",
+    "demoAria": "Open live demo of “{{name}}” (external)",
+    "showMore": "Show more",
+    "showLess": "Show less"
+  },
+  "errors": {
+    "githubLoadFailed": "Failed to load GitHub repositories."
+  },
+  "contact": {
+    "heading": "Contact",
+    "subheading": "Send me a message — I’d love to hear from you.",
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "phone": "Phone (optional)",
+      "subject": "Subject"
+    },
+    "placeholders": {
+      "name": "Your name",
+      "email": "name@example.com",
+      "message": "What’s it about?",
+      "phone": "+49 …",
+      "subject": "Short subject"
+    },
+    "errors": {
+      "nameRequired": "Please enter your name.",
+      "emailRequired": "Please enter your email address.",
+      "emailInvalid": "That doesn’t look like a valid email.",
+      "subjectRequired": "Please enter a subject.",
+      "messageRequired": "Please enter a message.",
+      "tooShort": "The text is too short.",
+      "tooLong": "The text is too long."
+    },
+    "actions": {
+      "send": "Send",
+      "sending": "Sending…",
+      "retry": "Try again"
+    },
+    "status": {
+      "successTitle": "Thanks for your message!",
+      "successBody": "I’ll get back to you as soon as possible.",
+      "errorTitle": "Sending failed",
+      "errorBody": "Please try again."
+    }
+  }
+}
