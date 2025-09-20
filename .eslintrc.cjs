@@ -26,7 +26,6 @@ module.exports = {
       plugins: ["@typescript-eslint", "@angular-eslint"],
       extends: [
         "eslint:recommended",
-        "google",
         "plugin:@typescript-eslint/recommended",
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates",

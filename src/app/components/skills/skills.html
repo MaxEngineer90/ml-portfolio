@@ -3,8 +3,9 @@
     <header class="mb-12 text-right">
       <h2
         class="text-4xl sm:text-5xl lg:text-6xl font-bold font-headline text-foreground"
-        appTranslate="nav.skills"
-      ></h2>
+      >
+        <span appTranslate="nav.skills"></span>
+      </h2>
       <div class="w-36 h-0.5 bg-primary rounded-full mt-4 ml-auto"></div>
     </header>
 
@@ -64,10 +65,9 @@
       <section
         class="group border-border/60 bg-card w-full max-w-none overflow-hidden rounded-2xl border p-6 shadow-sm transition-[width] duration-350 ease-[cubic-bezier(0.22,1,0.36,1)] hover:shadow-lg md:w-[24rem] md:self-end md:hover:w-[clamp(30rem,65vw,38rem)] lg:hover:w-[clamp(34rem,55vw,40.5rem)]"
       >
-        <h3
-          class="text-primary mb-3 text-left text-xl font-bold md:text-right"
-          appTranslate="skills.tools"
-        ></h3>
+        <h3 class="text-primary mb-3 text-left text-xl font-bold md:text-right">
+          <span appTranslate="skills.tools"></span>
+        </h3>
         <ul class="flex flex-wrap gap-3 md:flex-nowrap md:justify-end">
           @for (skill of tools; track skill.icon) {
             <app-skill-badge

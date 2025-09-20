@@ -1,9 +1,9 @@
+import { signal } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { provideZonelessChangeDetection, signal } from '@angular/core';
-import { GithubProjects } from './github-projects';
 import { GithubClient } from '../../../services/github-client/github-client';
 import { TranslationService } from '../../../services/translation/translation';
 import { Repo } from '../../../types/repo';
+import { GithubProjects } from './github-projects';
 
 class TranslationServiceStub {
   language() {

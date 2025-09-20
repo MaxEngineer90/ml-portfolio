@@ -28,30 +28,50 @@ beforeEach(() => {
 
 afterEach(() => TestBed.resetTestingModule());
 
-const origFetch = globalThis.fetch;
+const originalFetch = globalThis.fetch;
 
-globalThis.fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
-  const toUrl = (x: any) => {
-    if (x instanceof URL) return x;
-    if (typeof x === 'string') {
-      if (/^[a-zA-Z][a-zA-Z\d+\-.]*:/.test(x)) return new URL(x);
-      const base = globalThis.window?.location?.origin ?? 'http://localhost/';
-      return new URL(x, base);
+globalThis.fetch = (async (
+  requestInput: RequestInfo | URL,
+  requestInit?: RequestInit,
+) => {
+  const toAbsoluteUrl = (input: RequestInfo | URL): URL => {
+    if (input instanceof URL) return input;
+
+    if (typeof input === 'string') {
+      const looksAbsolute = /^[a-zA-Z][a-zA-Z\d+\-.]*:/.test(input);
+      if (looksAbsolute) return new URL(input);
+
+      const baseOrigin =
+        globalThis.window?.location?.origin ?? 'http://localhost/';
+      return new URL(input, baseOrigin);
     }
-    if (x && typeof x.url === 'string') return new URL(x.url);
-    return new URL(
-      String(x),
-      globalThis.window?.location?.origin ?? 'http://localhost/',
-    );
+
+    if (
+      typeof input === 'object' &&
+      input !== null &&
+      'url' in input &&
+      typeof (input as Request).url === 'string'
+    ) {
+      return new URL((input as Request).url);
+    }
+
+    const baseOrigin =
+      globalThis.window?.location?.origin ?? 'http://localhost/';
+    return new URL(String(input), baseOrigin);
   };
 
-  const u = toUrl(input);
+  const requestUrl = toAbsoluteUrl(requestInput);
 
-  if (u.pathname.startsWith('/assets/i18n/')) {
-    const filePath = path.join(process.cwd(), 'src', u.pathname.slice(1));
+  if (requestUrl.pathname.startsWith('/assets/i18n/')) {
+    const absoluteFilePath = path.join(
+      process.cwd(),
+      'src',
+      requestUrl.pathname.slice(1),
+    );
+
     try {
-      const buf = fs.readFileSync(filePath);
-      return new Response(buf, {
+      const fileBuffer = fs.readFileSync(absoluteFilePath);
+      return new Response(fileBuffer, {
         status: 200,
         headers: { 'Content-Type': 'application/json' },
       });
@@ -63,5 +83,5 @@ globalThis.fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
     }
   }
 
-  return origFetch(input as any, init as any);
+  return originalFetch(requestInput, requestInit);
 }) as typeof fetch;
