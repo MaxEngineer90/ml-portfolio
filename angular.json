@@ -23,7 +23,7 @@
               "outputHashing": "all",
               "optimization": true,
               "sourceMap": false,
-              "baseHref": "/ml-portfolio/"
+              "baseHref": "/"
             },
             "development": {
               "optimization": false,
