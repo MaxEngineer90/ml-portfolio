@@ -24,7 +24,7 @@ jobs:
         run: npx ng build --configuration production
 
       - name: Add 404.html for SPA routing
-        run: cp dist/index.html dist/404.html
+        run: cp dist/browser/index.html dist/browser/404.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
