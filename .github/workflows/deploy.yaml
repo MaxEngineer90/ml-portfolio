@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v5
         with:
           node-version: "lts/*"
           cache: "npm"
@@ -24,11 +24,11 @@ jobs:
         run: npx ng build --configuration production
 
       - name: Add 404.html for SPA routing
-        run: cp dist/browser/index.html dist/browser/404.html
+        run: cp dist/index.html dist/404.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/browser
+          publish_dir: ./dist
           force_orphan: true
