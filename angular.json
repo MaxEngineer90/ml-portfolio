@@ -23,7 +23,7 @@
               "outputHashing": "all",
               "optimization": true,
               "sourceMap": false,
-              "baseHref": "/"
+              "baseHref": "/portfolio/"
             },
             "development": {
               "optimization": false,

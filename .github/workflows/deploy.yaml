@@ -11,36 +11,37 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
-        with: { node-version: "22", cache: "npm" }
-      - run: npm ci
-      - run: npm run build:prod
-      - name: Prepare site
-        run: |
-          rm -rf site && mkdir -p site
-          cp -r dist/ml-portfolio/browser/* site/
-          cp site/index.html site/404.html
-          echo 'maximilian-lamm.de' > site/CNAME
-          touch site/.nojekyll
-          echo "----- LISTING site/ -----"
-          ls -lahR site
+        with:
+          node-version: "lts/*"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Build Angular (production)
+        run: npx ng build --configuration production
+
+      - name: Add 404.html for SPA routing
+        run: cp dist/ml-portfolio/browser/index.html dist/ml-portfolio/browser/404.html
+
       - uses: actions/upload-artifact@v4
         with:
           name: site
-          path: site
-          if-no-files-found: error
+          path: dist/ml-portfolio/browser
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
     steps:
       - uses: actions/download-artifact@v4
-        with: { name: site, path: site }
-      - name: Verify files before publish
-        run: ls -lahR site
+        with:
+          name: site
+          path: site
+
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
-          keep_files: false
           force_orphan: true
