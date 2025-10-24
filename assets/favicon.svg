@@ -1,0 +1,27 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Orange gradient optimized for favicon -->
+    <linearGradient id="faviconOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff8c42"/>
+      <stop offset="100%" style="stop-color:#e85a2b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Dark background for better contrast -->
+  <rect width="32" height="32" fill="#131921" rx="4"/>
+
+  <!-- Simplified ML letters for favicon -->
+  <g fill="url(#faviconOrange)">
+    <!-- M - Simplified and bold -->
+    <path d="M 6 8 L 6 24 L 8 24 L 8 14 L 10 20 L 11 20 L 13 14 L 13 24 L 15 24 L 15 8 L 13 8 L 11 17 L 9 8 Z"/>
+
+    <!-- L - Simplified and bold -->
+    <path d="M 17 8 L 17 24 L 23 24 L 23 22 L 19 22 L 19 8 Z"/>
+  </g>
+
+  <!-- Code brackets - adjusted for favicon -->
+  <g stroke="#ff6b35" stroke-width="2" fill="none">
+    <path d="M 4 10 L 2 10 L 2 22 L 4 22"/>
+    <path d="M 25 10 L 27 10 L 27 22 L 25 22"/>
+  </g>
+</svg>
