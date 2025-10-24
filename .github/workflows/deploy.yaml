@@ -20,6 +20,12 @@ jobs:
       - name: Install dependencies
         run: npm ci --no-audit --no-fund
 
+      - name: Run Linter
+        run: npm run lint
+
+      - name: Run Tests
+        run: npm test -- --watch=false --browsers=ChromeHeadless
+
       - name: Build Angular (production)
         run: npx ng build --configuration production
 
@@ -30,5 +36,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./dist/browser
           force_orphan: true
