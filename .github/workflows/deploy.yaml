@@ -10,9 +10,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: "lts/*"
           cache: "npm"
@@ -24,23 +24,23 @@ jobs:
         run: npx ng build --configuration production
 
       - name: Add 404.html for SPA routing
-        run: cp dist/ml-portfolio/browser/index.html dist/ml-portfolio/browser/404.html
+        run: cp dist/browser/index.html dist/browser/404.html
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: site
-          path: dist/ml-portfolio/browser
+          path: dist/browser
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v6
         with:
           name: site
           path: site
 
-      - uses: peaceiris/actions-gh-pages@v3
+      - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
