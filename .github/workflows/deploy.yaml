@@ -7,7 +7,7 @@ permissions:
   contents: write
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -26,22 +26,9 @@ jobs:
       - name: Add 404.html for SPA routing
         run: cp dist/browser/index.html dist/browser/404.html
 
-      - uses: actions/upload-artifact@v5
-        with:
-          name: site
-          path: dist/browser
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/download-artifact@v6
-        with:
-          name: site
-          path: site
-
-      - uses: peaceiris/actions-gh-pages@v4
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
+          publish_dir: ./dist/browser
           force_orphan: true
